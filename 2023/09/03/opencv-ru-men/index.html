@@ -4,8 +4,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, 编程">
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex">
+    <meta name="keywords" content="OpenCV入门, 编程">
+    <meta name="description" content="
+3.4.1之后的一些命令、函数被申请了专利
+
+下载pip install -i https:&amp;#x2F;&amp;#x2F;pypi.tuna.tsinghua.edu.cn&amp;#x2F;simple opencv-python
+灰度图import">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +21,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hello World | 七破风的博客</title>
+    <title>OpenCV入门 | 七破风的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -334,12 +338,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hello World</h1>
+                    <h1 class="description center-align post-title">OpenCV入门</h1>
                 </div>
             </div>
         </div>
@@ -375,28 +379,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-11-26
+                    2023-09-03
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-08-18
+                    2023-11-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    73
+                    4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    17 分
                 </div>
                 
 
@@ -419,19 +423,371 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+                <h5 id=""><a href="#" class="headerlink" title=""></a></h5><ol>
+<li>3.4.1之后的一些命令、函数被申请了专利</li>
+</ol>
+<h5 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h5><pre class="line-numbers language-none"><code class="language-none">pip install -i https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simple opencv-python<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h5 id="灰度图"><a href="#灰度图" class="headerlink" title="灰度图"></a>灰度图</h5><pre class="line-numbers language-none"><code class="language-none">import cv2  
+  
+image &#x3D; cv2.imread(&quot;opencv_logo.jpg&quot;)  
+  
+cv2.imshow(&quot;blue&quot;, image[:, :, 0])  
+cv2.imshow(&quot;green&quot;, image[:, :, 1])  
+cv2.imshow(&quot;red&quot;, image[:, :, 2])  
+  
+gray &#x3D; cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)  
+cv2.imshow(&quot;gray&quot;, gray)  
+  
+cv2.waitKey()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="图像的裁剪"><a href="#图像的裁剪" class="headerlink" title="图像的裁剪"></a>图像的裁剪</h5><pre class="line-numbers language-none"><code class="language-none">import cv2  
+  
+image &#x3D; cv2.imread(&quot;opencv_logo.jpg&quot;)  
+  
+crop &#x3D; image[10:170, 40:200]  
+  
+cv2.imshow(&quot;crop&quot;, crop)  
+cv2.waitKey()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="画图"><a href="#画图" class="headerlink" title="画图"></a>画图</h5><pre class="line-numbers language-none"><code class="language-none">import cv2  
+import numpy as np  
+  
+image &#x3D; np.zeros([300, 300, 3], dtype&#x3D;np.uint8)  
+  
+cv2.line(image, (100, 200), (250, 250), (255, 255, 0), 2)  
+cv2.rectangle(image, (30, 100), (60, 150), (0, 255, 255), 4)  
+cv2.circle(image, (150, 100), 20, (255, 0, 255), 5)  
+cv2.putText(image, &quot;hello&quot;, (100, 50), 0, 1, (255, 255, 255), 1)  
+  
+cv2.imshow(&quot;image&quot;, image)  
+cv2.waitKey()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="噪点去除"><a href="#噪点去除" class="headerlink" title="噪点去除"></a>噪点去除</h5><pre class="line-numbers language-none"><code class="language-none">import cv2  
+  
+image &#x3D; cv2.imread(&quot;plane.jpg&quot;)  
+  
+gauss &#x3D; cv2.GaussianBlur(image, (5, 5), 0)  
+median &#x3D; cv2.medianBlur(image, 5)  
+  
+cv2.imshow(&quot;image&quot;, image)  
+cv2.imshow(&quot;gauss&quot;, gauss)  
+cv2.imshow(&quot;median&quot;, median)  
+  
+cv2.waitKey()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="获取转角"><a href="#获取转角" class="headerlink" title="获取转角"></a>获取转角</h5><pre class="line-numbers language-none"><code class="language-none">import cv2  
+  
+image &#x3D; cv2.imread(&quot;opencv_logo.jpg&quot;)  
+gray &#x3D; cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)  
+  
+corners &#x3D; cv2.goodFeaturesToTrack(gray, 500, 0.1, 10)  
+for corner in corners:  
+    x, y &#x3D; corner.ravel()  
+    cv2.circle(image, (int(x), int(y)), 3, (255, 0, 255), -1)  
+  
+cv2.imshow(&quot;corners&quot;, image)  
+cv2.waitKey()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="匹配菱形框"><a href="#匹配菱形框" class="headerlink" title="匹配菱形框"></a>匹配菱形框</h5><pre class="line-numbers language-none"><code class="language-none">import cv2  
+import numpy as np  
+  
+image &#x3D; cv2.imread(&quot;poker.jpg&quot;)  
+gray &#x3D; cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)  
+  
+template &#x3D; gray[75:105, 235:265]  
+  
+match &#x3D; cv2.matchTemplate(gray, template, cv2.TM_CCOEFF_NORMED)  
+location &#x3D; np.where(match &gt;&#x3D; 0.9)  
+  
+w, h &#x3D; template.shape[0:2]  
+for p in zip(*location[::-1]):  
+    x1, y1 &#x3D; p[0], p[1]  
+    x2, y2 &#x3D; x1 + w, y1 + h  
+    cv2.rectangle(image, (x1, y1), (x2, y2), (0, 255, 0), 2)  
+  
+cv2.imshow(&quot;image&quot;, image)  
+cv2.waitKey()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="图像明暗变化梯度图"><a href="#图像明暗变化梯度图" class="headerlink" title="图像明暗变化梯度图"></a>图像明暗变化梯度图</h5><pre class="line-numbers language-none"><code class="language-none">import cv2  
+  
+gray &#x3D; cv2.imread(&quot;opencv_logo.jpg&quot;, cv2.IMREAD_GRAYSCALE)  
+  
+laplacian &#x3D; cv2.Laplacian(gray, cv2.CV_64F)  
+canny &#x3D; cv2.Canny(gray, 100, 200)  
+  
+cv2.imshow(&quot;gray&quot;, gray)  
+cv2.imshow(&quot;laplacian&quot;, laplacian)  
+cv2.imshow(&quot;canny&quot;, canny)  
+  
+cv2.waitKey()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h5 id="阈值处理"><a href="#阈值处理" class="headerlink" title="阈值处理"></a>阈值处理</h5><pre class="line-numbers language-none"><code class="language-none">import cv2  
+  
+gray &#x3D; cv2.imread(&quot;bookpage.jpg&quot;, cv2.IMREAD_GRAYSCALE)  
+ret, binary &#x3D; cv2.threshold(gray, 10, 255, cv2.THRESH_BINARY)  
+binary_adaptive &#x3D; cv2.adaptiveThreshold(  
+    gray, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 155, 1)  
+ret1, binary_otsu &#x3D; cv2.threshold(gray, 0 ,255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)  
+  
+cv2.imshow(&quot;gray&quot;, gray)  
+cv2.imshow(&quot;binary&quot;, binary)  
+cv2.imshow(&quot;adaptive&quot;, binary_adaptive)  
+cv2.imshow(&quot;otsu&quot;, binary_otsu)  
+  
+cv2.waitKey()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="形态学算法（腐蚀、膨胀）"><a href="#形态学算法（腐蚀、膨胀）" class="headerlink" title="形态学算法（腐蚀、膨胀）"></a>形态学算法（腐蚀、膨胀）</h5><pre class="line-numbers language-none"><code class="language-none">import cv2  
+import numpy as np  
+  
+gray &#x3D; cv2.imread(&quot;opencv_logo.jpg&quot;, cv2.IMREAD_GRAYSCALE)  
+  
+_, binary &#x3D; cv2.threshold(gray, 200, 255, cv2. THRESH_BINARY_INV)  
+kernel &#x3D; np.ones((5, 5), np.uint8)  
+  
+erosion &#x3D; cv2.erode(binary, kernel)  
+dilation &#x3D; cv2.dilate(binary, kernel)  
+  
+cv2.imshow(&quot;binary&quot;, binary)  
+cv2.imshow(&quot;erosion&quot;, erosion)  
+cv2.imshow(&quot;dilation&quot;, dilation)  
+  
+cv2.waitKey()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="-1"><a href="#-1" class="headerlink" title=""></a></h5><pre class="line-numbers language-none"><code class="language-none">cv2.cvtColor(src, code[, dst[, dstCn]])<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ul>
+<li><code>src</code>：需要转换颜色空间的图像。</li>
+<li><code>code</code>：颜色空间转换代码。</li>
+<li><code>dst</code>（可选）：与源图像大小和深度相同的输出图像。</li>
+<li><code>dstCn</code>（可选）：目标图像中的通道数。如果该参数为 0，则根据 <code>src</code> 和 <code>code</code> 自动推导通道数。</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">cv2.destoryAllWindows()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ul>
+<li>窗口保持打开：如果不调用<code>cv2.destroyAllWindows()</code>，OpenCV创建的窗口将保持打开状态，直到用户手动关闭它们或程序终止。</li>
+<li>可能导致资源泄漏：不关闭窗口可能会导致资源泄漏，特别是在循环中使用<code>cv2.imshow()</code>时，每次迭代都会创建新窗口，而不关闭旧窗口。</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">cv2.imwrite(filename, image)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ul>
+<li><code>filename</code>可以指明路径，如果该路径不存在，则创建。</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">cv2.imread(filename, image)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><code>filename</code>为读出图片的名字 。</p>
+<pre class="line-numbers language-none"><code class="language-none">cv2.IMREAD_COLOR
+cv2.IMREAD_GRAYSCALE
+cv2.IMREAD_ANYCOLOR
+cv2.IMREAD_UNCHANGED
+cv2.IMREAD_ANYDEPTH
+cv2.IMREAD_ANYDEPTH|cv2.IMREAD_COLOR
+cv2.IMREAD_REDUCED_GRAYSCALE_2
+cv2.IMREAD_REDUCED_COLOR_2
+cv2.IMREAD_REDUCED_GRAYSCALE_4
+cv2.IMREAD_REDUCED_COLOR_4
+cv2.IMREAD_REDUCED_GRAYSCALE_8
+cv2.IMREAD_REDUCED_COLOR_8<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li><code>cv2.IMREAD_COLOR</code>：以彩色模式加载图像。这是默认选项，为每个通道提供 3 通道 BGR 图像，每个图像具有 8 位值（0-255）。</li>
+<li><code>cv2.IMREAD_GRAYSCALE</code>：以灰度模式加载图像。这提供了一个 8 位灰度图像。</li>
+<li><code>cv2.IMREAD_ANYCOLOR</code>：尝试加载图像，但不关心颜色格式，如果图象是彩色的，它将以彩色模式加载，否则以灰度模式加载。根据文件中的元数据，它提供每通道 8 位的 BGR 图像或 8 位的灰度图像。</li>
+<li><code>cv2.IMREAD_UNCHANGED</code>：加载图像，包括[[杂项#^025801|图像的阿尔法通道]]，不进行任何修改。读取所有图像数据，包括 alpha 或透明通道（如果有）作为第四通道。</li>
+<li><code>cv2.IMREAD_ANYDEPTH</code>：尝试加载图像，不关心位深度，图像的位深度是指每个像素的颜色通道的位数。这将以原始位深度加载灰度图像。 例如，如果文件表示此格式的图像，它将提供每通道 16 位的灰度图像。</li>
+<li><code>cv2.IMREAD_ANYDEPTH | cv2.IMREAD_COLOR</code>：尝试加载图像，不关心位深度，以彩色模式加载。此组合以原始位深度加载 BGR 颜色的图像。</li>
+<li><code>cv2.IMREAD_REDUCED_GRAYSCALE_2</code>：这会以原始分辨率的一半加载灰度图像。 例如，如果文件包含<code>640 x 480</code>的图像，则它将作为<code>640 x 480</code>的图像加载。</li>
+<li><code>cv2.IMREAD_REDUCED_COLOR_2</code>：这将以每通道 8 位 BGR 的颜色加载图像，其分辨率为原始分辨率的一半。</li>
+<li><code>cv2.IMREAD_REDUCED_GRAYSCALE_4</code>：这会以原始分辨率的四分之一加载灰度图像。</li>
+<li><code>cv2.IMREAD_REDUCED_COLOR_4</code>：这将以每通道 8 位的颜色加载原始分辨率的四分之一的图像。</li>
+<li><code>cv2.IMREAD_REDUCED_GRAYSCALE_8</code>：这会以原始分辨率的八分之一以灰度加载图像。</li>
+<li><code>cv2.IMREAD_REDUCED_COLOR_8</code>：这将以每通道 8 位的颜色加载图像，其分辨率为原始分辨率的八分之一。<br>以不同的降采样级别加载图像。这些常量用于加载具有不同降采样级别的图像。数字表示降采样的级别，例如，”2”表示图像宽度和高度减小到原始大小的1&#x2F;2。</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h5 id="使用numpy-array访问图像数据并显示图像"><a href="#使用numpy-array访问图像数据并显示图像" class="headerlink" title="使用numpy.array访问图像数据并显示图像"></a>使用<code>numpy.array</code>访问图像数据并显示图像</h5><pre class="line-numbers language-none"><code class="language-none">import cv2  
+  
+img &#x3D; cv2.imread(&#39;MyPic.png&#39;)  
+img[150, 120] &#x3D; [255, 255, 255]  
+  
+cv2.imshow(&#39;1&#39;, img)  
+cv2.waitKey()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>操作 BGR 图像中坐标<code>(150, 120)</code>处的像素并将其变成白色像素，</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">import cv2  
+  
+img &#x3D; cv2.imread(&#39;MyPic.png&#39;)  
+  
+cv2.imshow(&#39;1&#39;, img)  
+  
+img.itemset((150, 120, 0), 255)    
+print(img.item(150, 120, 0))    
+  
+cv2.imshow(&#39;2&#39;, img)
+cv2.waitKey()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>更改特定像素的蓝色值，例如坐标<code>(150, 120)</code>处的像素。 <code>numpy.array</code>类型提供了一种方便的方法<code>item</code>，它采用三个参数：<code>x</code>（或左侧）位置，<code>y</code>（或顶部）位置以及索引 （<code>x</code>，<code>y</code>）位置处的数组内（请记住，在 BGR 图像中，特定位置的数据是包含 B，G 和 R 值按此顺序排列），并在索引位置返回该值。 另一种方法<code>itemset</code>将特定像素的特定通道的值设置为指定值。 <code>itemset</code>接受两个参数：一个三元素元组（<code>x</code>，<code>y</code>和索引）和新值。</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">import cv2  
+  
+img &#x3D; cv2.imread(&#39;MyPic.png&#39;)  
+img[:, :, 1] &#x3D; 0  
+  
+cv2.imshow(&#39;1&#39;, img)  
+cv2.waitKey()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>它基本上指示程序从所有行和列中获取所有像素，并将绿色值（三元素 BGR 数组的索引之一）设置为<code>0</code>。 如果显示此图像，您会注意到完全没有绿色。</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">import cv2  
+  
+img &#x3D; cv2.imread(&#39;MyPic.png&#39;)  
+  
+cv2.imshow(&#39;1&#39;, img)  
+  
+my_roi &#x3D; img[0:100, 0:100]  
+img[300:400, 300:400] &#x3D; my_roi  
+  
+cv2.imshow(&#39;2&#39;, img)  
+cv2.waitKey()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>我们可以通过使用 NumPy 的数组切片访问原始像素来做几件有趣的事情。 其中之一是定义<strong>兴趣区域</strong>（<strong>ROI</strong>）。 定义区域后，我们可以执行许多操作。 例如，我们可以将此区域绑定到变量，定义第二个区域，并将第一个区域的值分配给第二个区域（因此，将图像的一部分复制到图像中的另一个位置）</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">import cv2  
+  
+img &#x3D; cv2.imread(&#39;MyPic.png&#39;)  
+print(img.shape)  
+print(img.size)  
+print(img.dtype)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li><code>shape</code>：这是一个描述数组形状的元组。 对于图像，它包含（按顺序）高度，宽度和（如果图像是彩色的）通道数。 <code>shape</code>元组的长度是确定图像是灰度还是彩色的有用方法。 对于灰度图像，我们有<code>len(shape) == 2</code>，对于彩色图像，我们有<code>len(shape) == 3</code>。</li>
+<li><code>size</code>：这是数组中元素的数量。 在灰度图像的情况下，这与像素数相同。 在 BGR 图像的情况下，它是像素数的三倍，因为每个像素都由三个元素（B，G 和 R）表示。</li>
+<li><code>dtype</code>：这是数组元素的数据类型。 对于每通道 8 位图像，数据类型为<code>numpy.uint8</code>。</li>
+</ul>
+<h5 id="读-写视频文件"><a href="#读-写视频文件" class="headerlink" title="读&#x2F;写视频文件"></a>读&#x2F;写视频文件</h5><pre class="line-numbers language-none"><code class="language-none">import cv2  
+  
+videoCapture &#x3D; cv2.VideoCapture(&#39;MyInputVid.mp4&#39;)  
+fps &#x3D; videoCapture.get(cv2.CAP_PROP_FPS)  
+size &#x3D; (int(videoCapture.get(cv2.CAP_PROP_FRAME_WIDTH)),  
+        int(videoCapture.get(cv2.CAP_PROP_FRAME_HEIGHT)))  
+videoWriter &#x3D; cv2.VideoWriter(  
+    &#39;MyOutputVid.mp4&#39;, cv2.VideoWriter_fourcc(*&#39;mp4v&#39;),  
+    fps, size)  
+  
+success, frame &#x3D; videoCapture.read()  
+while success:  # Loop until there are no more frames.  
+    videoWriter.write(frame)  
+    success, frame &#x3D; videoCapture.read()  
+  
+videoCapture.release()  
+videoWriter.release()  
+cv2.destroyAllWindows()
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+# 参考书代码
+import cv2
+videoCapture &#x3D; cv2.VideoCapture(&#39;MyInputVid.avi&#39;)
+fps &#x3D; videoCapture.get(cv2.CAP_PROP_FPS)
+size &#x3D; (int(videoCapture.get(cv2.CAP_PROP_FRAME_WIDTH)),
+        int(videoCapture.get(cv2.CAP_PROP_FRAME_HEIGHT)))
+videoWriter &#x3D; cv2.VideoWriter(
+    &#39;MyOutputVid.avi&#39;, cv2.VideoWriter_fourcc(&#39;I&#39;,&#39;4&#39;,&#39;2&#39;,&#39;0&#39;),
+    fps, size)
+success, frame &#x3D; videoCapture.read()
+while success:  # Loop until there are no more frames.
+    videoWriter.write(frame)
+    success, frame &#x3D; videoCapture.read()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li><strong>注意</strong>参考书中适用的视频格式为<code>avi</code>，我将代码略加修改，适配了更常见的<code>mp4</code>格式。</li>
+<li><code>VideoWriter</code>类的构造器的参数值得特别注意。 必须指定视频的文件名。 具有该名称的任何先前存在的文件都将被覆盖。 还必须指定视频编解码器。 可用的编解码器可能因系统而异。 支持的选项可能包括以下内容：<ol>
+<li><code>0</code>：此选项是未压缩的原始视频文件。 文件扩展名应为<code>.avi</code>。</li>
+<li><code>cv2.VideoWriter_fourcc(&#39;I&#39;,&#39;4&#39;,&#39;2&#39;,&#39;0&#39;)</code>：此选项是未压缩的 YUV 编码，4:2:0 色度被二次采样。 这种编码具有广泛的兼容性，但会产生大文件。 文件扩展名应为<code>.avi</code>。</li>
+<li><code>cv2.VideoWriter_fourcc(&#39;P&#39;,&#39;I&#39;,&#39;M&#39;,&#39;1&#39;)</code>：此选项是 MPEG-1。 文件扩展名应为<code>.avi</code>。</li>
+<li><code>cv2.VideoWriter_fourcc(&#39;X&#39;,&#39;V&#39;,&#39;I&#39;,&#39;D&#39;)</code>：此选项是相对较旧的 MPEG-4 编码。 如果要限制生成的视频的大小，这是一个不错的选择。 文件扩展名应为<code>.avi</code>。</li>
+<li><code>cv2.VideoWriter_fourcc(&#39;M&#39;,&#39;P&#39;,&#39;4&#39;,&#39;V&#39;)</code>：此选项是另一种相对较旧的 MPEG-4 编码。 如果要限制生成的视频的大小，这是一个不错的选择。 文件扩展名应为<code>.mp4</code>。</li>
+<li><code>cv2.VideoWriter_fourcc(&#39;X&#39;,&#39;2&#39;,&#39;6&#39;,&#39;4&#39;)</code>：此选项是相对较新的 MPEG-4 编码。 如果您想限制最终视频的大小，这可能是最好的选择。 文件扩展名应为<code>.mp4</code>。</li>
+<li><code>cv2.VideoWriter_fourcc(&#39;T&#39;,&#39;H&#39;,&#39;E&#39;,&#39;O&#39;)</code>：此选项为 <strong>Ogg Vorbis</strong>。 文件扩展名应为<code>.ogv</code>。</li>
+<li><code>cv2.VideoWriter_fourcc(&#39;F&#39;,&#39;L&#39;,&#39;V&#39;,&#39;1&#39;)</code>：此选项是 Flash 视频。 文件扩展名应为<code>.flv</code>。</li>
+</ol>
+</li>
+<li>但仍可能会遇见一些问题吗，下面是一些解决方案：<ol>
+<li><strong>重新编译OpenCV</strong>：如果使用的是自定义构建的OpenCV，尝试重新编译OpenCV时确保启用了FFmpeg支持。在CMake配置时，启用相应的选项，以便OpenCV可以使用FFmpeg。然后重新构建OpenCV。</li>
+<li><strong>使用不同的FourCC代码</strong>：尝试使用其他编解码器</li>
+<li><strong>下载并安装对应的库</strong> </li>
+<li><strong>检查OpenCV版本</strong>：如果 OpenCV 版本较旧，可能会存在问题。尝试更新到最新版本的 OpenCV，以获得更好的支持。</li>
+</ol>
+</li>
+<li>还必须指定帧速率和帧大小。 由于我们正在从另一个视频复制，因此可以从<code>VideoCapture</code>类的<code>get</code>方法读取这些属性。</li>
+</ul>
+<h5 id="捕捉相机帧并输出相机"><a href="#捕捉相机帧并输出相机" class="headerlink" title="捕捉相机帧并输出相机"></a>捕捉相机帧并输出相机</h5><pre class="line-numbers language-none"><code class="language-none">import cv2  
+  
+cameraCapture &#x3D; cv2.VideoCapture(0)  
+fps &#x3D; 30  # An assumption  
+size &#x3D; (int(cameraCapture.get(cv2.CAP_PROP_FRAME_WIDTH)),  
+        int(cameraCapture.get(cv2.CAP_PROP_FRAME_HEIGHT)))  
+videoWriter &#x3D; cv2.VideoWriter(  
+    &#39;MyOutputVid.avi&#39;, cv2.VideoWriter_fourcc(&#39;I&#39;,&#39;4&#39;,&#39;2&#39;,&#39;0&#39;),  
+    fps, size)  
+  
+success, frame &#x3D; cameraCapture.read()  
+numFramesRemaining &#x3D; 10 * fps - 1 # 10 seconds of frames  
+while success and numFramesRemaining &gt; 0:  
+    videoWriter.write(frame)  
+    success, frame &#x3D; cameraCapture.read()  
+    numFramesRemaining -&#x3D; 1
+    
+cameraCapture.release()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h5 id="在窗口中显示摄像机帧"><a href="#在窗口中显示摄像机帧" class="headerlink" title="在窗口中显示摄像机帧"></a>在窗口中显示摄像机帧</h5><pre class="line-numbers language-none"><code class="language-none">import cv2  
+  
+capture &#x3D; cv2.VideoCapture(0)  
+  
+while True:  
+    ret, frame &#x3D; capture.read()  
+    cv2.imshow(&quot;camera&quot;, frame)  
+    key &#x3D; cv2.waitKey(1)  
+    if key !&#x3D; -1:  
+        break  
+  
+capture.release()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li><code>capture.read()</code> 是 OpenCV 中用于从视频捕获设备（例如摄像头）中读取一帧视频的函数。它返回两个值，第一个是布尔值（通常命名为 <code>ret</code>），表示是否成功读取帧，第二个是视频帧本身，通常是一个NumPy数组。</li>
+<li><code>cv2.VideoCapture()</code> 是 OpenCV 中用于创建视频捕获对象的函数，可以用于从摄像头、视频文件或其他视频源中捕获视频帧。它接受一个参数，该参数可以是以下三种类型之一：<ol>
+<li>整数（通常为0、1、2等）：表示要使用的摄像头的索引。通常情况下，0表示默认摄像头，1表示第二个摄像头（如果有多个摄像头）。  <pre class="line-numbers language-none"><code class="language-none">import cv2
+# 创建一个视频捕获对象，0表示默认摄像头
+capture &#x3D; cv2.VideoCapture(0)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li>字符串：表示视频文件的路径，可以是本地文件路径或网络视频流的URL。</li>
+<li>IP摄像头地址：如果您有网络摄像头，可以将其IP地址作为字符串传递给 <code>cv2.VideoCapture()</code>，以便从网络摄像头捕获视频。</li>
+</ol>
+</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">import cv2
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+clicked &#x3D; False
+def onMouse(event, x, y, flags, param):
+    global clicked
+    if event &#x3D;&#x3D; cv2.EVENT_LBUTTONUP:
+        clicked &#x3D; True
+
+cameraCapture &#x3D; cv2.VideoCapture(0)
+
+cv2.namedWindow(&#39;MyWindow&#39;)
+cv2.setMouseCallback(&#39;MyWindow&#39;, onMouse)
+
+print(&#39;Showing camera feed. Click window or press any key to stop.&#39;)
+success, frame &#x3D; cameraCapture.read()
+while success and cv2.waitKey(1) &#x3D;&#x3D; -1 and not clicked:
+    cv2.imshow(&#39;MyWindow&#39;, frame)
+    success, frame &#x3D; cameraCapture.read()
+ 
+cv2.destroyWindow(&#39;MyWindow&#39;)
+cameraCapture.release()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li><code>def onMouse(event, x, y, flags, param)</code>: 定义一个鼠标事件处理函数<code>onMouse</code>，该函数会在鼠标事件发生时被调用。它接受五个参数：<code>event</code>表示触发的事件类型，<code>x</code>和<code>y</code>表示鼠标事件发生的坐标，<code>flags</code>表示鼠标事件的附加标志，<code>param</code>表示可选参数。<ol>
+<li>在<code>onMouse</code>函数中，当鼠标左键被释放（<code>cv2.EVENT_LBUTTONUP</code>事件）时，将全局变量<code>clicked</code>设置为True，表示用户点击了窗口。</li>
+<li><code>event</code>参数表示触发的鼠标事件类型。在这个函数中，我们检查是否是左键释放事件 (<code>cv2.EVENT_LBUTTONUP</code>)。</li>
+<li><code>x</code>和<code>y</code>参数表示鼠标事件发生的坐标，即鼠标指针在窗口上的位置。</li>
+<li><code>flags</code>参数包含了与事件相关的附加标志，但在这个代码中没有使用。</li>
+<li><code>param</code>参数是可选参数，通常用于传递额外的数据，但在这个代码中也没有使用。</li>
+</ol>
+</li>
+<li><code>cv2.namedWindow(&#39;MyWindow&#39;)</code>: 创建一个名为”MyWindow”的窗口，用于显示摄像头捕获的视频。<ol>
+<li><code>cv2.namedWindow()</code> 是OpenCV库中的一个函数，用于创建一个窗口以显示图像、视频或其他视觉数据。它的一般语法如下：&#96;cv2.namedWindow(winname, flags&#x3D;cv2.WINDOW_AUTOSIZE)</li>
+<li><code>winname</code>: 表示要创建的窗口的名称或标识符。您可以自定义窗口的名称，以便在后续的操作中引用该窗口。</li>
+<li><code>flags</code>（可选参数）: 指定窗口的标志。这是一个可选参数，默认值为<code>cv2.WINDOW_AUTOSIZE</code>，表示窗口的大小会自动根据显示内容调整。您也可以将其设置为<code>cv2.WINDOW_NORMAL</code>，以允许手动调整窗口大小。</li>
+</ol>
+</li>
+<li><code>cv2.setMouseCallback(&#39;MyWindow&#39;, onMouse)</code>: 在窗口”MyWindow”上设置鼠标事件回调函数，以便捕获鼠标事件。<ol>
+<li><code>cv2.setMouseCallback()</code> 是OpenCV中的一个函数，用于设置鼠标事件的回调函数，以便在指定的窗口上捕获和处理鼠标事件。它的一般语法如下：<code>cv2.setMouseCallback(windowName, onMouse, param=None)</code></li>
+<li><code>windowName</code>: 表示要在其上设置鼠标事件回调的窗口的名称。通常，您在使用<code>cv2.namedWindow()</code>创建窗口时指定的窗口名称。</li>
+<li><code>onMouse</code>: 是一个回调函数，用于处理鼠标事件。当鼠标事件发生时，OpenCV将调用此函数并传递相关的事件信息。</li>
+</ol>
+</li>
+</ul>
 
                 
             </div>
@@ -458,7 +814,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://chipfron.github.io/2023/11/26/hello-world/">https://chipfron.github.io/2023/11/26/hello-world/</a>
+                    <a href="https://chipfron.github.io/2023/09/03/opencv-ru-men/">https://chipfron.github.io/2023/09/03/opencv-ru-men/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -572,18 +928,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/11/26/hello-world/">
+                <a href="/2023/09/07/pyautogui/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="pyautogui">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">pyautogui</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -593,9 +948,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-11-26
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-09-07
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -604,7 +959,6 @@
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
@@ -615,13 +969,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/09/08/hall-a-sai-bo-peng-ke-jiu-bao-xing-dong/">
+                <a href="/2023/08/31/markdown-yu-fa/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Hall-A：赛博朋克酒保行动">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="MarkDown语法">
                         
-                        <span class="card-title">Hall-A：赛博朋克酒保行动</span>
+                        <span class="card-title">MarkDown语法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -632,16 +986,12 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-31
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E6%B8%B8%E6%88%8F/" class="post-category">
-                                    游戏
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Chipfron
                             
                         </span>
                     </div>
