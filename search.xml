@@ -75,19 +75,6 @@
     
     
     <entry>
-      <title>杂项</title>
-      <link href="/2023/09/08/za-xiang/"/>
-      <url>/2023/09/08/za-xiang/</url>
-      
-        <content type="html"><![CDATA[<ol><li><a href="https://zh.wikipedia.org/wiki/JDK">JDK</a>，Java Development Kit。一种开源的针对Java开发人员的软件开发工具包。</li><li><a href="(https://zh.wikipedia.org/wiki/Apache_Tomcat#">TomCat</a>，一种通过 Docket 部署 Web 网页的软件。</li><li><a href="https://zh.wikipedia.org/wiki/%E6%A0%91%E8%8E%93%E6%B4%BE">树莓派</a>，树莓派（Raspberry Pi）是一种基于 ARM 架构的微型计算机，采用了 ARM 处理器，这种处理器常用于智能手机和平板电脑等移动设备中。</li><li><a href="https://zh.wikipedia.org/wiki/%E4%BD%BF%E7%94%A8%E8%80%85%E7%B6%93%E9%A9%97">UX</a>，用户体验，User Experience，又译用户体验、用户体验，简称UX。</li><li><a href="https://zh.wikipedia.org/wiki/%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2">UI</a>，用户界面，User Interface，简称UI，亦称使用者界面是系统和用户之间进行交互和信息交换的介质，它实现信息的内部形式与人类可以接受形式之间的转换。</li><li><a href="https://zh.wikipedia.org/wiki/%E8%BD%AF%E4%BB%B6%E5%8D%B3%E6%9C%8D%E5%8A%A1">SaaS软件即服务</a>，Software as a Service。简单地理解为在网页上运行的软件。</li><li>rss订阅，一种将所有平台上想要看到的信息整合到一个平台或软件的的XML应用</li><li><a href="https://zh.wikipedia.org/zh-cn/%E9%98%BF%E5%B0%94%E6%B3%95%E9%80%9A%E9%81%93">阿尔法通道</a>，表示图像的透明程度，0 表示完全透明，255 表示完全不透明。 ^025801</li></ol>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>pyautogui</title>
       <link href="/2023/09/07/pyautogui/"/>
       <url>/2023/09/07/pyautogui/</url>
@@ -145,51 +132,6 @@
       <url>/2023/08/28/nonebot-learning/</url>
       
         <content type="html"><![CDATA[]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>我是chipfron</title>
-      <link href="/2023/08/19/woshi/"/>
-      <url>/2023/08/19/woshi/</url>
-      
-        <content type="html"><![CDATA[<p>你说i的对，但是吗，元神十一款。</p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 物理层、数据链路层、网络层、运输层、应用层lkjlasdlasjdas </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>第一篇</title>
-      <link href="/2023/08/18/di-yi-pian/"/>
-      <url>/2023/08/18/di-yi-pian/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>test</title>
-      <link href="/2023/08/18/test/"/>
-      <url>/2023/08/18/test/</url>
-      
-        <content type="html"><![CDATA[<p>&#x2F;<em>#include&lt;stdio.h&gt;<br>#include&lt;stdlib.h&gt;<br>int main() {<br>    int n, x &#x3D; 0, y, i &#x3D; 0, res;<br>    scanf(“%d”, &amp;n);<br>    y &#x3D; n;<br>    int</em> nums;<br>    nums &#x3D; malloc(sizeof(int) * n);<br>    for(i &#x3D; 0; i &lt; n; i++) {<br>        nums[i] &#x3D; 1;<br>    }<br>    while(1) {<br>        if(nums[i % n] &amp;&amp; x !&#x3D;3) x++;<br>        else if(nums[i % n] &amp;&amp; x &#x3D;&#x3D; 3) {<br>            nums[i % n] &#x3D; 0;<br>            x &#x3D; 0;<br>            y–;<br>        }<br>        if(y &#x3D;&#x3D; 1) {<br>            res &#x3D; i % n;<br>            break;<br>        }<br>        i++;<br>    }<br>    printf(“%d”,res);<br>}<em>&#x2F;<br>&#x2F;*#include&lt;stdio.h&gt;<br>#include&lt;stdlib.h&gt;<br>int main() {<br>    int n, x &#x3D; 0, y, i &#x3D; 0, res;<br>    scanf(“%d”, &amp;n);<br>    y &#x3D; n;<br>    int</em> nums;<br>    nums &#x3D; malloc(sizeof(int) * n);<br>    for(i &#x3D; 0; i &lt; n; i++) {<br>        nums[i] &#x3D; 1;<br>    }<br>    while(1) {<br>        if(nums[i % n] &amp;&amp; x !&#x3D;3) x++;<br>        else if(nums[i % n] &amp;&amp; x &#x3D;&#x3D; 3) {<br>            nums[i % n] &#x3D; 0;<br>            x &#x3D; 0;<br>            y–;<br>        }<br>        if(y &#x3D;&#x3D; 1) {<br>            res &#x3D; i % n;<br>            break;<br>        }<br>        i++;<br>    }<br>    printf(“%d”,res);<br>}*&#x2F;</p><pre class="line-numbers language-none"><code class="language-none">#include&lt;stdio.h&gt;int main()    &#123;int i, n;int a1, b1;    while(scanf(&quot;%d&quot;, &amp;n) !&#x3D; EOF) &#123;    double a &#x3D; 0, b &#x3D; 0;    &#x2F;&#x2F;scanf(&quot;%d&quot;, &amp;n);    for(i &#x3D; 0; i &lt; n; i++) &#123;        scanf(&quot;%d %d&quot;, &amp;a1, &amp;b1);        if(a1 &#x3D;&#x3D; 4)  a++;        else b++;    &#125;    printf(&quot;%.2lf %.2lf\n&quot;, a &#x2F; n, b &#x2F; n);&#125;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
       
       
       
