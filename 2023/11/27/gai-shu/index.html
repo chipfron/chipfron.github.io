@@ -391,21 +391,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-09
+                    2023-12-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    9.2k
+                    10.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    31 分
+                    34 分
                 </div>
                 
 
@@ -802,17 +802,33 @@
 </li>
 </ul>
 <h1 id="本章的重要概念"><a href="#本章的重要概念" class="headerlink" title="本章的重要概念"></a>本章的重要概念</h1><ul>
-<li>计算机网络把计算机连接在一起，互连网把网络连接在一起，是网络的网络。</li>
-<li>以小写字母 i 开始的 internet (互连网) 是通用名词，泛指由多个计算机网络互连而成的网络。在这些网络之间的通信协议可以是任意的。</li>
-<li>以大写字母 I 开始的 Internet (互联网) 是专用名词，指当前全球最大的、开放的、由网络相互连接而成的特定互连网，并采用 TCP&#x2F;IP 协议族作为通信规则。</li>
-<li>互联网现在采用存储转发的分组交换技术，以及三层 ISP 结构。</li>
-<li>互联网按工作方式划分为边缘部分与核心部分。主机在网络的边缘部分，其作用是进行信息处理。路由器在网络的核心部分，其作用是按存储转发方式进行分组交换。</li>
-<li>计算机通信是计算机中进程之间的通信。计算机网络采用的通信方式是客户–服务器方式和对等连接方式 (P2P 方式)。</li>
-<li>客户和服务器指通信中所涉及的应用进程。客户是服务请求方，服务器是服务提供方。</li>
-<li>按作用范围的不同，计算机网络分为广域网 WAN、城域网 MAN、局域网 LAN 和个人区域网 PAN。</li>
-<li>计算机网络常用的性能指标是：速率、带宽、吞吐量、时延 (发送时延、传播时延、处理时延、排队时延)、时延带宽积、往返时间和信道 (或网络) 利用率。</li>
-<li>网络协议即协议，是为进行网络中的数据交换而建立的规则。计算机网络的各层及其协议的集合，称为网络的体系结构。</li>
-<li>五层协议的体系结构由应用层、运输层、网络层 (或网际层)、数据链路层和物理层组成。运输层最重要的协议是 TCP 和 UDP 协议，而网络层最重要的协议是 IP 协议。</li>
+<li><p>计算机网络把计算机连接在一起，互连网把网络连接在一起，是网络的网络。</p>
+</li>
+<li><p>以小写字母 i 开始的 internet (互连网) 是通用名词，泛指由多个计算机网络互连而成的网络。在这些网络之间的通信协议可以是任意的。</p>
+</li>
+<li><p>以大写字母 I 开始的 Internet (互联网) 是专用名词，指当前全球最大的、开放的、由网络相互连接而成的特定互连网，并采用 TCP&#x2F;IP 协议族作为通信规则。</p>
+</li>
+<li><p>互联网现在采用存储转发的分组交换技术，以及三层 ISP 结构。</p>
+</li>
+<li><p>互联网按工作方式划分为边缘部分与核心部分。主机在网络的边缘部分，其作用是进行信息处理。路由器在网络的核心部分，其作用是按存储转发方式进行分组交换。</p>
+</li>
+<li><p>计算机通信是计算机中进程之间的通信。计算机网络采用的通信方式是客户–服务器方式和对等连接方式 (P2P 方式)。</p>
+</li>
+<li><p>客户和服务器指通信中所涉及的应用进程。客户是服务请求方，服务器是服务提供方。</p>
+</li>
+<li><p>按作用范围的不同，计算机网络分为广域网 WAN、城域网 MAN、局域网 LAN 和个人区域网 PAN。</p>
+</li>
+<li><p>计算机网络常用的性能指标是：速率、带宽、吞吐量、时延 (发送时延、传播时延、处理时延、排队时延)、时延带宽积、往返时间和信道 (或网络) 利用率。</p>
+</li>
+<li><p>网络协议即协议，是为进行网络中的数据交换而建立的规则。计算机网络的各层及其协议的集合，称为网络的体系结构。</p>
+</li>
+<li><p>五层协议的体系结构由应用层、运输层、网络层 (或网际层)、数据链路层和物理层组成。运输层最重要的协议是 TCP 和 UDP 协议，而网络层最重要的协议是 IP 协议。</p>
+</li>
+<li><p>叙述具有五层协议的网络体系结构的要点，包括各层的主要功能。</p>
+<blockquote>
+<p>(1) 物理层一在物理层上所传数据的单位是比特bit)。物理层的任务就是透明地传送比特流。物理层还要确定连接电缆的插头应当有多少根引脚以及各条引脚应如何连接。当然，哪几个比特代表什么意思，则不是物理层所要管的。请注意，传递信息所利用的一些物理媒体，如双绞线、同轴电缆、光缆、无线信道等，并不在物理层协议之内而是在物理层协议的下面。因此也有人把物理媒体当作第 0 层。<br>(2) 数据链路层一一常简称为链路层。在两个相邻结点之间 (主机和路由器之间或两个路由器之间)传送数据是直接传送的 (即不需要经过转发的点对点通信)。这时就需要使用专门的链路层的协议。数据链路层将网络层交下来的 IP 数据报组装成，在两个相邻结点间的链路上“透明”地传送帧中的数据。每一帧包括数据和必要的控制信息 (如同步信息、地址信息、差错控制等)。在接收数据时，控制信息使接收端能够知道一个帧从哪个比特开始和到哪个比特结束。这样，数据链路层在收到一个帧后，就可从中提取出数据部分，上交给网络层。控制信息还使接收端能够检测到所收到的帧中有无差错。如发现有差错，数据链路层就简单地丢弃这个出了差错的帧，以免继续传送下去白白浪费网络资源。如果需要改正错误，就由运输层的 TCP 协议来完成。<br>(3) 网络层一网络层负责为分组交换网上的不同主机提供通信服务。在发送数据时，网络层把运输层产生的报文段或用户数据报封装成分组或包进行传送。在 TCP&#x2F;IP 体系中，由于网络层使用 IP 协议，因此分组也叫做 IP 数据报，或简称为数据报。网络层的另一个任务就是要选择合适的路由，使源主机运输层所传下来的分组能够通过网络中的路由器找到目的主机。对于由广播信道构成的分组交换网，路由选择的问题很简单，因此这种网络的网络层非常简单，甚至可以没有。<br>(4) 运输层一一运输层的任务就是负责向两个主机中进程之间的通信提供服务。由于一个主机可同时运行多个进程，因此运输层有复用和分用的功能。复用就是多个应用层进程可同时使用下面运输层的服务,分用则是运输层把收到的信息分别交付上面应用层中的相应的进程运输层主要使用以下两种协议: 一个是传输控制协议 TCP，是面向连接的，数据传输的单位是报文段，能够提供可靠的交付。另一个是用户数据报协议 UDP，是无连接的，数据传输的单位是用户数据报，不保证提供可靠的交付，只能“尽最大努力交付”。<br>(5) 应用层一一应用层是体系结构中的最高层。应用层直接为用户的应用进程提供服务这里的进程就是指正在运行的程序。在百联网中的应用层协议很多，如支持万维网应用的 HTTP 协议、支持电子邮件的 SMTP 协议、支持文件传送的 FTP 协议，等等。</p>
+</blockquote>
+</li>
 </ul>
 
                 
@@ -962,13 +978,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/11/27/ji-suan-ji-wang-luo/">
+                <a href="/2023/12/09/yun-shu-ceng/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="概述">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="运输层">
                         
-                        <span class="card-title">概述</span>
+                        <span class="card-title">运输层</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -979,7 +995,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-11-27
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-12-09
                         </span>
                         <span class="publish-author">
                             
@@ -1007,13 +1023,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/11/26/hello-world/">
+                <a href="/2023/11/27/ji-suan-ji-wang-luo/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="概述">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">概述</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1024,7 +1040,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-11-26
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-11-27
                             </span>
                         <span class="publish-author">
                             
@@ -1033,6 +1049,14 @@
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E8%B0%A2%E5%B8%8C%E4%BB%81%EF%BC%89/">
+                        <span class="chip bg-color">计算机网络（谢希仁）</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -1228,7 +1252,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">119.1k</span>
+                        class="white-color">121.2k</span>
             
             
             
