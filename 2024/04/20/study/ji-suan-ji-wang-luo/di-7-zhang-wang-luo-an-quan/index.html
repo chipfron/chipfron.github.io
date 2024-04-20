@@ -1,0 +1,1391 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="第7章 网络安全, 编程">
+    <meta name="description" content="7.1 网络安全问题概述7.1.1计算机网络面临的安全性威胁
+计算机网络的通信面临两大类威胁，即被动攻击和主动攻击（见图7-1）。
+![[Pasted image 20230813195923.png]]
+
+
+被动攻击是指攻击者从网络上窃听">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>第7章 网络安全 | 七破风的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">七破风的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/navigate" class="waves-effect waves-light">
+      
+      <i class="fas fa-location-arrow" style="zoom: 0.6;"></i>
+      
+      <span>导航</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">七破风的博客</div>
+        <div class="logo-desc">
+            
+            高高山顶立，深深海底行。
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/navigate" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-location-arrow"></i>
+			
+			导航
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">第7章 网络安全</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                                <span class="chip bg-color">计算机网络</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-04-20
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-04-20
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    7.3k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    25 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="7-1-网络安全问题概述"><a href="#7-1-网络安全问题概述" class="headerlink" title="7.1 网络安全问题概述"></a>7.1 网络安全问题概述</h1><h2 id="7-1-1计算机网络面临的安全性威胁"><a href="#7-1-1计算机网络面临的安全性威胁" class="headerlink" title="7.1.1计算机网络面临的安全性威胁"></a>7.1.1计算机网络面临的安全性威胁</h2><ul>
+<li>计算机网络的通信面临两大类威胁，即<strong>被动攻击</strong>和<strong>主动攻击</strong>（见图7-1）。<ol>
+<li>![[Pasted image 20230813195923.png]]</li>
+</ol>
+</li>
+<li><strong>被动攻击</strong>是指攻击者从网络上窃听他人的通信内容。通常把这类攻击称为<strong>截获</strong>。在被动攻击中，攻击者只是观察和分析某一个<strong>协议数据单元</strong> PDU而不干扰信息流。即使这些数据对攻击者来说是不易理解的，他也可通过观察PDU的协议控制信息部分，了解正在通信的协议实体的地址和身份，研究PDU的长度和传输的频度，从而了解所交换的数据的某种性质。这种被动攻击又称为**流量分析。</li>
+<li><strong>主动攻击</strong>有如下几种最常见的方式。<ol>
+<li><strong>篡改</strong> 　攻击者故意篡改网络上传送的报文。这里也包括彻底中断传送的报文，甚至是把完全伪造的报文传送给接收方。这种攻击方式有时也称为更改报文流。</li>
+<li><strong>恶意程序</strong> 　恶意程序种类繁多，对网络安全威胁较大的主要有以下几种：<ul>
+<li><strong>计算机病毒</strong>，一种会“传染”其他程序的程序，“传染”是通过修改其他程序来把自身或自己的变种复制进去而完成的。</li>
+<li><strong>计算机蠕虫</strong>，一种通过网络的通信功能将自身从一个结点发送到另一个结点并自动启动运行的程序。</li>
+<li><strong>特洛伊木马</strong> ，一种程序，它执行的功能并非所声称的功能而是某种恶意功能。如一个编译程序除了执行编译任务以外，还把用户的源程序偷偷地复制下来，那么这种编译程序就是一种特洛伊木马。计算机病毒有时也以特洛伊木马的形式出现。</li>
+<li><strong>逻辑炸弹</strong>，一种当运行环境满足某种特定条件时执行其他特殊功能的程序。如一个编辑程序，平时运行得很好，但当系统时间为13日又为星期五时，它会删去系统中所有的文件，这种程序就是一种逻辑炸弹。</li>
+<li><strong>后门入侵</strong>，是指利用系统实现中的漏洞通过网络入侵系统。就像一个盗贼在夜晚试图闯入民宅，如果某家住户的房门有缺陷，盗贼就能乘虚而入。</li>
+<li><strong>流氓软件</strong>，一种未经用户允许就在用户计算机上安装运行并损害用户利益的软件，其典型特征是：强制安装、难以卸载、浏览器劫持、广告弹出、恶意收集用户信息、恶意卸载、恶意捆绑等等。</li>
+</ul>
+</li>
+<li><strong>拒绝服务</strong> DoS　指攻击者向互联网上的某个服务器不停地发送大量分组，使该服务器无法提供正常服务，甚至完全瘫痪。</li>
+</ol>
+</li>
+<li>若从互联网上的成百上千个网站集中攻击一个网站，则称为<strong>分布式拒绝服务</strong> DDoS。有时也把这种攻击称为<strong>网络带宽攻击</strong>或<strong>连通性攻击</strong>。</li>
+<li>对于主动攻击，可以采取适当措施加以检测。但对于被动攻击，通常却是检测不出来的。根据这些特点，可得出计算机网络通信安全的目标如下：<ol>
+<li>防止析出报文内容和流量分析</li>
+<li>防止恶意程序</li>
+<li>检测更改报文流和拒绝服务</li>
+</ol>
+</li>
+<li>对付被动攻击可采用各种数据加密技术，而对付主动攻击，则需将加密技术与适当的鉴别技术相结合。</li>
+</ul>
+<h2 id="7-1-2-安全的计算机网络"><a href="#7-1-2-安全的计算机网络" class="headerlink" title="7.1.2 安全的计算机网络"></a>7.1.2 安全的计算机网络</h2><ul>
+<li>一个安全的计算机网络应设法达到以下四个目标：<ol>
+<li><strong>保密性</strong><ul>
+<li>保密性就是只有信息的发送方和接收方才能懂得所发送信息的内容，而信息的截获者则看不懂所截获的信息。</li>
+</ul>
+</li>
+<li><strong>端点鉴别</strong><ul>
+<li>安全的计算机网络必须能够鉴别信息的发送方和接收方的真实身份。</li>
+</ul>
+</li>
+<li><strong>信息的完整性</strong><ul>
+<li>即使能够确认发送方的身份是真实的，并且所发送的信息都是经过加密的，我们依然不能认为网络是安全的。还必须确认所收到的信息都是完整的，也就是信息的内容没有被人篡改过。</li>
+</ul>
+</li>
+<li><strong>运行的安全性</strong><ul>
+<li>现在的机构与计算机网络的关系越密切，就越要重视计算机网络运行的安全性。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li></li>
+</ul>
+<h2 id="7-1-3-数据加密模型"><a href="#7-1-3-数据加密模型" class="headerlink" title="7.1.3 数据加密模型"></a>7.1.3 数据加密模型</h2><ul>
+<li>一般的数据加密模型如图7-2所示。<ol>
+<li>![[Pasted image 20230813200600.png]]</li>
+<li>用户A向B发送<strong>明文</strong><em>X</em>，但通过<strong>加密算法</strong><em>E</em>运算后，就得出<strong>密文</strong><em>Y</em>。 </li>
+<li>图中所示的加密和解密用的<strong>密钥</strong> <em>K</em> （key）是一串秘密的字符串（即比特串）。公式（7-1）就是明文通过加密算法变成密文的一般表示方法。<ul>
+<li><img src="http://localhost:8000/4ca37fc8-cbc0-4942-9116-f8066997b556/OEBPS/Images/Image00272.jpg"></li>
+</ul>
+</li>
+<li>在传送过程中可能出现密文的<strong>截取者</strong> （或<strong>攻击者、入侵者</strong> ）。公式（7-2）表示接收端利用<strong>解密算法</strong> <em>D</em> 运算和<strong>解密密钥</strong> <em>K</em> ，解出明文_X_ 。解密算法是加密算法的逆运算。在进行解密运算时，如果不使用事先约定好的密钥就无法解出明文。<ul>
+<li><img src="http://localhost:8000/4ca37fc8-cbc0-4942-9116-f8066997b556/OEBPS/Images/Image00274.jpg"></li>
+</ul>
+</li>
+</ol>
+</li>
+<li>这里我们假定加密密钥和解密密钥都是一样的。但实际上它们可以是不一样的（即使不一样，这两个密钥也必然有某种相关性）。密钥通常由密钥中心提供。当密钥需要向远地传送时，一定要通过另一个安全信道。</li>
+<li><strong>密码编码学</strong>是密码体制的设计学，而<strong>密码分析学</strong>则是在未知密钥的情况下从密文推演出明文或密钥的技术。密码编码学与密码分析学合起来即为<strong>密码学</strong>。</li>
+<li>如果不论截取者获得了多少密文，但在密文中都没有足够的信息来唯一地确定出对应的明文，则这一密码体制称为<strong>无条件安全的</strong>，或称为<strong>理论上是不可破的</strong>。在无任何限制的条件下，目前几乎所有实用的密码体制均是可破的。因此，人们关心的是要研制出<strong>在计算上（而不是在理论上）是不可破的密码体制</strong>。如果一个密码体制中的密码，不能在一定时间内被可以使用的计算资源破译，则这一密码体制称为<strong>在计算上是安全的</strong>。</li>
+</ul>
+<h1 id="7-2-两类密码体制"><a href="#7-2-两类密码体制" class="headerlink" title="7.2 两类密码体制"></a>7.2 两类密码体制</h1><h2 id="7-2-1-对称密钥密码体制"><a href="#7-2-1-对称密钥密码体制" class="headerlink" title="7.2.1 对称密钥密码体制"></a>7.2.1 对称密钥密码体制</h2><ul>
+<li>所谓<strong>对称密钥密码体制</strong>，即<strong>加密密钥与解密密钥是使用相同的密码体制</strong>。<strong>数据加密标准</strong> DES属于对称密钥密码体制。</li>
+<li>DES是一种分组密码。在加密前，先对整个的明文进行分组。每一个组为64位长的二进制数据。然后对每一个64位二进制数据进行加密处理，产生一组64位密文数据。最后将各组密文串接起来，即得出整个的密文。使用的密钥占有64位（实际密钥长度为56位，外加8位用于奇偶校验）。</li>
+<li><strong>DES的保密性仅取决于对密钥的保密，而算法是公开的</strong>。DES的问题是它的密钥长度。</li>
+<li>三重DES，把一个64位明文用一个密钥加密，再用另一个密钥解密，然后再使用第一个密钥加密，即：<ol>
+<li>![[Pasted image 20230813200941.png]]</li>
+<li>这里，<em>X</em>是明文，<em>Y</em>是密文，<em>K<sub>1</sub></em> 和<em>K<sub>2</sub></em> 分别是第一个和第二个密钥，<em>DES <sub>K1</sub></em>(·)表示用密钥<em>K</em><sub>1</sub>进行DES加密，而<em>DES<sup>-1</sup><sub>K2</sub></em>(·)表示用密钥<em>K</em><sub>2</sub>进行DES解密。</li>
+</ol>
+</li>
+</ul>
+<h2 id="7-2-2-公钥密码体制"><a href="#7-2-2-公钥密码体制" class="headerlink" title="7.2.2 公钥密码体制"></a>7.2.2 公钥密码体制</h2><ul>
+<li>公钥密码体制<strong>使用不同的加密密钥与解密密钥</strong>。</li>
+<li>公钥密码体制的产生主要有两个方面的原因，一是由于对称密钥密码体制的<strong>密钥分配</strong>问题，二是由于对<strong>数字签名</strong>的需求。</li>
+<li>在公钥密码体制中，<strong>加密密钥</strong><em>PK</em>是向公众公开的，而<strong>解密密钥</strong><em>SK</em>则是需要保密的。加密算法<em>E</em>和解密算法<em>D</em>也都是公开的。</li>
+<li>公钥密码体制的加密和解密过程有如下特点：<ol>
+<li><strong>密钥对</strong>在使用对称密钥时，由于双方使用同样的密钥，因此在通信信道上可以进行<strong>一对一的双向保密通信</strong> ，每一方既可用此密钥加密明文，并发送给对方，也可接收密文，用同一密钥对密文解密。产生器产生出接收者B的一对密钥：加密密钥<em>PK<sub>B</sub></em> 和解密密钥<em>SK<sub>B</sub><em>。发送者A所用的加密密钥</em>PK<sub>B</sub></em> 就是接收者B的公钥，它向公众公开。而B所用的解密密钥<em>SK<sub>B</sub></em> 就是接收者B的私钥，对其他人都保密。</li>
+<li>发送者A用B的公钥<em>PK<sub>B</sub></em> 通过<em>E</em>运算对明文<em>X</em> 加密，得出密文<em>Y</em> ，发送给B。B用自己的私钥<em>SK<sub>B</sub></em> 通过<em>D</em> 运算进行解密，恢复出明文，即<ul>
+<li>![[Pasted image 20230813201823.png]]</li>
+<li>![[Pasted image 20230813201836.png]]</li>
+</ul>
+</li>
+<li>虽然在计算机上可以容易地产生成对的<em>PK<sub>B</sub></em> 和<em>SK<sub>B</sub></em> ，但从已知的<em>PK<sub>B</sub></em> 实际上不可能推导出<em>SK<sub>B</sub></em> ，即从<em>PK<sub>B</sub></em> 到<em>SK<sub>B</sub></em> 是“<strong>计算上不可能的</strong>”。.</li>
+<li>虽然公钥可用来加密，但却不能用来解密，即<ul>
+<li>![[Pasted image 20230813201935.png]]</li>
+</ul>
+</li>
+<li>先后对<em>X</em> 进行<em>D</em> 运算和<em>E</em> 运算或进行<em>E</em> 运算和<em>D</em> 运算，结果都是一样的：<ul>
+<li>![[Pasted image 20230813201952.png]]</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>在使用对称密钥时，由于双方使用同样的密钥，因此在通信信道上可以进行<strong>一对一的双向保密通信</strong>，每一方既可用此密钥加密明文，并发送给对方，也可接收密文，用同一密钥对密文解密。<ul>
+<li>在使用公开密钥时，在通信信道上可以是<strong>多对一的单向保密通信</strong>。</li>
+<li><strong>任何加密方法的安全性取决于密钥的长度，以及攻破密文所需的计算量</strong>。</li>
+</ul>
+</li>
+</ul>
+<h1 id="7-3-数字签名"><a href="#7-3-数字签名" class="headerlink" title="7.3 数字签名"></a>7.3 数字签名</h1><ul>
+<li>数字签名必须保证能够实现以下三点功能：<ol>
+<li>接收者能够核实发送者对报文的签名。也就是说，接收者能够确信该报文的确是发送者发送的。其他人无法伪造对报文的签名。这叫做<strong>报文鉴别</strong>。</li>
+<li>接收者确信所收到的数据和发送者发送的完全一样而没有被篡改过。这叫做<strong>报文的完整性</strong>。</li>
+<li>发送者事后不能抵赖对报文的签名。这叫做<strong>不可否认</strong>。</li>
+</ol>
+</li>
+</ul>
+<h1 id="7-4-鉴别"><a href="#7-4-鉴别" class="headerlink" title="7.4 鉴别"></a>7.4 鉴别</h1><ul>
+<li><strong>鉴别是要验证通信的对方的确是自己所要通信的对象，而不是其他的冒充者，并且所传送的报文是完整的，没有被他人篡改过</strong>。</li>
+<li>鉴别细分为两种。一种是报文鉴别，即鉴别所收到的报文的确是报文的发送者所发送的，而不是其他人伪造的或篡改的。这就包含了端点鉴别和报文完整性的鉴别。另一种则是实体鉴别，即仅仅鉴别发送报文的实体。实体可以是一个人，也可以是一个进程（客户或服务器）。这就是端点鉴别。</li>
+</ul>
+<h2 id="7-4-1-报文鉴别"><a href="#7-4-1-报文鉴别" class="headerlink" title="7.4.1 报文鉴别"></a>7.4.1 报文鉴别</h2><ul>
+<li><strong>密码散列函数</strong><ol>
+<li>散列函数具有以下两个特点：<ul>
+<li>散列函数的输入长度可以很长，但其<strong>输出长度则是固定的，并且较短</strong>。散列函数的输出叫做<strong>散列值</strong>，或更简单些，称为<strong>散列</strong>。</li>
+<li>不同的散列值肯定对应于不同的输入，但不同的输入却可能得出相同的散列值。这就是说，散列函数的输入和输出并非一一对应的，而是多对一的。</li>
+</ul>
+</li>
+<li>在密码学中使用的散列函数称为密码散列函数，其最重要的特点就是：要找到两个不同的报文，它们具有同样的密码散列函数输出，在计算上是不可行的。也就是说，密码散列函数实际上是一种<strong>单向函数</strong>。</li>
+</ol>
+</li>
+<li><strong>实用的密码散列函数MD5和SHA-1</strong></li>
+<li><strong>报文鉴别码</strong>*</li>
+</ul>
+<h2 id="7-4-2-实体鉴别"><a href="#7-4-2-实体鉴别" class="headerlink" title="7.4.2 实体鉴别"></a>7.4.2 实体鉴别</h2><ul>
+<li>实体鉴别和报文鉴别不同。报文鉴别是对每一个收到的报文都要鉴别报文的发送者，而实体鉴别是在系统接入的全部持续时间内对和自己通信的对方实体只需验证一次。</li>
+</ul>
+<h1 id="7-5-密钥分配"><a href="#7-5-密钥分配" class="headerlink" title="7.5 密钥分配"></a>7.5 密钥分配</h1><ul>
+<li>由于密码算法是公开的，网络的安全性就完全基于密钥的安全保护上。因此在密码学中出现了一个重要的分支——<strong>密钥管理</strong>。密钥管理包括：密钥的产生、分配、注入、验证和使用。</li>
+<li><strong>密钥分配</strong>（或<strong>密钥分发</strong>）是密钥管理中最大的问题。密钥必须通过最安全的通路进行分配。例如，可以派非常可靠的信使携带密钥分配给互相通信的各用户。这种方法称为<strong>网外分配方式</strong>。但随着用户的增多和网络流量的增大，密钥更换频繁（密钥必须定期更换才能做到可靠），派信使的办法已不再适用，而应采用<strong>网内分配方式</strong>，即对密钥自动分配。</li>
+</ul>
+<h2 id="7-5-1-对称密钥的分配"><a href="#7-5-1-对称密钥的分配" class="headerlink" title="7.5.1 对称密钥的分配"></a>7.5.1 对称密钥的分配</h2><ul>
+<li>对称密钥分配存在以下两个问题：<ol>
+<li>如果<em>n</em> 个人中的每一个需要和其他<em>n</em> –1个人通信，就需要<em>n</em> （<em>n</em> –1）个密钥。但每两人共享一个密钥，因此密钥数是<em>n</em> （<em>n</em> –1）&#x2F;2。这常称为 ***n<sup>2</sup>*<em><em><strong>问题</strong> 。如果</em>n</em> 是个很大的数，所需要的密钥数量就非常大。</li>
+<li>通信的双方怎样才能安全地得到共享的密钥呢？正是因为网络不安全，所以才需要使用加密技术。但密钥又需要怎样传送呢？</li>
+</ol>
+</li>
+<li>目前常用的密钥分配方式是设立<strong>密钥分配中心</strong> KDC。KDC是大家都信任的机构，其任务就是给需要进行秘密通信的用户临时分配一个会话密钥（仅使用一次）。</li>
+<li>目前最出名的密钥分配协议是Kerberos V5。</li>
+<li>Kerberos使用两个服务器：<strong>鉴别服务器</strong> AS、<strong>票据授予服务器</strong> TGS。Kerberos只用于客户与服务器之间的鉴别，而不用于人对人的鉴别。</li>
+</ul>
+<h2 id="7-5-2-公钥的分配"><a href="#7-5-2-公钥的分配" class="headerlink" title="7.5.2 公钥的分配"></a>7.5.2 公钥的分配</h2><h1 id="7-6-互联网使用的安全协议"><a href="#7-6-互联网使用的安全协议" class="headerlink" title="7.6 互联网使用的安全协议"></a>7.6 互联网使用的安全协议</h1><h2 id="7-6-1-网络层安全协议"><a href="#7-6-1-网络层安全协议" class="headerlink" title="7.6.1 网络层安全协议"></a>7.6.1 网络层安全协议</h2><ul>
+<li><strong>IPsec协议族概述</strong><ol>
+<li>IPsec并不是一个单一协议，而是能够在IP层提供互联网通信安全的<strong>协议族</strong>。IPsec并没有限定用户必须使用何种特定的加密和鉴别算法。实际上，IPsec是个框架，它允许通信双方选择合适的算法和参数（例如，密钥长度）。为保证互操作性，IPsec还包含了一套加密算法，所有IPsec的实现都必须使用。</li>
+<li>IPsec协议族中的协议可划分为以下三个部分：<ul>
+<li>IP安全数据报格式的两个协议：<strong>鉴别首部AH</strong> 协议和<strong>封装安全有效载荷ESP</strong> 协议。</li>
+<li>有关加密算法的三个协议。</li>
+<li><strong>互联网密钥交换</strong> IKE协议。</li>
+</ul>
+</li>
+<li>AH协议提供源点鉴别和数据完整性，但不能保密。而ESP协议比AH协议复杂得多，它提供源点鉴别、数据完整性和保密。IPsec支持IPv4和IPv6。在IPv6中，AH和ESP都是扩展首部的一部分。AH协议的功能都已包含在ESP协议中，因此使用ESP协议就可以不使用AH协议。</li>
+<li>使用ESP或AH协议的IP数据报称为IP<strong>安全数据报</strong>（或IPsec数据报），它可以在两台主机之间、两个路由器之间或一台主机和一个路由器之间发送。</li>
+<li>IP安全数据报有以下两种不同的工作方式：<ul>
+<li><strong>运输方式</strong>。运输方式是在整个运输层报文段的前后分别添加若干控制信息，再加上IP首部，构成IP安全数据报。</li>
+<li><strong>隧道方式</strong>。隧道方式是在原始的IP数据报的前后分别添加若干控制信息，再加上新的IP首部，构成一个IP安全数据报。</li>
+</ul>
+</li>
+<li>无论使用哪种方式，最后得出的IP安全数据报的IP首部都是不加密的。只有使用不加密的IP首部，互联网中的各个路由器才能识别IP首部中的有关信息，把IP安全数据报在不安全的互联网中进行转发，从源点安全地转发到终点。</li>
+</ol>
+</li>
+<li><strong>安全关联</strong><ol>
+<li>在发送IP安全数据报之前，在源实体和目的实体之间必须创建一条网络层的逻辑连接，即<strong>安全关联SA</strong>。这样，<strong>传统的互联网中无连接的网络层就变为了具有逻辑连接的一个层</strong>。安全关联是从源点到终点的<strong>单向连接</strong>，它能够提供安全服务。如要进行双向安全通信，则两个方向都需要建立安全关联。</li>
+<li>SA的状态信息应包括的项目：<ul>
+<li>一个32位的连接标识符，称为<strong>安全参数索引SPI</strong> </li>
+<li>安全关联SA的源点和终点的IP地址（即路由器R 1 和R 2 的IP地址）</li>
+<li>所使用的加密类型（例如，DES或AES）</li>
+<li>加密的密钥</li>
+<li>完整性检查的类型（例如，使用报文摘要MD5或SHA-1的报文鉴别码MAC）</li>
+<li>鉴别使用的密钥</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><strong>IP安全数据报的格式</strong><ol>
+<li>图7-15是IP安全数据报的格式。<ul>
+<li>![[Pasted image 20230813203425.png]]</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><strong>IPsec的其他构件</strong>*<ol>
+<li>当主机要发送IP安全数据报时，就要在<strong>安全关联数据库</strong> SAD中查找相应的SA，以便获得必要的信息，来对该IP安全数据报实施安全保护。同样，当主机要接收IP安全数据报时，也要在SAD中查找相应的SA，以便获得信息来检查该分组的安全性。</li>
+<li>除了安全关联数据库SAD，还需要另一个数据库，这就是<strong>安全策略数据库</strong> SPD。SPD指明什么样的数据报需要进行IPsec处理。这取决于源地址、源端口、目的地址、目的端口，以及协议的类型等。</li>
+<li>对于大型的、地理位置分散的系统，为了创建SAD，我们需要使用自动生成的机制，即使用<strong>互联网密钥交换</strong> IKE协议。IKE的用途就是为IP安全数据报创建安全关联SA。</li>
+<li>IKE是个非常复杂的协议，IKEv2是其新的版本，IKEv2以另外三个协议为基础：<ul>
+<li>Oakley——是个密钥生成协议</li>
+<li><strong>安全密钥交换机制</strong> SKEME——是用于密钥交换的协议。它利用公钥加密来实现密钥交换协议中的实体鉴别</li>
+<li><strong>互联网安全关联和密钥管理协议</strong> ISAKMP——用于实现IKE中定义的密钥交换，使IKE的交换能够以标准化、格式化的报文创建安全关联SA</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="7-6-2-运输层安全协议"><a href="#7-6-2-运输层安全协议" class="headerlink" title="7.6.2 运输层安全协议"></a>7.6.2 运输层安全协议</h2><ul>
+<li>广泛使用的有两个协议：<ol>
+<li><strong>安全套接字层</strong> SSL</li>
+<li><strong>运输层安全</strong> TLS</li>
+</ol>
+</li>
+<li>SSL提供的安全服务可归纳为以下三种：<ol>
+<li>SSL服务器鉴别，允许用户证实服务器的身份。支持SSL的客户端通过验证来自服务器的证书，来鉴别服务器的真实身份并获得服务器的公钥。</li>
+<li>SSL客户鉴别，SSL的可选安全服务，允许服务器证实客户的身份。</li>
+<li>加密的SSL会话，对客户和服务器间发送的所有报文进行加密，并检测报文是否被篡改。</li>
+</ol>
+</li>
+<li>SSL的工作过程：<ol>
+<li><strong>协商加密算法</strong> </li>
+<li><strong>服务器鉴别</strong> </li>
+<li><strong>会话密钥计算</strong> </li>
+<li><strong>安全数据传输</strong></li>
+</ol>
+</li>
+</ul>
+<p> </p>
+<h2 id="7-6-3-应用层安全协议"><a href="#7-6-3-应用层安全协议" class="headerlink" title="7.6.3 应用层安全协议"></a>7.6.3 应用层安全协议</h2><ul>
+<li>当我们使用IPSec或SSL时，我们假设双方在相互之间建立起一个会话并双向地交换数据。而在电子邮件中没有会话存在。</li>
+<li>PGP是一个完整的电子邮件安全软件包，包括加密、鉴别、电子签名和压缩等技术。</li>
+<li>PGP的工作原理并不复杂。它提供电子邮件的安全性、发送方鉴别和报文完整性。</li>
+</ul>
+<h1 id="7-7-系统安全：防火墙与入侵检测"><a href="#7-7-系统安全：防火墙与入侵检测" class="headerlink" title="7.7 系统安全：防火墙与入侵检测"></a>7.7 系统安全：防火墙与入侵检测</h1><h2 id="7-7-1-防火墙"><a href="#7-7-1-防火墙" class="headerlink" title="7.7.1 防火墙"></a>7.7.1 防火墙</h2><ul>
+<li><strong>防火墙</strong>作为一种访问控制技术，通过严格控制进出网络边界的分组，禁止任何不必要的通信，从而减少潜在入侵的发生，尽可能降低这类安全威胁所带来的安全风险。由于防火墙不可能阻止所有入侵行为，作为系统防御的第二道防线，<strong>入侵检测系统</strong> IDS通过对进入网络的分组进行深度分析与检测发现疑似入侵行为的网络活动，并进行报警以便进一步采取相应措施。</li>
+<li><strong>防火墙</strong>是一种特殊编程的路由器，安装在一个网点和网络的其余部分之间，目的是实施访问控制策略。这个访问控制策略是由使用防火墙的单位自行制定的。这种安全策略应当最适合本单位的需要。</li>
+<li>互联网这边是防火墙的外面，而内部网络这边是防火墙的里面。一般都把防火墙里面的网络称为“<strong>可信的网络</strong>”，而把防火墙外面的网络称为“<strong>不可信的网络</strong>”。</li>
+<li>防火墙技术一般分为以下两类：<ol>
+<li><strong>分组过滤路由器</strong></li>
+<li><strong>应用网关</strong>也称为<strong>代理服务器</strong></li>
+</ol>
+</li>
+</ul>
+<h2 id="7-7-2-入侵检测系统"><a href="#7-7-2-入侵检测系统" class="headerlink" title="7.7.2 入侵检测系统"></a>7.7.2 入侵检测系统</h2><ul>
+<li><strong>入侵检测系统</strong> IDS在入侵还没有造成危害或在造成更大危害前，及时检测到入侵，以便尽快阻止入侵，把危害降低到最小IDS对进入网络的分组执行深度分组检查，当观察到可疑分组时，向网络管理员发出告警或执行阻断操作。</li>
+<li>入侵检测方法一般可以分为基于特征的入侵检测和基于异常的入侵检测两种。</li>
+</ul>
+<h1 id="7-8-一些未来的发展方向"><a href="#7-8-一些未来的发展方向" class="headerlink" title="7.8 一些未来的发展方向"></a>7.8 一些未来的发展方向</h1><ul>
+<li>椭圆曲线密码（Elliptic Curve Cryptography，简写为ECC）与AES这一系统现在已广泛用于电子护照中，也是下一代金融系统使用的加密系统。</li>
+<li>移动安全（Mobile Security）移动通信带来的广泛应用（如移动支付，Mobile Payment）向网络安全提出了更高的要求。</li>
+<li>量子密码（Quantum Cryptography）量子计算机的到来将使得目前许多使用中的密码技术无效，后量子密码学（Post-Quantum Cryptography）的研究方兴未艾。</li>
+</ul>
+<h1 id="本章的重要概念"><a href="#本章的重要概念" class="headerlink" title="本章的重要概念"></a>本章的重要概念</h1><ul>
+<li>计算机网络上的通信面临的威胁可分为两大类，即被动攻击（如截获）和主动攻击（如中断、篡改、伪造）。主动攻击的类型有更改报文流、拒绝服务、伪造初始化、恶意程序（病毒、蠕虫、木马、逻辑炸弹、后门入侵、流氓软件）等。</li>
+<li>计算机网络安全主要有以下一些内容：保密性、安全协议的设计和访问控制。</li>
+<li>密码编码学是密码体制的设计学，而密码分析学则是在未知密钥的情况下从密文推演出明文或密钥的技术。密码编码学与密码分析学合起来即为密码学。</li>
+<li>如果不论截取者获得了多少密文，都无法唯一地确定出对应的明文，则这一密码体制称为无条件安全的（或理论上是不可破的）。在无任何限制的条件下，目前几乎所有实用的密码体制均是可破的。如果一个密码体制中的密码不能在一定时间内被可以使用的计算资源破译，则这一密码体制称为在计算上是安全的。</li>
+<li>对称密钥密码体制是加密密钥与解密密钥相同的密码体制（如数据加密标准DES和高级加密标准AES）。这种加密的保密性仅取决于对密钥的保密，而算法是公开的。</li>
+<li>公钥密码体制（又称为公开密钥密码体制）使用不同的加密密钥与解密密钥。加密密钥（即公钥）是向公众公开的，而解密密钥（即私钥或秘钥）则是需要保密的。加密算法和解密算法也都是公开的。</li>
+<li>目前最著名的公钥密码体制是RSA体制，它是基于数论中的大数分解问题的体制。</li>
+<li>任何加密方法的安全性取决于密钥的长度，以及攻破密文所需的计算量，而不是简单地取决于加密的体制（公钥密码体制或传统加密体制）。</li>
+<li>数字签名必须保证能够实现以下三点功能：（1）报文鉴别，即接收者能够核实发送者对报文的签名；（2）报文的完整性，即接收者确信所收到的数据和发送者发送的完全一样而没有被篡改过；（3）不可否认，即发送者事后不能抵赖对报文的签名。</li>
+<li>鉴别是要验证通信的对方的确是自己所要通信的对象，而不是其他的冒充者。鉴别与授权是不同的概念。</li>
+<li>报文摘要MD是进行报文鉴别的一种简单方法。目前广泛使用的是SHA-1。</li>
+<li>密钥管理包括：密钥的产生、分配、注入、验证和使用。密钥分配（或密钥分发）是密钥管理中最大的问题。密钥必须通过最安全的通路进行分配。目前常用的密钥分配方式是设立密钥分配中心KDC。</li>
+<li>认证中心CA是一个值得信赖的机构，用来将公钥与其对应的实体（人或机器）进行绑定。每个实体都有CA发来的证书，里面有公钥及其拥有者的标识信息（人名或IP地址）。此证书被CA进行了数字签名。任何用户都可从可信的地方获得认证中心CA的公钥。</li>
+<li>在网络层可使用IPsec协议族，IPsec包括鉴别首部协议AH和封装安全有效载荷协议ESP。AH协议提供源点鉴别和数据完整性，但不能保密。而ESP协议提供源点鉴别、数据完整性和保密。IPsec支持IPv4和IPv6。在IPv6中，AH和ESP都是扩展首部的一部分。IPsec数据报的工作方式有运输方式和隧道方式两种。</li>
+<li>运输层的安全协议有SSL（安全套接字层）和TLS（运输层安全）。SSL最新的版本是SSL 3.0，它是保护万维网HTTP通信量所公认的事实上的标准。SSL不仅被所有常用的浏览器和万维网服务器所支持，而且也是TLS的基础。</li>
+<li>PGP是一个完整的电子邮件安全软件包，包括加密、鉴别、电子签名和压缩等技术。PGP并没有使用什么新的概念，它只是把现有的一些加密算法（如RSA公钥加密算法或MD5报文摘要算法）综合在一起而已。</li>
+<li>防火墙是一种特殊编程的路由器，安装在一个网点和网络的其余部分之间，目的是实施访问控制策略。防火墙里面的网络称为“可信的网络”，而把防火墙外面的网络称为“不可信的网络”。防火墙的功能有两个：一个是阻止（主要的），另一个是允许。</li>
+<li>防火墙技术分为：网络级防火墙，用来防止整个网络出现外来非法的入侵（属于这类的有分组过滤和授权服务器）；应用级防火墙，用来进行访问控制（用应用网关或代理服务器来区分各种应用）。</li>
+<li>入侵检测系统IDS是在入侵已经开始，但还没有造成危害或在造成更大危害前，及时检测到入侵，以便尽快阻止入侵，把危害降低到最小。</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Chipfron</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://chipfron.github.io/2024/04/20/study/ji-suan-ji-wang-luo/di-7-zhang-wang-luo-an-quan/">https://chipfron.github.io/2024/04/20/study/ji-suan-ji-wang-luo/di-7-zhang-wang-luo-an-quan/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Chipfron</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                                    <span class="chip bg-color">计算机网络</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/04/20/study/ji-suan-ji-wang-luo/di-8-zhang-hu-lian-wang-shang-de-yin-pin-shi-pin-fu-wu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="第8章 互联网上的音频、视频服务">
+                        
+                        <span class="card-title">第8章 互联网上的音频、视频服务</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-04-20
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Chipfron
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">计算机网络</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/04/20/study/ji-suan-ji-wang-luo/di-6-zhang-ying-yong-ceng/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="第6章 应用层">
+                        
+                        <span class="card-title">第6章 应用层</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-04-20
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Chipfron
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">计算机网络</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2023-2024</span>
+            
+            <a href="/about" target="_blank">Chipfron</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">315k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/chipfron" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1325964828@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1325964828" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1325964828" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/snow.js"><\/script>');
+            }
+        </script>
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

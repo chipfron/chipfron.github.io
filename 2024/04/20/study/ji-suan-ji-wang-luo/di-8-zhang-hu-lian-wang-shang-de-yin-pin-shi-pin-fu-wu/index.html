@@ -1,0 +1,1409 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="第8章 互联网上的音频、视频服务, 编程">
+    <meta name="description" content="8.1 概述
+计算机网络最初是为传送数据设计的。互联网IP层提供的“尽最大努力交付”服务以及每一个分组独立交付的策略，对传送数据信息十分合适。互联网使用的TCP协议可以很好地解决IP层不能提供可靠交付这一问题。
+多媒体信息（包括声音和图像信">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>第8章 互联网上的音频、视频服务 | 七破风的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">七破风的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/navigate" class="waves-effect waves-light">
+      
+      <i class="fas fa-location-arrow" style="zoom: 0.6;"></i>
+      
+      <span>导航</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">七破风的博客</div>
+        <div class="logo-desc">
+            
+            高高山顶立，深深海底行。
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/navigate" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-location-arrow"></i>
+			
+			导航
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">第8章 互联网上的音频、视频服务</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                                <span class="chip bg-color">计算机网络</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-04-20
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-04-20
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    10.7k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    37 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="8-1-概述"><a href="#8-1-概述" class="headerlink" title="8.1 概述"></a>8.1 概述</h1><ul>
+<li>计算机网络最初是为传送数据设计的。互联网IP层提供的“<strong>尽最大努力交付</strong>”服务以及<strong>每一个分组独立交付</strong>的策略，对传送数据信息十分合适。互联网使用的TCP协议可以很好地解决IP层不能提供可靠交付这一问题。</li>
+<li>多媒体信息（包括声音和图像信息）与不包括声音和图像的数据信息有很大的区别，其中最主要的两个特点如下：<ol>
+<li><strong>多媒体信息的信息量往往很大</strong></li>
+<li><strong>在传输多媒体数据时，对时延和时延抖动均有较高的要求</strong><ul>
+<li>对模拟信号要经过采样和模数转换变为数字信号，然后将一定数量的比特组装成分组进行传送。这些分组在发送时的时间间隔都是<strong>恒定的</strong>，通常称这样的分组为<strong>等时的</strong>。这种等时分组进入互联网的速率也是恒定的。但传统的<strong>互联网本身是非等时的</strong>。这是因为在使用IP协议的互联网中，每一个分组是独立地传送，因而这些分组在到达接收端时就变成为<strong>非等时的</strong>。如果我们在接收端对这些以非恒定速率到达的分组边接收边还原，那么就一定会产生很大的失真。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>在传送<strong>时延敏感</strong>的实时数据时，不仅<strong>传输时延不能太大</strong>，而且<strong>时延抖动也必须受到限制</strong></li>
+<li>在互联网上传输实时数据的分组时有可能会出现差错或甚至丢失。如果利用TCP协议对这些出错或丢失的分组进行重传，那么时延就会大大增加。因此实时数据的传输在运输层就应采用用户数据报协议UDP而不使用TCP协议。这就是说，对于传送实时数据，我们<strong>宁可丢失少量分组</strong>（当然不能丢失太多），<strong>也不要太晚到达的分组</strong>。在连续的音频或视频数据流中，很少量分组的丢失对播放效果的影响并不大（因为这是由人来进行主观评价的），因而是可以容忍的。<strong>丢失容忍</strong>也是实时数据的另一个重要特点。</li>
+<li>目前互联网提供的音频&#x2F;视频服务大体上可分为三种类型：<ol>
+<li><strong>流式存储音频&#x2F;视频</strong> 　这种类型是先把已压缩的录制好的音频&#x2F;视频文件（如音乐、电影等）存储在服务器上。用户通过互联网下载这样的文件。流式存储音频&#x2F;视频文件的特点是能够<strong>边下载边播放</strong>，即在文件下载后不久就开始连续播放。</li>
+<li><strong>流式实况音频&#x2F;视频</strong> 　这种类型和无线电台或电视台的实况广播相似，不同之处是音频&#x2F;视频节目的<strong>广播</strong>是通过互联网来传送的。流式实况音频&#x2F;视频是一对多（而不是一对一）的通信。它的特点是：音频&#x2F;视频节目不是事先录制好和存储在服务器中的，而是在发送方<strong>边录制边发送</strong>（不是录制完毕后再发送）。在接收时也要求能够连续播放。</li>
+<li><strong>交互式音频&#x2F;视频</strong> 　这种类型是用户使用互联网和其他人进行实时交互式通信。</li>
+</ol>
+</li>
+</ul>
+<h1 id="8-2-流式存储音频、视频"><a href="#8-2-流式存储音频、视频" class="headerlink" title="8.2 流式存储音频、视频"></a>8.2 流式存储音频、视频</h1><h2 id="8-2-1-具有元文件的万维网服务器"><a href="#8-2-1-具有元文件的万维网服务器" class="headerlink" title="8.2.1 具有元文件的万维网服务器"></a>8.2.1 具有元文件的万维网服务器</h2><ul>
+<li>元文件（请注意，不是源文件）就是一种非常小的文件，它描述或指明<strong>其他文件</strong>的一些重要信息。这里的元文件保存了有关这个音频&#x2F;视频文件的信息。</li>
+<li>图8-5说明了使用元文件下载音频&#x2F;视频文件的几个步骤。<ol>
+<li>浏览器用户点击所要看的音频&#x2F;视频文件的超链，使用HTTP的GET报文接入到万维网服务器。实际上，这个超链并没有直接指向所请求的音频&#x2F;视频文件，而是指向一个元文件。这个元文件有实际的音频&#x2F;视频文件的统一资源定位符URL。</li>
+<li>万维网服务器把该元文件装入HTTP响应报文的主体，发回给浏览器。在响应报文中还有指明该音频&#x2F;视频文件类型的首部。</li>
+<li>客户机浏览器收到万维网服务器的响应，分析其内容类型首部行，调用相关的媒体播放器（客户机中可能装有多个媒体播放器），把提取出的元文件传送给媒体播放器。</li>
+<li>媒体播放器使用元文件中的URL直接和万维网服务器建立TCP连接，并向万维网服务器发送HTTP请求报文，要求下载浏览器想要的音频&#x2F;视频文件。</li>
+<li>万维网服务器发送HTTP响应报文，把该音频&#x2F;视频文件发送给媒体播放器。媒体播放器在存储了若干秒的音频&#x2F;视频文件后（这是为了消除抖动），就以音频&#x2F;视频流的形式边下载、边解压缩、边播放。</li>
+<li>![[Pasted image 20230814161524.png]]</li>
+</ol>
+</li>
+</ul>
+<h2 id="8-2-2-媒体服务器"><a href="#8-2-2-媒体服务器" class="headerlink" title="8.2.2 媒体服务器"></a>8.2.2 媒体服务器</h2><ul>
+<li>为了更好地提供播放流式音频&#x2F;视频文件的服务，现在最为流行的做法就是使用两个分开的服务器。一个普通的万维网服务器，和另一个<strong>媒体播放器</strong>。媒体服务器和万维网服务器可以运行在一个端系统内，也可以运行在两个不同的端系统中。媒体服务器与普通的万维网服务器的最大区别就是，媒体服务器是专门为播放流式音频&#x2F;视频文件而设计的，因此能够更加有效地为用户提供播放流式多媒体文件的服务。因此媒体服务器也常被称为<strong>流式服务器</strong>。</li>
+<li>起初人们选用UDP来传送。不采用TCP的主要原因是担心当网络出现分组丢失时，TCP的重传机制会使重传的分组不能按时到达接收端，使得媒体播放器的播放不流畅。</li>
+<li>采用UDP会有以下几个缺点：<ol>
+<li>发送端按正常播放的速率发送流媒体数据帧，但由于网络的情况多变，在接收端的播放器很难做到始终按规定的速率播放。例如，一个视频节目需要以1Mbit&#x2F;s的速率播放。如果从媒体服务器到媒体播放器之间的网络容量突然降低到1Mbit&#x2F;s以下，那么这时就会出现播放器的暂停，影响正常的观看。</li>
+<li>很多单位的防火墙往往阻拦外部UDP分组的进入，因而使用UDP传送多媒体文件时会被防火墙阻拦掉。</li>
+<li>使用UDP传送流式多媒体文件时，如果在用户端希望能够控制媒体的播放，如进行暂停、快进等操作，那么还需要使用另外的协议RTP和RTSP。这样就增加了成本和复杂性。</li>
+</ol>
+</li>
+<li>观看实况转播，那么最好应当首先考虑使用UDP来传送。如果使用TCP传送，则当出现网络严重拥塞而产生播放的暂停时，就会使人难于接受。使用UDP传送时，即使因网络拥塞丢失了一些分组，对观看的感觉也会比突然出现暂停要好些。</li>
+</ul>
+<h2 id="8-2-3-实时流式协议RTSP"><a href="#8-2-3-实时流式协议RTSP" class="headerlink" title="8.2.3 实时流式协议RTSP"></a>8.2.3 实时流式协议RTSP</h2><ul>
+<li><strong>实时流式协议 RTSP</strong>是为了给流式过程增加更多的功能而设计的协议。RTSP本身并不传送数据，而仅仅是使媒体播放器能够控制多媒体流的传送（有点像文件传送协议FTP有一个控制信道），因此RTSP又称为<strong>带外协议</strong>。</li>
+<li>RTSP协议以客户服务器方式工作，它是一个应用层的<strong>多媒体播放控制协议</strong>，用来使用户在播放从互联网下载的实时数据时能够进行控制（像在影碟机上那样的控制），如：暂停&#x2F;继续、快退、快进等。因此，RTSP又称为“<strong>互联网录像机遥控协议</strong>”。</li>
+<li>RTSP的语法和操作与HTTP协议的相似（所有的请求和响应报文都是ASCII文本）。但与HTTP不同的地方是RTSP是有状态的协议（HTTP是无状态的）。RTSP记录客户机所处于的状态（初始化状态、播放状态或暂停状态）。RFC 2326还规定，RTSP控制分组既可在TCP上传送，也可在UDP上传送。RTSP没有定义音频&#x2F;视频的压缩方案，也没有规定音频&#x2F;视频在网络中传送时应如何封装在分组中。RTSP不规定音频&#x2F;视频流在媒体播放器中应如何缓存。</li>
+</ul>
+<h1 id="8-3-交互式音频、视频"><a href="#8-3-交互式音频、视频" class="headerlink" title="8.3 交互式音频、视频"></a>8.3 交互式音频、视频</h1><h2 id="8-3-1-IP电话概述"><a href="#8-3-1-IP电话概述" class="headerlink" title="8.3.1 IP电话概述"></a>8.3.1 IP电话概述</h2><ul>
+<li><strong>狭义的和广义的IP电话</strong><ol>
+<li><strong>狭义</strong>的IP电话就是指在IP网络上打电话。</li>
+<li><strong>广义</strong>的IP电话则不仅仅是电话通信，而且还可以是在IP网络上进行交互式多媒体实时通信（包括话音、视像等），甚至还包括<strong>即时传信</strong> IM。</li>
+<li>分组话音通信发展得并不快的主要原因是：<ul>
+<li>缺少廉价的高质量、低速率的话音信号编解码软件和相应的芯片。</li>
+<li>计算机网络的传输速率和路由器处理速率均不够快，因而导致传输时延过大。</li>
+<li>没有保证实时通信<strong>服务质量</strong> QoS（Quality of Service）的网络协议。</li>
+<li>计算机网络的规模较小，而通信网只有在具有一定规模后才能产生经济效益。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><strong>IP电话网关</strong><ol>
+<li>IP电话网关的作用就是：<ul>
+<li>在电话呼叫阶段和呼叫释放阶段<strong>进行电话信令的转换</strong></li>
+<li>在通话期间<strong>进行话音编码的转换</strong></li>
+</ul>
+</li>
+</ol>
+</li>
+<li><strong>IP电话的通话质量</strong><ol>
+<li>IP电话的通话质量主要由两个因素决定，一个是<strong>通话双方端到端的时延和时延抖动</strong>，另一个是<strong>话音分组的丢失率</strong>。但这两个因素都是<strong>不确定的</strong>，而是取决于<strong>当时网络上的通信量</strong>。</li>
+<li>一个用户使用IP电话的通话质量<strong>取决于当时其他许多用户的行为</strong>。</li>
+<li>IP电话端到端时延是由以下几个因素造成的：<ul>
+<li>话音信号进行模数转换要产生时延。</li>
+<li>已经数字化的话音比特流要积累到一定的数量才能够装配成一个话音分组，这也会产生时延。</li>
+<li>话音分组的发送需要时间，此时间等于话音分组长度与通信线路的数据率之比。</li>
+<li>话音分组在互联网中经过许多路由器的存储转发时延。</li>
+<li>话音分组到达接收端在缓存中暂存所引起的时延。</li>
+<li>将话音分组还原成模拟话音信号的数模转换也要产生一定的时延。</li>
+<li>话音信号在通信线路上的传播时延。</li>
+<li>由终端设备的硬件和操作系统产生的接入时延。由IP电话网关引起的接入时延约为20～40ms，而用户PC声卡引起的接入时延为20～180ms。有的调制解调器（如V.34）还会再增加20～40ms的时延（由于进行数字信号处理、均衡等）。</li>
+</ul>
+</li>
+<li>目前适合IP电话使用的ITU-T标准主要有以下两种：<ul>
+<li>G.729　话音速率为8kbit&#x2F;s的<strong>共轭结构代数码激励线性预测</strong> CS-ACELP声码器。</li>
+<li>G.723.1　话音速率为5.3&#x2F;6.3kbit&#x2F;s的<strong>线性预测编码</strong> LPC声码器。</li>
+</ul>
+</li>
+<li>这两种标准的比较见表8-1。<ul>
+<li>![[Pasted image 20230814162508.png]]</li>
+</ul>
+</li>
+<li>接收端缓存空间和播放时延的大小对话音分组丢失率和端到端时延也有很大的影响。</li>
+<li>提高路由器的转发分组的速率对提高IP电话的质量也是很重要的。</li>
+</ol>
+</li>
+</ul>
+<h2 id="8-3-2-IP电话所需要的几种应用协议"><a href="#8-3-2-IP电话所需要的几种应用协议" class="headerlink" title="8.3.2 IP电话所需要的几种应用协议"></a>8.3.2 IP电话所需要的几种应用协议</h2><ul>
+<li>在IP电话的通信中，我们至少需要两种应用协议。一种是信令协议，它使我们能够在互联网上找到被叫用户。另一种是话音分组的传送协议，它使我们用来进行电话通信的话音数据能够以时延敏感属性在互联网中传送。</li>
+</ul>
+<h2 id="8-3-3-实时运输协议RTP"><a href="#8-3-3-实时运输协议RTP" class="headerlink" title="8.3.3 实时运输协议RTP"></a>8.3.3 实时运输协议RTP</h2><ul>
+<li><strong>实时运输协议 RTP</strong>为实时应用提供端到端的运输，但不提供任何服务质量的保证。RTP是一个<strong>协议框架</strong>，因为它只包含了实时应用的一些共同功能。RTP自己并不对多媒体数据块做任何处理，而只是向应用层提供一些附加的信息，让应用层知道应当如何进行处理。</li>
+<li>图8-12给出了RTP分组的首部格式：<ol>
+<li><strong>有效载荷类型</strong>　占7位。这个字段指出后面的RTP数据属于何种格式的应用。收到RTP分组的应用层就根据此字段指出的类型进行处理。</li>
+<li><strong>序号</strong> 　占16位。对每一个发送出的RTP分组，其序号加1。在一次RTP会话开始时的初始序号是随机选择的。序号使接收端能够发现丢失的分组，同时也能将失序的RTP分组重新按序排列好。</li>
+<li><strong>时间戳</strong> 　占32位。时间戳反映了RTP分组中数据的第一个字节的采样时刻。在一次会话开始时时间戳的初始值也是随机选择的。即使在没有信号发送时，时间戳的数值也要随时间而不断地增加。接收端使用时间戳可准确知道应当在什么时间还原哪一个数据块，从而消除时延的抖动。时间戳还可以用来使视频应用中声音和图像同步。在RTP协议中并没有规定时间戳的<strong>粒度</strong>，这取决于有效载荷的类型。因此RTP的时间戳又称为<strong>媒体时间戳</strong>，以强调这种时间戳的粒度取决于信号的类型。</li>
+<li><strong>同步源标识符</strong> 　占32位。同步源标识符SSRC是一个数，用来标志RTP流的来源。SSRC与IP地址无关，在新的RTP流开始时随机地产生。由于RTP使用UDP传送，因此可以有多个RTP流复用到一个UDP用户数据报中。SSRC可使接收端的UDP能够将收到的RTP流送到各自的终点。两个RTP流恰好都选择同一个SSRC的概率是极小的。若发生这种情况，这两个源就都重新选择另一个SSRC。</li>
+<li><strong>参与源标识符</strong> 　这是选项，最多可有15个。<strong>参与源标识符</strong> CSRC也是一个32位数，用来标志来源于不同地点的RTP流。在多播环境中，可以用中间的一个站（叫做<strong>混合站</strong> mixer）把发往同一个地点的多个RTP流混合成一个流（可节省通信资源），在目的站再根据CSRC的数值把不同的RTP流分开。</li>
+<li><strong>参与源数</strong> 　占4位。这个字段给出后面的参与源标识符的数目。</li>
+<li><strong>版本</strong> 　占2位。当前使用的是版本2。</li>
+<li><strong>填充</strong> P　占1位。在某些特殊情况下需要对应用数据块加密，这往往要求每一个数据块有确定的长度。如不满足这种长度要求，就需要进行填充。这时就把P位置1，表示这个RTP分组的数据有若干填充字节。在数据部分的最后一个字节用来表示所填充的字节数。</li>
+<li><strong>扩展</strong> X　占1位。X置1表示在此RTP首部后面还有扩展首部。扩展首部很少使用。</li>
+<li><strong>标记</strong> M　占1位。M置1表示这个RTP分组具有特殊意义。</li>
+<li>![[Pasted image 20230814163018.png]]</li>
+</ol>
+</li>
+</ul>
+<h2 id="8-3-4-实时运输控制协议RTCP"><a href="#8-3-4-实时运输控制协议RTCP" class="headerlink" title="8.3.4 实时运输控制协议RTCP"></a>8.3.4 实时运输控制协议RTCP</h2><ul>
+<li><strong>实时运输控制协议 RTCP</strong>的主要功能是：服务质量的监视与反馈、媒体间的同步（如某一个RTP发送的声音和图像的配合），以及多播组中成员的标志。RTCP分组（也可称为RTCP报文）也使用UDP来传送，但RTCP并不对音频&#x2F;视频分组进行封装。由于RTCP分组很短，因此可把多个RTCP分组封装在一个UDP用户数据报中。RTCP分组周期性地在网上传送，它带有发送端和接收端对服务质量的统计信息报告。</li>
+<li>表8-2是RTCP使用的五种分组类型，它们都使用同样的格式。<ol>
+<li>![[Pasted image 20230814163106.png]]</li>
+<li><strong>结束分组</strong> BYE表示关闭一个数据流。</li>
+<li><strong>特定应用分组</strong> APP使应用程序能够定义新的分组类型。</li>
+<li><strong>接收端报告分组</strong> RR用来使接收端周期性地向所有的点用多播方式进行报告。接收端每收到一个RTP流（一次会话包含有许多的RTP流）就产生一个接收端报告分组RR。RR分组的内容有：所收到的RTP流的SSRC；该RTP流的分组丢失率（若分组丢失率太高，发送端就应当适当降低发送分组的速率）；在该RTP流中的最后一个RTP分组的序号；分组到达时间间隔的抖动等。<ul>
+<li>发送RR分组有两个目的：<ol>
+<li>可以使所有的接收端和发送端了解当前网络的状态；</li>
+<li>可以使所有发送RTCP分组的站点自适应地调整自己发送RTCP分组的速率，使得起控制作用的RTCP分组不要过多地影响传送应用数据的RTP分组在网络中的传输。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><strong>发送端报告分组</strong> SR用来使发送端周期性地向所有接收端用多播方式进行报告。发送端每发送一个RTP流，就要发送一个发送端报告分组SR。SR分组的主要内容有：该RTP流的同步源标识符SSRC；该RTP流中最新产生的RTP分组的时间戳和绝对时钟时间（或墙上时钟时间wall clock time）；该RTP流包含的分组数；该RTP流包含的字节数。</li>
+<li><strong>源点描述分组</strong> SDES给出会话中参加者的描述，它包含参加者的规范名CNAME。规范名是参加者的电子邮件地址的字符串。</li>
+</ol>
+</li>
+</ul>
+<h2 id="8-3-5-H-323"><a href="#8-3-5-H-323" class="headerlink" title="8.3.5 H.323"></a>8.3.5 H.323</h2><ul>
+<li>现在IP电话有两套信令标准：一套是ITU-T定义的H.323协议，另一套是IETF提出的<strong>会话发起协议</strong> SIP。</li>
+<li>H.323标准指明了四种构件，使用这些构件连网就可以进行点对点或一点对多点的多媒体通信：<ol>
+<li>H.323<strong>终端</strong> 　这可以是一个PC，也可以是运行H.323程序的单个设备。</li>
+<li>网关** 　网关连接到两种不同的网络，使得H.323网络可以和非H.323网络（如公用电话网）进行通信。仅在一个H.323网络上通信的两个终端当然就不需要使用网关。</li>
+<li><strong>网闸</strong> 　网闸相当于整个H.323网络的大脑。所有的呼叫都要通过网闸，因为网闸提供地址转换、授权、带宽管理和计费功能。网闸还可以帮助H.323终端找到距离公用电话网上的被叫用户最近的一个网关。</li>
+<li><strong>多点控制单元</strong> MCU　MCU支持三个或更多的H.323终端的音频或视频会议。MCU管理会议资源、确定使用的音频或视频编解码器。</li>
+</ol>
+</li>
+<li>H.323包括以下一些组成部分：<ol>
+<li><strong>音频编解码器</strong> 　H.323要求至少要支持G.711（64kbit&#x2F;s的PCM）。建议支持如G.722（16kbit&#x2F;s的ADPCM），G.723.1（5.3&#x2F;6.3的LPC），G．728（16kbit&#x2F;s的低时延CELP）和G.729（8kbit&#x2F;s的CS-ACELP）等。</li>
+<li><strong>视频编解码器</strong> 　H.323要求必须支持H.261标准（176×144像素）。</li>
+<li>H.255.0<strong>登记信令</strong> ，即<strong>登记&#x2F;接纳&#x2F;状态</strong> RAS。H.323终端和网闸使用RAS来完成登记、接纳控制和带宽转换等功能。</li>
+<li>H.225.0<strong>呼叫信令</strong> 　用来在两个H.323端点之间建立连接。</li>
+<li>![[Pasted image 20230814163356.png]]</li>
+</ol>
+</li>
+</ul>
+<p>（5）H.245<strong>控制信令</strong> 　用来交换端到端的控制报文，以便管理H.323端点的运行。</p>
+<p>（6）T.120<strong>数据传送协议</strong> 　这是与呼叫相关联的数据交换协议。用户在参加音频&#x2F;视频会议时，可以和其他与会用户共享屏幕上的白板。由于使用TCP协议，因此能够保证数据传送的正确（在传送音频&#x2F;视频文件时使用的是UDP，因此不能保证服务质量）。</p>
+<p>（7）<strong>实时运输协议</strong> RTP和<strong>实时运输控制协议</strong> RTCP　这两个协议前面已讨论。</p>
+<h2 id="8-3-6-会话发起协议SIP"><a href="#8-3-6-会话发起协议SIP" class="headerlink" title="8.3.6 会话发起协议SIP"></a>8.3.6 会话发起协议SIP</h2><ul>
+<li>一套较为简单且实用的标准，即<strong>会话发起协议SIP</strong>，目前已成为互联网的建议标准。</li>
+<li>SIP协议的出发点是以互联网为基础，而把IP电话视为互联网上的新应用。因此SIP协议只涉及到IP电话所需的信令和有关服务质量的问题，而没有提供像H.323那样多的功能。SIP没有强制使用特定的编解码器，也不强制使用RTP协议。</li>
+<li>SIP使用文本方式的客户服务器协议。SIP系统只有两种构件，即<strong>用户代理</strong>和<strong>网络服务器</strong>。用户代理包括两个程序，即<strong>用户代理客户</strong> UAC和用户代理服务器UAS，前者用来发起呼叫，后者用来接受呼叫。网络服务器分为<strong>代理服务器</strong>和<strong>重定向服务器</strong>。代理服务器接受来自主叫用户的呼叫请求（实际上是来自用户代理客户的呼叫请求），并将其转发给被叫用户或下一跳代理服务器，然后下一跳代理服务器再把呼叫请求转发给被叫用户（实际上是转发给用户代理服务器）。重定向服务器不接受呼叫，它通过响应告诉客户下一跳代理服务器的地址，由客户按此地址向下一跳代理服务器重新发送呼叫请求。</li>
+<li>SIP的地址十分灵活。它可以是电话号码，也可以是电子邮件地址、IP地址或其他类型的地址。但一定要使用SIP的地址格式，例如：<ol>
+<li>电话号码　　　sip：zhangsan@8625-87654321</li>
+<li>IPv4地址　　　sip：<a href="mailto:&#122;&#104;&#97;&#110;&#103;&#115;&#x61;&#x6e;&#64;&#50;&#x30;&#49;&#46;&#x31;&#50;&#46;&#51;&#52;&#46;&#53;&#54;">&#122;&#104;&#97;&#110;&#103;&#115;&#x61;&#x6e;&#64;&#50;&#x30;&#49;&#46;&#x31;&#50;&#46;&#51;&#52;&#46;&#53;&#54;</a></li>
+<li>电子邮件地址　　sip：<a href="mailto:&#x7a;&#104;&#97;&#110;&#x67;&#115;&#x61;&#110;&#x40;&#x31;&#x36;&#x33;&#46;&#99;&#111;&#109;">&#x7a;&#104;&#97;&#110;&#x67;&#115;&#x61;&#110;&#x40;&#x31;&#x36;&#x33;&#46;&#99;&#111;&#109;</a></li>
+</ol>
+</li>
+<li>SIP的会话共有三个阶段：建立会话、通信和终止会话。</li>
+<li>SIP有一种跟踪用户的机制，可以找出被叫方使用的PC的IP地址（例如，被叫方使用DHCP，因而没有固定的IP地址）。为了实现跟踪，SIP使用登记的概念。SIP定义一些服务器作为SIP<strong>登记器</strong>。每一个SIP用户都有一个相关联的SIP登记器。用户在任何时候发起SIP应用时，都应当给SIP登记器发送一个SIP REGISTER报文，向登记器报告现在使用的IP地址。SIP登记器和SIP代理服务器通常运行在同一台主机上。</li>
+<li>SIP还有一个配套协议是<strong>会话描述协议</strong> SDP。SDP在电话会议的情况下特别重要，因为电话会议的参加者是<strong>动态地加入和退出</strong>。SDP详细地指明了媒体编码、协议的端口号以及多播地址。</li>
+</ul>
+<h1 id="8-4-改进“尽最大努力交付”的服务"><a href="#8-4-改进“尽最大努力交付”的服务" class="headerlink" title="8.4 改进“尽最大努力交付”的服务"></a>8.4 改进“尽最大努力交付”的服务</h1><h2 id="8-4-1-使互联网提供服务质量"><a href="#8-4-1-使互联网提供服务质量" class="headerlink" title="8.4.1 使互联网提供服务质量"></a>8.4.1 使互联网提供服务质量</h2><ul>
+<li>根据ITU-T在建议书E.800中给出的定义，<strong>服务质量QoS是服务性能的总效果，此效果决定了一个用户对服务的满意程度</strong>。</li>
+<li>四种情况：<ol>
+<li>一个1Mbit&#x2F;s的实时音频数据和一个FTP文件数据；<strong>给不同性质的分组打上不同的标记</strong>。</li>
+<li>一个1Mbit&#x2F;s的实时音频数据和一个高优先级的FTP文件数据；使路由器增加一种机制——<strong>分类</strong>，即路由器根据某些准则（例如，根据发送数据的地址）对输入分组进行分类，然后对不同类别的通信量给予不同的优先级。</li>
+<li>一个数据率异常的实时音频数据和一个FTP文件数据；使路由器能够对某个数据流进行通信量的<strong>管制</strong>，使得这个数据流不要影响其他正常的数据流在网络中通过。</li>
+<li>H 1 和H 2 都发送数据率为1Mbit&#x2F;s的实时数据；<strong>呼叫接纳</strong>。</li>
+</ol>
+</li>
+</ul>
+<h2 id="8-4-2-调度和管制机制"><a href="#8-4-2-调度和管制机制" class="headerlink" title="8.4.2 调度和管制机制"></a>8.4.2 调度和管制机制</h2><ul>
+<li><strong>调度机制</strong><ol>
+<li>在先进先出的基础上增加<strong>按优先级排队</strong>，就能使优先级高的分组优先得到服务。</li>
+<li>简单地按优先级排队会带来一个缺点，这就是在高优先级队列中总是有分组时，低优先级队列中的分组就长期得不到服务。这就不太公平。<strong>公平排队</strong> FQ可解决这一问题。公平排队是对每种类别的分组流设置一个队列，然后轮流使每一个队列一次只能发送一个分组。对于空的队列就跳过去。但公平排队也有不公平的地方，这就是长分组得到的服务时间长，而短分组就比较吃亏，并且公平排队并没有区分分组的优先级。</li>
+<li>为了使高优先级队列中的分组有多的机会得到服务，可增加队列“<strong>权重</strong>”的概念，这就是<strong>加权公平排队</strong> WFQ。</li>
+</ol>
+</li>
+<li><strong>管制机制</strong><ol>
+<li>对一个数据流，可根据以下三个方面进行管制：<ul>
+<li><strong>平均速率</strong> 　网络需要控制一个数据流的平均速率。这里的平均速率是指在<strong>一定的时间间隔内通过的分组数</strong>。</li>
+<li><strong>峰值速率</strong> 　峰值速率限制了数据流在非常短的时间间隔内的流量。</li>
+<li><strong>突发长度</strong> 　网络也限制在非常短的时间间隔内连续注入到网络中的分组数。</li>
+</ul>
+</li>
+<li>要在网络中对进入网络的分组流按以上三个指标进行管制，可使用非常著名的<strong>漏桶管制器</strong>（可简称为<strong>漏桶</strong>）。</li>
+</ol>
+</li>
+<li><strong>漏桶机制与加权公平排队相结合</strong><ol>
+<li>把漏桶机制与加权公平排队结合起来，可以控制队列中的最大时延。</li>
+</ol>
+</li>
+</ul>
+<h2 id="8-4-3-综合服务IntServ与资源预留协议RSVP"><a href="#8-4-3-综合服务IntServ与资源预留协议RSVP" class="headerlink" title="8.4.3 综合服务IntServ与资源预留协议RSVP"></a>8.4.3 综合服务IntServ与资源预留协议RSVP</h2><ul>
+<li>IntServ可对单个的应用会话提供服务质量的保证，其主要特点有二：<ol>
+<li><strong>资源预留</strong>    一个路由器需要知道给不断出现的会话已经预留了多少资源（即链路带宽和缓存空间）。</li>
+<li><strong>呼叫建立</strong>    一个需要服务质量保证的会话，必须首先在源点到终点路径上的<strong>每一个</strong> 路由器预留足够的资源，以保证其端到端的服务质量的要求。因此，在一个会话开始之前必须先有一个<strong>呼叫建立</strong>（又称为<strong>呼叫接纳</strong>）过程，它需要在其分组传输路径上的每一个路由器都参加。每一个路由器都要确定该会话所需的本地资源是否够用，同时还不要影响到已经建立的会话的服务质量。</li>
+</ol>
+</li>
+<li>IntServ定义了两类服务：<ol>
+<li><strong>有保证的服务</strong>，可保证一个分组在通过路由器时的排队时延有一个严格的上限。</li>
+<li><strong>受控负载的服务</strong> ，可以使应用程序得到比通常的“尽最大努力”更加可靠的服务。</li>
+</ol>
+</li>
+<li>IntServ共有以下四个组成部分：<ol>
+<li><strong>资源预留协议</strong> RSVP，它是IntServ的信令协议。</li>
+<li><strong>接纳控制</strong>，用来决定是否同意对某一资源的请求。</li>
+<li><strong>分类器</strong>，用来把进入路由器的分组进行分类，并根据分类的结果把不同类别的分组放入特定的队列。</li>
+<li><strong>调度器</strong>，根据服务质量要求决定分组发送的前后顺序。、</li>
+</ol>
+</li>
+<li>IntServ&#x2F;RSVP所基于的概念是端系统中与分组流有关的状态信息。各路由器中的预留信息<strong>只存储有限的时间</strong>（这称为<strong>软状态</strong> soft-state），因而各终点对这些预留信息<strong>必须定期进行更新</strong>。RSVP协议不是运输层协议而是网络层的控制协议。RSVP不携带应用数据。图8-25给出了在路由器中实现的IntServ体系结构。<ol>
+<li>![[Pasted image 20230814164223.png]]</li>
+</ol>
+</li>
+<li>IntServ体系结构分为前台和后台两个部分。前台部分画在下面，包括两个功能块，即<strong>分类器与分组转发</strong>，分组的<strong>调度器</strong>。每一个进入路由器的分组都要通过这两个功能块。后台部分画在上面（有灰色阴影的部分），包括四个功能块和两个数据库。这四个功能块是：<ol>
+<li>路由选择协议，负责维持路由选择数据库。由此可查找出对应于每一个目的地址和每一个流的下一跳地址。</li>
+<li>RSVP协议，为每一个流预留必要的资源，并不断地更新通信量控制数据库。</li>
+<li>接纳控制，当一个新的流产生时，RSVP就调用接纳控制功能块，以便确定是否有足够的资源可供这个流使用。</li>
+<li>管理代理，用来修改通信量控制数据库和管理接纳控制功能块，包括设置接纳控制策略。</li>
+</ol>
+</li>
+<li>综合服务IntServ体系结构存在的主要问题是：<ol>
+<li><strong>状态信息的数量与流的数目成正比</strong>。例如，对于OC-48链路（2.5Gbit&#x2F;s）上的主干网路由器，通过64kbit&#x2F;s的音频流的数目就超过39000个。如果对数据率再进行压缩，则流的数目就更多。因此在大型网络中，按每个流进行资源预留会产生很大的开销。</li>
+<li>IntServ<strong>体系结构复杂</strong> 。若要得到有保证的服务，<strong>所有的路由器都必须装有</strong> RSVP、<strong>接纳控制、分类器和调度器</strong>。这种路由器称为RSVP路由器。在应用数据传送的路径中只要有一个路由器是非RSVP路由器，整个的服务就又变为“尽最大努力交付”了。</li>
+<li>综合服务IntServ所定义的<strong>服务质量等级数量太少，不够灵活</strong>。</li>
+</ol>
+</li>
+</ul>
+<h2 id="8-4-4-区分服务DiffServ"><a href="#8-4-4-区分服务DiffServ" class="headerlink" title="8.4.4 区分服务DiffServ"></a>8.4.4 区分服务DiffServ</h2><ul>
+<li><strong>区分服务的基本概念</strong><ol>
+<li>由于综合服务IntServ和资源预留协议RSVP都较复杂，很难在大规模的网络中实现，因此IETF提出了一种新的策略，即<strong>区分服务</strong> DiffServ。</li>
+<li>区分服务DiffServ的要点如下：<ul>
+<li>DiffServ力图不改变网络的基础结构，但在路由器中<strong>增加区分服务的功能</strong>。因此，DiffServ将IP协议中原有8位的IPv4的服务类型字段和IPv6的通信量类字段重新定义为<strong>区分服务</strong> DS（见图8-26）。路由器根据DS字段的值来处理分组的转发。因此，<strong>利用DS字段的不同数值就可提供不同等级的服务质量</strong>。DS字段现在只使用其中的前6位，即<strong>区分服务码点</strong> DSCP，再后面的两位目前不使用，记为CU。因此由DS字段的值所确定的服务质量实际上就是由DS字段中DSCP的值来确定。在使用DS字段之前，互联网的ISP要和用户商定一个<strong>服务等级协定</strong> SLA。在SLA中指明了被支持的服务类别（可包括吞吐量、分组丢失率、时延和时延抖动、网络的可用性等）和每一类别所容许的通信量。<ol>
+<li>![[Pasted image 20230814164427.png]]</li>
+</ol>
+</li>
+<li>网络被划分为许多个DS域。一个DS域在一个管理实体的控制下实现同样的区分服务策略。<strong>DiffServ将所有的复杂性放在DS域的边界结点中，而使DS域内部路由器工作得尽可能简单</strong>。边界结点可以是主机、路由器或防火墙等。为了简单起见，下面只讨论边界结点是边界路由器的情况（原理都是一样的）。图8-27给出了DS域、<strong>边界路由器</strong>和<strong>内部路由器</strong>的示意图。图中标有B的路由器都是边界路由器。<ol>
+<li>![[Pasted image 20230814164517.png]]</li>
+</ol>
+</li>
+<li>边界路由器中的功能较多，可分为<strong>分类器</strong>和<strong>通信量调节器</strong> 两大部分。调节器又由<strong>标记器、</strong>整形器<strong>和</strong>测定器**三个部分组成。分类器根据分组首部中的一些字段（如源地址、目的地址、源端口、目的端口或分组的标识等）对分组进行分类，然后将分组交给标记器。标记器根据分组的类别设置DS字段的值。以后在分组的转发过程中，就根据DS字段的值使分组得到相应的服务。测定器根据事先商定的SLA不断地测定分组流的速率（与事前商定的数值相比较），然后确定应采取的行动，例如，可重新打标记或交给整形器进行处理。整形器中设有缓存队列，可以将突发的分组峰值速率平滑为较均匀的速率，或丢弃一些分组。在分组进入内部路由器后，路由器就根据分组的DS值进行转发。图8-28给出了边界路由器中各功能块的关系。<ol>
+<li>![[Pasted image 20230814164607.png]]</li>
+</ol>
+</li>
+<li>DiffServ提供了一种<strong>聚合</strong>功能。DiffServ不是为网络中的每一个流维持供转发时使用的状态信息，而是把若干个流根据其DS值聚合成少量的流。路由器对相同DS值的流都按相同的优先级进行转发。这就大大简化了网络内部的路由器的转发机制。区分服务DiffServ不需要使用RSVP信令。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><strong>每跳行为PHB</strong><ol>
+<li>DiffServ定义了在转发分组时体现服务水平的<strong>每跳行为</strong> PHB</li>
+<li>IETF的DiffServ工作组已经定义了两种PHB，即<strong>迅速转发</strong> PHB和<strong>确保转发</strong> PHB。</li>
+<li><strong>迅速转发</strong> PBH可记为EF PHB，或EF。EF指明离开一个路由器的通信量的数据率必须等于或大于某一数值。因此EF PHB用来构造通过DS域的一个低丢失率、低时延、低时延抖动、确保带宽的端到端服务（即不排队或很少排队）。</li>
+<li><strong>确保转发</strong> PHB可记为AF PHB或AF。AF用DSCP的第0～2位把通信量划分为四个等级（分别为001，010，011和100），并给每一种等级提供最低数量的带宽和缓存空间。对于其中的每一个等级再用DSCP的第3～5位划分出三个“丢弃优先级”（分别为010，100和110，从最低丢弃优先级到最高丢弃优先级）。当发生网络拥塞时，对于每一个等级的AF，路由器就首先把“丢弃优先级”较高的分组丢弃。</li>
+</ol>
+</li>
+</ul>
+<h1 id="本章的重要概念"><a href="#本章的重要概念" class="headerlink" title="本章的重要概念"></a>本章的重要概念</h1><ul>
+<li>多媒体信息有两个重要特点：（1）多媒体信息的信息量往往很大；（2）在传输多媒体数据时，对时延和时延抖动均有较高的要求。在互联网上传输多媒体数据时，我们都是指含有“边传输、边播放”的特点。</li>
+<li>由多媒体信息构成的分组在发送时是等时的。这些分组在到达接收端时就变成为非等时的。当接收端缓存中的分组数达到一定的数量后，再以恒定速率按顺序将这些分组进行还原播放。这样就产生了播放时延，同时也可以在很大程度上消除时延的抖动。</li>
+<li>在传送时延敏感的实时数据时，传输时延和时延抖动都必须受到限制。通常宁可丢失少量分组，也不要接收太晚到达的分组。</li>
+<li>目前互联网提供的音频&#x2F;视频服务有三种类型：（1）流式存储音频&#x2F;视频，用户通过互联网边下载、边播放。（2）流式实况音频&#x2F;视频，其特点是在发送方边录制、边发送，在接收时也是要求能够连续播放。（3）交互式音频&#x2F;视频，如互联网电话或互联网电视会议。</li>
+<li>流媒体（streamingm edia）就是流式音频&#x2F;视频，其特点是边下载、边播放，但不能存储在硬盘上成为用户的文件。</li>
+<li>媒体服务器（或称为流式服务器）可以更好地支持流式音频和视频的传送。TCP能够保证流式音频&#x2F;视频文件的播放质量，但开始播放的时间要比请求播放的时间滞后一些（必须先在缓存中存储一定数量的分组）。对于实时流式音频&#x2F;视频文件的传送则应当选用UDP。</li>
+<li>实时流式协议RTSP是为了给流式过程增加更多功能而设计的协议。RTSP本身并不传送数据，而仅仅是使媒体播放器能够控制多媒体流的传送。RTSP又称为“互联网录像机遥控协议”。</li>
+<li>狭义的IP电话是指在IP网络上打电话。广义的IP电话则不仅是电话通信，而且还可以在IP网络上进行交互式多媒体实时通信（包括话音、视像等），甚至还包括即时传信IM（如QQ和Skype等）。</li>
+<li>IP电话的通话质量主要由两个因素决定：（1）通话双方端到端的时延和时延抖动；（2）话音分组的丢失率。但这两个因素都是不确定的，而是取决于当时网络上的通信量。</li>
+<li>实时运输协议RTP为实时应用提供端到端的运输，但不提供任何服务质量的保证。需要发送的多媒体数据块（音频&#x2F;视频）经过压缩编码处理后，先送给RTP封装成为RTP分组，装入运输层的UDP用户数据报后，再向下递交给IP层。可以把RTP看成是在UDP之上的一个运输层子层的协议。</li>
+<li>实时运输控制协议RTCP是与RTP配合使用的协议。RTCP协议的主要功能是：服务质量的监视与反馈，媒体间的同步，以及多播组中成员的标志。RTCP分组也使用UDP来传送，但RTCP并不对音频&#x2F;视频分组进行封装。</li>
+<li>现在IP电话有两套信令标准。一套是ITU-T定义的H.323协议，另一套是IETF提出的会话发起协议SIP。</li>
+<li>H.323不是一个单独的协议而是一组协议。H.323包括系统和构件的描述、呼叫模型的描述、呼叫信令过程、控制报文、复用、话音编解码器、视像编解码器，以及数据协议等。H.323标准的四个构件是：（1）H.323终端；（2）网关；（3）网闸；（4）多点控制单元MCU。</li>
+<li>会话发起协议SIP只涉及到IP电话所需的信令和有关服务质量的问题。SIP使用文本方式的客户服务器协议。SIP系统只有两种构件，即用户代理（包括用户代理客户和用户代理服务器）和网络服务器（包括代理服务器和重定向服务器）。SIP的地址十分灵活，它可以是电话号码，也可以是电子邮件地址、IP地址或其他类型的地址。</li>
+<li>服务质量QoS是服务性能的总效果，此效果决定了一个用户对服务的满意程度。因此，有服务质量的服务就是能够满足用户的应用需求的服务。或者说，可提供一致的、可预计的数据交付服务。</li>
+<li>服务质量可用若干基本的性能指标来描述，包括可用性、差错率、响应时间、吞吐量、分组丢失率、连接建立时间、故障检测和改正时间等。服务提供者可向其用户保证某一种等级的服务质量。</li>
+<li>为了使互联网具有一定的服务质量，可采取以下一些措施：（1）分类，如区分服务；（2）管制；（3）调度；（4）呼叫接纳；（5）加权公平排队等。</li>
+<li>综合服务IntServ可对单个的应用会话提供服务质量的保证，它定义了两类服务，即有保证的服务和受控负载的服务。IntServ共有以下四个组成部分，即（1）资源预留协议RSVP；（2）接纳控制；（3）分类器；（4）调度器。</li>
+<li>区分服务DiffServ在路由器中增加区分服务的功能，把IP协议中原有的服务类型字段重新定义为区分服务DS，利用DS字段的不同数值提供不同等级的服务质量。DiffServ将所有的复杂性放在DS域的边界结点中，而使DS域内部路由器工作得尽可能地简单。DiffServ定义了在转发分组时体现服务水平的每跳行为PHB，包括EF和AF，即迅速转发PHB和确保转发PHB。****</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Chipfron</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://chipfron.github.io/2024/04/20/study/ji-suan-ji-wang-luo/di-8-zhang-hu-lian-wang-shang-de-yin-pin-shi-pin-fu-wu/">https://chipfron.github.io/2024/04/20/study/ji-suan-ji-wang-luo/di-8-zhang-hu-lian-wang-shang-de-yin-pin-shi-pin-fu-wu/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Chipfron</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                                    <span class="chip bg-color">计算机网络</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/04/20/study/ji-suan-ji-wang-luo/di-9-zhang-wu-xian-wang-luo-he-yi-dong-wang-luo/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="第9章 无线网络和移动网络">
+                        
+                        <span class="card-title">第9章 无线网络和移动网络</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-04-20
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Chipfron
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">计算机网络</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/04/20/study/ji-suan-ji-wang-luo/di-7-zhang-wang-luo-an-quan/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="第7章 网络安全">
+                        
+                        <span class="card-title">第7章 网络安全</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-04-20
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Chipfron
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">计算机网络</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2023-2024</span>
+            
+            <a href="/about" target="_blank">Chipfron</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">315k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/chipfron" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1325964828@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1325964828" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1325964828" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/snow.js"><\/script>');
+            }
+        </script>
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

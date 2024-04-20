@@ -1,0 +1,1517 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="第1章 概述, 编程">
+    <meta name="description" content="1.1 计算机网络在信息时代中的作用
+互联网具有两个重要基本特点，连通性和共享。
+连通性：互联网使上网用户之间，不管相距多远，都可以非常便捷、非常经济地交换各种信息。
+共享指资源共享。资源共享可以是信息共享、软件共享，也可以是硬件共享。
+
+">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>第1章 概述 | 七破风的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">七破风的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/navigate" class="waves-effect waves-light">
+      
+      <i class="fas fa-location-arrow" style="zoom: 0.6;"></i>
+      
+      <span>导航</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">七破风的博客</div>
+        <div class="logo-desc">
+            
+            高高山顶立，深深海底行。
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/navigate" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-location-arrow"></i>
+			
+			导航
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">第1章 概述</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                                <span class="chip bg-color">计算机网络</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-04-20
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-04-20
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    10.1k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    34 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="1-1-计算机网络在信息时代中的作用"><a href="#1-1-计算机网络在信息时代中的作用" class="headerlink" title="1.1 计算机网络在信息时代中的作用"></a>1.1 计算机网络在信息时代中的作用</h1><ul>
+<li>互联网具有两个重要基本特点，<strong>连通性</strong>和<strong>共享</strong>。<ol>
+<li>连通性：互联网使上网用户之间，不管相距多远，都可以非常便捷、非常经济地交换各种信息。</li>
+<li>共享指<strong>资源共享</strong>。资源共享可以是信息共享、软件共享，也可以是硬件共享。</li>
+</ol>
+</li>
+</ul>
+<h1 id="1-2-互联网概述"><a href="#1-2-互联网概述" class="headerlink" title="1.2 互联网概述"></a>1.2 互联网概述</h1><h2 id="1-2-1-网络的网络"><a href="#1-2-1-网络的网络" class="headerlink" title="1.2.1 网络的网络"></a>1.2.1 网络的网络</h2><ul>
+<li><strong>计算机网络</strong>（简称为<strong>网络</strong>）由若干<strong>结点</strong>和连接这些结点的<strong>链路</strong>组成。网络中的结点可以是计算机、集线器、交换机或路由器等。图 1-1(a) 给出了一个具有四个结点和三条链路的网络。有三台计算机通过三条链路连接到一个集线器上，构成了一个简单的计算机网络。可以用一朵云表示一个网络。</li>
+<li>网络之间通过路由器互连起来，构成覆盖范围更大的计算机网络。这样的网络称为<strong>互连网</strong>，如图 1-1(b) 所示。因此互连网是“<strong>网络的网络</strong>”。</li>
+<li><img src="https://cdn.jsdelivr.net/gh/chipfron/Image_/test_Pasted%20image%2020230630153611.png"></li>
+<li><strong>网络把许多计算机连接在一起，而互连网则把许多网络通过路由器连接在一起。与网络相连的计算机常称为主机。</strong></li>
+</ul>
+<h2 id="1-2-2-互联网基础结构发展的三个阶段"><a href="#1-2-2-互联网基础结构发展的三个阶段" class="headerlink" title="1.2.2 互联网基础结构发展的三个阶段"></a>1.2.2 <strong>互联网基础结构发展的三个阶段</strong></h2><ul>
+<li>第一阶段是从单个网络 ARPANET 向互连网发展的过程。</li>
+<li>第二阶段的特点是建成了<strong>三级结构的互联网</strong>。</li>
+<li>第三阶段的特点是逐渐形成了<strong>多层次 ISP 结构的互联网</strong>。</li>
+</ul>
+<h2 id="1-2-3-互联网的标准化工作"><a href="#1-2-3-互联网的标准化工作" class="headerlink" title="1.2.3 互联网的标准化工作"></a>1.2.3 <strong>互联网的标准化工作</strong></h2><ul>
+<li>国际性组织<strong>互联网协会</strong> (简称 ISOC)，对互联网进行全面管理以及在世界范围内促进其发展和使用。ISOC 下面有一个技术组织叫做<strong>互联网体系结构委员会</strong> (简称 IAB)，负责管理互联网有关协议的开发。IAB 下面又设有两个工程部：<ol>
+<li><strong>互联网工程部</strong>（简称 IETF）</li>
+<li><strong>互联网研究部</strong>（简称 IRTF）</li>
+</ol>
+</li>
+<li>制定互联网的正式标准要经过以下三个阶段：<ol>
+<li><strong>互联网草案</strong>——互联网草案的有效期只有六个月。在这个阶段还不能算是 RFC 文档。</li>
+<li><strong>建议标准</strong>——从这个阶段开始就成为 RFC 文档。</li>
+<li><strong>互联网标准</strong>——达到正式标准后，每个标准就分配到一个编号 STD xx。一个标准可以和多个RFC 文档关联。截止到 2016 年 7 月，互联网标准的最大编号是 STD 83。</li>
+</ol>
+</li>
+</ul>
+<h1 id="1-3-互联网的组成"><a href="#1-3-互联网的组成" class="headerlink" title="1.3 互联网的组成"></a>1.3 互联网的组成</h1><ul>
+<li>互联网的拓扑结构非常复杂，并且覆盖了全球，从工作方式上看，划分为以下两大块：<ol>
+<li><strong>边缘部分</strong>：由所有连接在互联网上的主机组成。<strong>用户直接使用</strong>，用来进行通信和资源共享。</li>
+<li><strong>核心部分</strong>：由大量网络和连接这些网络的路由器组成。<strong>为边缘部分提供服务的</strong>。</li>
+<li><img src="https://cdn.jsdelivr.net/gh/chipfron/Image_/test_Pasted%20image%2020230630205219.png"></li>
+</ol>
+</li>
+</ul>
+<h2 id="1-3-1-互联网的边缘部分"><a href="#1-3-1-互联网的边缘部分" class="headerlink" title="1.3.1 互联网的边缘部分"></a>1.3.1 <strong>互联网的边缘部分</strong></h2><ol>
+<li><strong>计算机之间通信</strong>：<strong>主机 A 的某个进程和主机 B 上的另一个进程进行通信</strong></li>
+<li><strong>客户——服务器方式</strong><ul>
+<li><strong>客户</strong>和<strong>服务器</strong>是指通信中所涉及的两个应用进程。客户——服务器方式所描述的是进程之间服务和被服务的关系。</li>
+<li><strong>客户是服务请求方，服务器是服务提供方。</strong></li>
+<li><img src="https://cdn.jsdelivr.net/gh/chipfron/Image_/test_Pasted%20image%2020230630205735.png"></li>
+<li><strong>客户程序：</strong><ol>
+<li>被用户调用后运行，在通信时主动向远地服务器发起通信（请求服务）。客户程序必须知道服务器程序的地址。</li>
+<li>不需要特殊的硬件和复杂的操作系统。</li>
+</ol>
+</li>
+<li><strong>服务器程序：</strong><ol>
+<li>是一种用来提供某种服务的程序，<strong>可同时处理</strong>多个远地或本地客户的请求。</li>
+<li>系统启动后即自动调用并一直不断地运行着，被动地等待并接受来自各地的客户的通信请求。服务器程序不需要知道客户程序的地址。</li>
+<li>需要有强大的硬件和高级的操作系统支持。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><strong>对等连接方式</strong><ul>
+<li><strong>对等连接</strong> (简称 P2P) 指两台主机在通信时并不区分哪一个是服务请求方哪一个是服务提供方。只要两台主机运行了对等连接软件 (P2P 软件)，就可以进行平等的、对等连接通信。双方都可以下载对方已经存储在硬盘中的共享文档。因此这种工作方式也称为 <strong>P2P 方式</strong> 。</li>
+<li><img src="https://cdn.jsdelivr.net/gh/chipfron/Image_/test_Pasted%20image%2020230630223247.png"></li>
+</ul>
+</li>
+</ol>
+<h2 id="1-3-2-互联网的核心部分"><a href="#1-3-2-互联网的核心部分" class="headerlink" title="1.3.2 互联网的核心部分"></a>1.3.2 互联网的核心部分</h2><ol>
+<li>在网络核心部分起特殊作用的是<strong>路由器</strong>，是一种专用计算机。路由器是实现<strong>分组交换</strong>的关键构件，任务是<strong>转发收到的分组</strong>，是网络核心部分最重要的功能。</li>
+<li><strong>电路交换的主要特点</strong><ul>
+<li>从通信资源的分配角度来看，<strong>交换</strong>是按照某种方式动态地分配传输线路的资源</li>
+<li>必须经过“<strong>建立连接</strong> (占用通信资源) →<strong>通话</strong> (一直占用通信资源) →<strong>释放连接</strong> (归还通信资源) ”三个步骤的交换方式称为<strong>电路交换</strong>。</li>
+<li><strong>在通话的全部时间内，通话的两个用户始终占用端到端的通信资源</strong>。</li>
+<li>使用电路交换来传送计算机数据时，<strong>线路的传输效率很低</strong>。因为计算机数据是突发式地出现在传输线路上的，因此线路上真正用来传送数据的时间很短。已被用户占用的通信线路资源在绝大部分时间里都是空闲的。</li>
+</ul>
+</li>
+<li><strong>分组交换的主要特点</strong><ul>
+<li>分组交换采用<strong>存储转发</strong>技术。</li>
+<li>把要发送的整块数据称为一个<strong>报文</strong>。在发送报文前，把较长的报文划分成为一个个更小的等长数据段。在每一个数据段前，加上由必要的控制信息组成的<strong>首部</strong> (包头) 后，构成一个<strong>分组</strong> (包)。分组是在互联网中传送的数据单元。分组的首部包含目的地址和源地址等，使分组能在互联网中独立地选择传输路径，并被正确地交付到分组传输的终点。</li>
+<li>位于网络边缘的主机和位于网络核心部分的路由器都是计算机，但作用不一样。<strong>主机是为用户进行信息处理的</strong>，并且可以和其他主机通过网络交换信息。<strong>路由器则是用来转发分组的，进行分组交换的</strong>。路由器收到一个分组，先暂时存储，检查其首部，查找转发表，按照首部中的目的地址，找到合适的接口转发出去，把分组交给下一个路由器。这样一步一步地以存储转发的方式，把分组交付最终的目的主机。各路由器之间必须经常交换彼此掌握的路由信息，以便创建和动态维护路由器中的转发表，使得转发表能够在整个网络拓扑发生变化时及时更新。</li>
+<li><strong>分组交换的优点</strong>：<ol>
+<li>高效：在分组传输的过程中动态分配传输带宽，对通信链路是逐段占用</li>
+<li>灵活：为每一个分组选择合适的转发路由</li>
+<li>迅速：以分组作为传送单位，可以不先建立连接就能向其他主机发送分组</li>
+<li>可靠：保证可靠性的网络协议；分布式多路由的分组交换网，使网络有很好的生存性</li>
+</ol>
+</li>
+<li><strong>分组交换的缺点</strong>：<ol>
+<li>分组在各路由器存储转发时需要排队，会造成<strong>时延</strong>。由于分组交换不像电路交换那样通过建立连接来保证通信时所需的各种资源，因而无法确保通信时端到端所需的带宽。</li>
+<li>各分组必须携带的控制信息造成了<strong>开销</strong>。分组交换网需要专门的管理和控制机制。</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>三种交换的比较<ol>
+<li><strong>电路交换</strong>——整个报文的比特流连续地从源点直达终点</li>
+<li><strong>报文交换</strong>——整个报文先传送到相邻结点，全部存储下来后查找转发表，转发到下一个结点。</li>
+<li><strong>分组交换</strong>——单个分组 (这只是整个报文的一部分) 传送到相邻结点，存储下来后查找转发表，转发到下一个结点。</li>
+<li><img src="https://cdn.jsdelivr.net/gh/chipfron/Image_/test_Pasted%20image%2020230701111637.png"></li>
+</ol>
+</li>
+</ul>
+<h1 id="1-4-计算机网络在我国的发展"><a href="#1-4-计算机网络在我国的发展" class="headerlink" title="1.4 计算机网络在我国的发展"></a>1.4 计算机网络在我国的发展</h1><h1 id="1-5-计算机网络的类别"><a href="#1-5-计算机网络的类别" class="headerlink" title="1.5 计算机网络的类别"></a>1.5 计算机网络的类别</h1><h2 id="1-5-1-计算机网络的定义"><a href="#1-5-1-计算机网络的定义" class="headerlink" title="1.5.1 计算机网络的定义"></a>1.5.1 计算机网络的定义</h2><ul>
+<li><strong>计算机网络的定义</strong><ol>
+<li>计算机网络：计算机网络主要是由一些通用的、可编程的硬件互连而成的，这些硬件并非专门用来实现某一特定目的，它们能够用来传送多种不同类型的数据，并能支持广泛的和日益增长的应用。<ul>
+<li>计算机网络所连接的硬件，并不限于一般的计算机，还包括了智能手机；计算机网络并非专门用来传送数据，还能支持很多种的应用。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="1-5-2-几种不同类别的计算机网络"><a href="#1-5-2-几种不同类别的计算机网络" class="headerlink" title="1.5.2 几种不同类别的计算机网络"></a>1.5.2 几种不同类别的计算机网络</h2><ul>
+<li><strong>几种不同类别的计算机网络</strong><ol>
+<li><strong>按照网络的作用范围进行分类</strong><ul>
+<li><strong>广域网</strong> (WAN) 作用范围通常为几十到几千公里，也称<strong>远程网</strong>。广域网是互联网的核心部分，任务是长距离运送主机所发送的数据。连接广域网各结点交换机的链路一般都是高速链路，具有较大的通信容量。</li>
+<li><strong>城域网</strong> (MAN) 作用范围一般是城市，跨越几个街区甚至整个城市，作用距离约为 5～50km。城域网可以为一个或几个单位所拥有，也可以是一种公用设施，用来将多个局域网进行互连。目前很多城域网采用的是以太网技术，因此有时也常并入局域网的范围进行讨论。</li>
+<li><strong>局域网</strong> (LAN) 一般用微型计算机或工作站通过高速通信线路相连 (速率通常在10Mbit&#x2F;s 以上)，但地理上则局限在较小的范围 (如 1km 左右)。在局域网发展的初期，一个学校或工厂往往只拥有一个局域网，但现在局域网已非常广泛地使用，学校或企业大都拥有许多个互连的局域网 (这样的网络常称为<strong>校园网</strong>或<strong>企业网</strong>)。</li>
+<li><strong>个人区域网</strong> (PAN) 在个人工作的地方把属于个人使用的电子设备 (如便携式电脑) 用无线技术连接起来的网络，因此也常称为<strong>无线个人区域网</strong> (WPAN)，其范围很小，大约在10m左右。</li>
+</ul>
+</li>
+<li><strong>按照网络的使用者进行分类</strong><ul>
+<li><strong>公用网</strong>：电信公司 (国有或私有) 出资建造的大型网络。“公用”的意思就是所有愿意按电信公司的规定交纳费用的人都可以使用这种网络。因此公用网也可称为<strong>公众网</strong>。</li>
+<li><strong>专用网</strong>：某个部门为满足本单位的特殊业务工作的需要而建造的网络。这种网络不向本单位以外的人提供服务。例如，军队、铁路、银行、电力等系统均有本系统的专用网。</li>
+</ul>
+</li>
+<li><strong>用来把用户接入到互联网的网络</strong><ul>
+<li><strong>接入网</strong> (AN)，又称为<strong>本地接入网</strong>或<strong>居民接入网</strong></li>
+<li>接入网本身既不属于互联网的核心部分，也不属于互联网的边缘部分。是从某个用户端系统到互联网中的第一个路由器之间的一种网络。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h1 id="1-6-计算机网络的性能"><a href="#1-6-计算机网络的性能" class="headerlink" title="1.6 计算机网络的性能"></a>1.6 计算机网络的性能</h1><h2 id="1-6-1-计算机网络的性能"><a href="#1-6-1-计算机网络的性能" class="headerlink" title="1.6.1 计算机网络的性能"></a>1.6.1 计算机网络的性能</h2><ul>
+<li><strong>计算机网络的性能指标</strong><ol>
+<li>速率<ul>
+<li><strong>比特</strong>来源于 binary digit，意思是一个“<strong>二进制数字</strong>”，因此一个比特就是二进制数字中的一个 1 或 0。</li>
+<li>比特也是信息论中使用的<strong>信息量的单位</strong>。网络技术中的<strong>速率</strong>指的是<strong>数据的传送速率</strong>，它也称为<strong>数据率</strong>或<strong>比特率</strong>。</li>
+</ul>
+</li>
+<li><strong>带宽</strong><ul>
+<li>在计算机网络中，带宽用来表示网络中某<strong>通道</strong>传送数据的能力，因此网络带宽表示在单位时间内网络中的某信道所能通过的“<strong>最高数据率</strong>”。这种意义的<strong>带宽的单位</strong>就是<strong>数据率的单位</strong> bit&#x2F;s，是<strong>比特每秒</strong>。</li>
+<li>在“带宽”的上述两种表述中，前者为<strong>频域</strong>称谓，而后者为<strong>时域</strong>称谓，其本质是相同的。也就是说，一条通信链路的“带宽”越宽，其所能传输的“最高数据率”也越高。</li>
+</ul>
+</li>
+<li><strong>吞吐量</strong><ul>
+<li><strong>吞吐量</strong>表示在单位时间内通过某个网络的实际的数据量。</li>
+<li>吞吐量受网络的带宽或网络的额定速率的限制。</li>
+</ul>
+</li>
+<li><strong>时延</strong><ul>
+<li><strong>时延</strong>指数据从网络的一端传送到另一端所需的时间。</li>
+<li>时延是很重要的性能指标，有时也称为延迟或迟延。</li>
+<li>时延由以下组成：<ol>
+<li><strong>发送时延</strong>　发送时延是主机或路由器发送数据帧所需要的时间，从发送数据帧的第一个比特算起，到该帧的最后一个比特发送完毕所需的时间。因此发送时延也叫做<strong>传输时延</strong>。发送时延的计算公式是：<ul>
+<li><img src="https://cdn.jsdelivr.net/gh/chipfron/Image_/test_Pasted%20image%2020230701153549.png"></li>
+<li>发送时延并非固定不变，而是与发送的帧长成正比，与发送速率成反比。</li>
+</ul>
+</li>
+<li><strong>传播时延</strong>　传播时延是电磁波在信道中传播一定的距离需要花费的时间。传播时延的计算公式是：<ul>
+<li><img src="https://cdn.jsdelivr.net/gh/chipfron/Image_/test_Pasted%20image%2020230701153757.png"></li>
+<li>发送时延发生在机器内部的发送器中，<strong>与传输信道的长度 (或信号传送的距离) 没有关系</strong>。传播时延发生在机器外部的传输信道媒体上，<strong>与信号的发送速率无关</strong>。<strong>信号传送的距离越远，传播时延就越大</strong>。</li>
+</ul>
+</li>
+<li><strong>处理时延</strong> 　主机或路由器在收到分组时要花费时间进行处理，例如分析分组的首部、从分组中提取数据部分、进行差错检验或查找适当的路由等，这就产生了处理时延。</li>
+<li><strong>排队时延</strong> 　分组在经过网络传输时，要经过许多路由器。但分组在进入路由器后要先在输入队列中排队等待处理。在路由器确定了转发接口后，还要在输出队列中排队等待转发。这就产生了排队时延。排队时延的长短往往取决于网络当时的通信量。当网络的通信量很大时会发生队列溢出，使分组丢失，这相当于排队时延为无穷大。</li>
+<li>数据在网络中经历的总时延就是四种时延之和：<ul>
+<li><img src="https://cdn.jsdelivr.net/gh/chipfron/Image_/test_Pasted%20image%2020230702225623.png"></li>
+</ul>
+</li>
+<li><img src="https://cdn.jsdelivr.net/gh/chipfron/Image_/test_Pasted%20image%2020230702163416.png"></li>
+<li><strong>对于高速网络链路，提高的仅是数据的发送速率而不是比特在链路上的传播速率</strong>。</li>
+<li><strong>提高数据的发送速率减小了数据的发送时延</strong>。数据的发送速率的单位是每秒发送多少个比特，指在<strong>某个点</strong>或<strong>某个接口上</strong>的发送速率。而传播速率的单位是每秒传播多少公里，指在<strong>某一段传输线路上</strong>比特的传播速率。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><strong>时延带宽积</strong><ul>
+<li>把网络性能的两个度量——传播时延和带宽相乘，就得到另一个度量：传播<strong>时延带宽积</strong><ol>
+<li><img src="https://cdn.jsdelivr.net/gh/chipfron/Image_/test_Pasted%20image%2020230702163707.png"></li>
+<li><img src="https://cdn.jsdelivr.net/gh/chipfron/Image_/test_Pasted%20image%2020230702164122.png"></li>
+</ol>
+</li>
+<li>若发送端连续发送数据，则在发送的第一个比特即将达到终点时，发送端就已经发送了20 万个比特，而这 20 万个比特都正在链路上向前移动。因此，链路的时延带宽积又称为<strong>以比特为单位的链路长度</strong>。</li>
+</ul>
+</li>
+<li><strong>往返时间 RTT</strong><ul>
+<li>互联网上的信息不是单向传输而是双向交互的。</li>
+<li>A 向 B 发送数据。如果数据长度是 100MB，发送速率是 100Mbit&#x2F;s，那么<ol>
+<li><img src="https://cdn.jsdelivr.net/gh/chipfron/Image_/test_Pasted%20image%2020230702164237.png"></li>
+<li>如果 B 正确收完 100MB 的数据后，就立即向 A 发送确认。再假定 A 只有在收到 B 的确认信息后，才能继续向 B 发送数据。显然，这需要等待一个往返时间 RTT (这里假定确认信息很短，可忽略 B 发送确认的时间)。如果 RTT＝2s，那么可以算出 A 向 B 发送数据的有效数据率。</li>
+<li><img src="https://cdn.jsdelivr.net/gh/chipfron/Image_/test_Pasted%20image%2020230702164313.png"></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><strong>利用率</strong><ul>
+<li><strong>利用率</strong>有信道利用率和网络利用率两种。<ol>
+<li>信道利用率指出某信道有百分之几的时间是被利用的。完全空闲的信道利用率是零。</li>
+<li>网络利用率是全网络信道利用率的加权平均值。</li>
+<li>信道利用率并非越高越好。根据排队论的理论，当某信道的利用率增大时，该信道引起的时延也迅速增加。和高速公路的情况有些相似。当高速公路上的车流量很大时，由于在公路上的某些地方会出现堵塞，因此行车所需的时间就会变长。同样，当网络的通信量很少时，网络产生的时延并不大。但在网络通信量不断增大的情况下，由于分组在网络结点、进行处理时需要排队等候，因此网络引起的时延就会增大。</li>
+</ol>
+</li>
+<li>如果令 <em>D<sub>0</sub></em> 表示网络空闲时的时延，<em>D</em> 表示网络当前的时延，用下面的公式来表示 <em>D</em>，<em>D<sub>0</sub></em> 和利用率 <em>U</em> 之间的关系：<ol>
+<li><img src="https://cdn.jsdelivr.net/gh/chipfron/Image_/test_Pasted%20image%2020230702165329.png"></li>
+<li><em>U</em> 是网络的利用率，数值在 0 到 1 之间。当网络的利用率达到其容量的 1&#x2F;2 时，时延就要加倍。</li>
+<li>当网络的利用率接近最大值 1 时，网络的时延就趋于无穷大。</li>
+<li><strong>信道或网络的利用率过高会产生非常大的时延</strong></li>
+<li>一些拥有较大主干网的 ISP 通常控制信道利用率不超过 50％。如果超过了就要准备扩容，增大线路的带宽。</li>
+<li><img src="https://cdn.jsdelivr.net/gh/chipfron/Image_/test_Pasted%20image%2020230702205609.png"></li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="1-6-2-计算机网络的非性能特征"><a href="#1-6-2-计算机网络的非性能特征" class="headerlink" title="1.6.2 计算机网络的非性能特征"></a>1.6.2 计算机网络的非性能特征</h2><ul>
+<li><strong>计算机网络的非性能特征</strong><ol>
+<li><strong>费用</strong><ul>
+<li>网络的性能与其价格密切相关。网络的速率越高，价格也越高。</li>
+</ul>
+</li>
+<li><strong>质量</strong><ul>
+<li>网络的质量取决于网络中所有构件的质量，以及这些构件是怎样组成网络的。网络的质量影响很多方面，如网络的可靠性、网络管理的简易性，以及网络的性能。但网络的性能与网络的质量并不一样。</li>
+</ul>
+</li>
+<li><strong>标准化</strong><ul>
+<li>网络的硬件和软件的设计既可以按照通用的国际标准，也可以遵循特定的专用网络标准。采用国际标准的设计，可以得到更好的互操作性，更易于升级换代和维修，也更容易得到技术上的支持。</li>
+</ul>
+</li>
+<li><strong>可靠性</strong><ul>
+<li>可靠性与网络的质量和性能密切相关。高速网络的可靠性不一定很差。但高速网络要可靠地运行，则往往更加困难，同时所需的费用也会较高。</li>
+</ul>
+</li>
+<li><strong>可扩展性和可升级性</strong><ul>
+<li>在构造网络时应当考虑到今后需要扩展和升级。网络的性能越高，其扩展费用往往也越高，难度也会相应增加。</li>
+</ul>
+</li>
+<li><strong>易于管理和维护</strong><ul>
+<li>网络如果没有良好的管理和维护，很难达到和保持所设计的性能。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h1 id="1-7-计算机网络体系结构"><a href="#1-7-计算机网络体系结构" class="headerlink" title="1.7 计算机网络体系结构"></a>1.7 计算机网络体系结构</h1><ul>
+<li>在计算机网络的基本概念中，分层次的体系结构是最基本的。</li>
+</ul>
+<h2 id="1-7-1-计算机网络体系结构的形成"><a href="#1-7-1-计算机网络体系结构的形成" class="headerlink" title="1.7.1 计算机网络体系结构的形成"></a>1.7.1 计算机网络体系结构的形成</h2><ul>
+<li><strong>计算机网络体系结构的形成</strong><ol>
+<li>计算机网络是个复杂的系统。、设想一种最简单的情况：连接在网络上的两台计算机要互相传送文件。在这两台计算机之间必须有一条传送数据的通路。但还有以下工作需要完成：<ul>
+<li>发起通信的计算机必须将数据通信的通路进行<strong>激活</strong>，即发出一些信令，保证要传送的计算机数据能在这条通路上正确发送和接收。</li>
+<li>要告诉网络如何识别接收数据的计算机。</li>
+<li>发起通信的计算机必须查明对方计算机是否已开机，并且与网络连接正常。</li>
+<li>发起通信的计算机中的应用程序必须清楚，在对方计算机中的文件管理程序是否已做好接收文件和存储文件的准备工作。</li>
+<li>若计算机的文件格式不兼容，则至少其中一台计算机应完成格式转换功能。</li>
+<li>对出现的各种差错和意外事故，如数据传送错误、重复或丢失，网络中某个结点交换机出现故障等，应当有可靠的措施保证对方计算机最终能够收到正确的文件。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="1-7-2-协议与划分层次"><a href="#1-7-2-协议与划分层次" class="headerlink" title="1.7.2 协议与划分层次"></a>1.7.2 协议与划分层次</h2><ul>
+<li><strong>协议与划分层次</strong><ol>
+<li>在计算机网络中要做到有条不紊地交换数据，必须遵守一些事先约定好的规则。<strong>这些规则明确规定了所交换的数据的格式以及有关的同步问题</strong>。</li>
+<li><strong>为进行网络中的数据交换而建立的规则、标准或约定</strong>称为<strong>网络协议</strong>。网络协议也可简称为<strong>协议</strong>，主要由以下三个要素组成：<ul>
+<li>语法，即数据与控制信息的结构或格式；</li>
+<li>语义，即需要发出何种控制信息，完成何种动作以及做出何种响应；</li>
+<li>同步，即事件实现顺序的详细说明。</li>
+</ul>
+</li>
+<li>协议通常有两种不同的形式。一种是使用便于人来阅读和理解的文字描述。另一种是使用让计算机能够理解的程序代码。这两种不同形式的协议都必须能够对网络上的信息交换过程做出精确的解释。</li>
+<li>分层可以带来很多好处。如：<ul>
+<li><strong>各层之间是独立的</strong>。某一层并不需要知道它的下一层是如何实现的，而仅仅需要知道该层通过层间的接口所提供的服务。由于每一层只实现一种相对独立的功能，因而可将一个难以处理的复杂问题分解为若干个较容易处理的更小一些的问题。整个问题的复杂程度就下降了。</li>
+<li><strong>灵活性好</strong>。当任何一层发生变化时，只要层间接口关系保持不变，则在这层以上或以下各层均不受影响。此外，对某一层提供的服务还可进行修改。当某层提供的服务不再需要时，甚至可以将这层取消。</li>
+<li><strong>结构上可分割开</strong>。各层都可以采用最合适的技术来实现。</li>
+<li><strong>易于实现和维护</strong>。这种结构使得实现和调试一个庞大而又复杂的系统变得易于处理，因为整个的系统已被分解为若干个相对独立的子系统。</li>
+<li><strong>能促进标准化工作</strong>。因为每一层的功能及其所提供的服务都已有了精确的说明。</li>
+</ul>
+</li>
+<li>分层时应使每一层的功能非常明确。若层数太少，就会使每一层的协议太复杂。但层数太多又会在描述和综合各层功能的系统工程任务时遇到较多的困难。通常各层所要完成的功能主要有以下一些：<ul>
+<li><strong>差错控制</strong> 　使相应层次对等方的通信更加可靠。</li>
+<li><strong>流量控制</strong> 　发送端的发送速率必须使接收端来得及接收，不能太快。</li>
+<li><strong>分段和重装</strong> 　发送端将要发送的数据块划分为更小的单位，在接收端将其还原。</li>
+<li><strong>复用和分用</strong> 　发送端几个高层会话复用一条低层的连接，在接收端再进行分用。</li>
+<li><strong>连接建立和释放</strong> 　交换数据前先建立一条逻辑连接，数据传送结束后释放连接。</li>
+<li>分层也有一些缺点，例如，有些功能会在不同的层次中重复出现，产生额外开销。</li>
+</ul>
+</li>
+<li><strong>计算机网络的各层及其协议的集合</strong>就是网络的<strong>体系结构</strong>。换种说法，<strong>计算机网络的体系结构就是这个计算机网络及其构件所应完成的功能的精确定义</strong>。</li>
+<li><strong>体系结构是抽象的，而实现则是具体的，是真正在运行的计算机硬件和软件</strong>。</li>
+</ol>
+</li>
+</ul>
+<h2 id="1-7-3-具有五层协议的体系结构"><a href="#1-7-3-具有五层协议的体系结构" class="headerlink" title="1.7.3 具有五层协议的体系结构"></a>1.7.3 具有五层协议的体系结构</h2><ul>
+<li><strong>具有五层协议的体系结构</strong><ol>
+<li><strong>应用层</strong><ul>
+<li>应用层是体系结构中的最高层。</li>
+<li>应用层的任务是<strong>通过应用进程间的交互来完成特定网络应用</strong>。</li>
+<li>应用层协议定义的是<strong>应用进程间通信和交互的规则</strong>。<strong>进程</strong>指主机中<strong>正在运行的程序</strong>。</li>
+<li>应用层交互的数据单元称为<strong>报文</strong>。</li>
+</ul>
+</li>
+<li><strong>运输层</strong><ul>
+<li>运输层的任务是负责向<strong>两台主机中进程之间的通信</strong>提供<strong>通用的数据传输</strong>服务。</li>
+<li>运输层主要使用以下两种协议：<ol>
+<li><strong>传输控制协议</strong> (TCP)——提供面向连接的、可靠的数据传输服务，其数据传输的单位是<strong>报文段</strong>。</li>
+<li><strong>用户数据报协议</strong> (UDP)——提供无连接的、<strong>尽最大努力</strong>的数据传输服务，其数据传输的单位是<strong>用户数据报</strong>。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><strong>网络层</strong><ul>
+<li>网络层负责为分组交换网上的不同<strong>主机</strong>提供通信服务。</li>
+<li>在发送数据时，网络层把运输层产生的报文段或用户数据报封装成<strong>分组</strong>或<strong>包</strong>进行传送。</li>
+<li>在 TCP&#x2F;IP 体系中，由于网络层使用 IP 协议，因此分组也叫做 <strong>IP 数据报</strong>，简称<strong>数据报</strong>。</li>
+<li><strong>无论在哪一层传送的数据单元，都可笼统地用“分组”来表示</strong>。</li>
+<li>网络层的另一个任务是要选择合适的路由，使源主机运输层所传下来的分组，能够通过网络中的路由器找到目的主机。</li>
+<li>网络层中的“<strong>网络</strong>”，不是我们谈到的具体网络，而是在计算机网络体系结构模型中的第 3 层的名称。</li>
+<li>互联网是由大量的<strong>异构</strong>网络通过<strong>路由器</strong>相互连接起来的，使用的网络层协议是无连接的<strong>网际协议</strong> (IP) 和许多种路由选择协议，因此互联网的网络层也叫做<strong>网际层</strong>或 <strong>IP 层</strong>。</li>
+</ul>
+</li>
+<li><strong>数据链路层</strong><ul>
+<li>数据链路层简称<strong>链路层</strong>。</li>
+<li>在两个相邻结点之间传送数据时，数据链路层将网络层交下来的 IP 数据报<strong>组装成帧</strong>，在两个相邻结点间的链路上传送<strong>帧</strong>。每一帧包括数据和<strong>控制信息</strong>。</li>
+</ul>
+</li>
+<li><strong>物理层</strong><ul>
+<li>在物理层上所传数据的单位是<strong>比特</strong>。</li>
+</ul>
+</li>
+<li><img src="https://cdn.jsdelivr.net/gh/chipfron/Image_/test_Pasted%20image%2020230703110014.png"></li>
+<li>图1-19 说明应用进程的数据在各层之间的传递过程中所经历的变化。假定两台主机通过一台路由器连接起来。<ul>
+<li><img src="https://cdn.jsdelivr.net/gh/chipfron/Image_/test_Pasted%20image%2020230703110122.png"></li>
+<li>假定主机1的应用进程AP 1 向主机2的应用进程AP 2 传送数据。AP 1 先将其数据交给本主机的第5层（应用层）。第5层加上必要的控制信息H 5 就变成了下一层的数据单元。第4层（运输层）收到这个数据单元后，加上本层的控制信息H 4 ，再交给第3层（网络层），成为第3层的数据单元。依此类推。不过到了第2层（数据链路层）后，控制信息被分成两部分，分别加到本层数据单元的首部（H 2 ）和尾部（T 2 ）；而第1层（物理层）由于是比特流的传送，所以不再加上控制信息。请注意，传送比特流时应从首部开始传送。</li>
+<li>OSI参考模型把对等层次之间传送的数据单位称为该层的<strong>协议数据单元</strong>（PDU）。这个名词现已被许多非OSI标准采用。</li>
+<li>当这一串的比特流离开主机1经网络的物理媒体传送到路由器时，就从路由器的第1层依次上升到第3层。每一层都根据控制信息进行必要的操作，然后将控制信息剥去，将该层剩下的数据单元上交给更高的一层。当分组上升到了第3层时，就根据首部中的目的地址查找路由器中的转发表，找出转发分组的接口，然后往下传送到第2层，加上新的首部和尾部后，再到最下面的第1层，然后在物理媒体上把每一个比特发送出去。</li>
+<li>当这一串的比特流离开路由器到达目的站主机2时，就从主机2的第1层按照上面讲过的方式，依次上升到第5层。最后，把应用进程AP 1 发送的数据交给目的站的应用进程AP 2 。</li>
+<li>可以用一个简单例子来比喻上述过程。有一封信从最高层向下传。每经过一层就包上一个新的信封，写上必要的地址信息。包有多个信封的信件传送到目的站后，从第1层起，每层拆开一个信封后就把信封中的信交给它的上一层。传到最高层后，取出发信人所发的信交给收信人。</li>
+<li>虽然应用进程数据要经过如图1-19所示的复杂过程才能送到终点的应用进程，但这些复杂过程对用户来说，却都被屏蔽掉了，以致应用进程AP 1 觉得好像是直接把数据交给了应用进程AP 2 。同理，任何两个同样的层次（例如在两个系统的第4层）之间，也好像如同图1-19中的水平虚线所示的那样，把数据（即数据单元加上控制信息）通过水平虚线直接传递给对方。这就是所谓的“<strong>对等层</strong> ”（peer layers）之间的通信。我们以前经常提到的各层协议，实际上就是在各个对等层之间传递数据时的各项规定。</li>
+<li>在文献中也还可以见到术语“<strong>协议栈</strong>”。这是因为几个层次画在一起很像一个<strong>栈</strong>的结构。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="1-7-4-实体、协议、服务和服务访问点"><a href="#1-7-4-实体、协议、服务和服务访问点" class="headerlink" title="1.7.4 实体、协议、服务和服务访问点"></a>1.7.4 实体、协议、服务和服务访问点</h2><ul>
+<li><strong>实体、协议、服务和服务访问点</strong><ol>
+<li>当研究开放系统中的信息交换时，使用<strong>实体</strong>这一抽象的名词表示<strong>任何可发送或接收信息的硬件或软件进程</strong>。</li>
+<li><strong>协议是控制两个对等实体</strong> (或<strong>多个实体</strong>) <strong>进行通信的规则的集合</strong>。协议的语法方面规则定义了所交换信息的格式，协议的语义方面规则定义了发送者或接收者所要完成的操作，例如，在何种条件下，数据必须重传或丢弃。</li>
+<li><strong>在协议的控制下，两个对等实体间的通信使得本层能够向上一层提供服务。要实现本层协议，还需要使用下面一层所提供的服务。</strong></li>
+<li>协议和服务在概念上不一样：<ul>
+<li>协议的实现保证了能够向上一层提供服务。使用本层服务的实体只能看见服务而无法看见下面的协议。下面的协议对上面的实体是透明的。</li>
+<li><strong>协议是“水平的”</strong>，协议是控制对等实体之间通信的规则；但<strong>服务是“垂直的”</strong>，即服务是由下层向上层通过层间接口提供的。</li>
+<li>并非在一个层内完成的全部功能都称为服务。只有能够被高一层实体“<strong>看得见</strong>”的功能才能称之为“服务”。上层使用下层所提供的服务必须通过与下层交换一些命令，这些命令在 OSI 中称为<strong>服务原语</strong>。</li>
+<li>在同一系统中相邻两层的实体进行交互的地方，通常称为<strong>服务访问点</strong> (SAP)。服务访问点 SAP 是一个抽象的概念，是一个逻辑接口，有点像邮政信箱 (可以把邮件放入信箱和从信箱中取走邮件)，但这种层间接口和两个设备之间的硬件接口并不一样。</li>
+<li>在任何相邻两层之间的关系可概括为图 1-20 所示的那样。第 n 层的两个“实体 (n) ”之间通过“协议 (n) ”进行通信，而第 n＋1 层的两个“实体 (n＋1) ”之间则通过另外的“协议 (n＋1) ”进行通信 (每一层都使用不同的协议) 。第 n 层向上面的第 n＋1 层所提供的服务实际上已包括了在它以下各层所提供的服务。第 n 层的实体对第 n+1 层的实体就相当于一个服务提供者。在服务提供者的上一层的实体又称为“服务用户”，因为它使用下层服务提供者所提供的服务。<ol>
+<li><img src="https://cdn.jsdelivr.net/gh/chipfron/Image_/test_Pasted%20image%2020230703113458.png"></li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="1-7-5-TCP-IP-的体系结构"><a href="#1-7-5-TCP-IP-的体系结构" class="headerlink" title="1.7.5 TCP&#x2F;IP 的体系结构"></a>1.7.5 TCP&#x2F;IP 的体系结构</h2><ul>
+<li><strong>TCP&#x2F;IP 的体系结构</strong><ol>
+<li>TCP&#x2F;IP 协议<strong>可以为应用提供服务</strong>，同时 TCP&#x2F;IP 协议也<strong>允许 IP 协议在网络构成的互联网上运行</strong>。</li>
+<li><img src="https://cdn.jsdelivr.net/gh/chipfron/Image_/test_Pasted%20image%2020230703152732.png"></li>
+</ol>
+</li>
+</ul>
+<h1 id="本章的重要概念"><a href="#本章的重要概念" class="headerlink" title="本章的重要概念"></a>本章的重要概念</h1><ul>
+<li><p>计算机网络把计算机连接在一起，互连网把网络连接在一起，是网络的网络。</p>
+</li>
+<li><p>以小写字母 i 开始的 internet (互连网) 是通用名词，泛指由多个计算机网络互连而成的网络。在这些网络之间的通信协议可以是任意的。</p>
+</li>
+<li><p>以大写字母 I 开始的 Internet (互联网) 是专用名词，指当前全球最大的、开放的、由网络相互连接而成的特定互连网，并采用 TCP&#x2F;IP 协议族作为通信规则。</p>
+</li>
+<li><p>互联网现在采用存储转发的分组交换技术，以及三层 ISP 结构。</p>
+</li>
+<li><p>互联网按工作方式划分为边缘部分与核心部分。主机在网络的边缘部分，其作用是进行信息处理。路由器在网络的核心部分，其作用是按存储转发方式进行分组交换。</p>
+</li>
+<li><p>计算机通信是计算机中进程之间的通信。计算机网络采用的通信方式是客户–服务器方式和对等连接方式 (P2P 方式)。</p>
+</li>
+<li><p>客户和服务器指通信中所涉及的应用进程。客户是服务请求方，服务器是服务提供方。</p>
+</li>
+<li><p>按作用范围的不同，计算机网络分为广域网 WAN、城域网 MAN、局域网 LAN 和个人区域网 PAN。</p>
+</li>
+<li><p>计算机网络常用的性能指标是：速率、带宽、吞吐量、时延 (发送时延、传播时延、处理时延、排队时延)、时延带宽积、往返时间和信道 (或网络) 利用率。</p>
+</li>
+<li><p>网络协议即协议，是为进行网络中的数据交换而建立的规则。计算机网络的各层及其协议的集合，称为网络的体系结构。</p>
+</li>
+<li><p>五层协议的体系结构由应用层、运输层、网络层 (或网际层)、数据链路层和物理层组成。运输层最重要的协议是 TCP 和 UDP 协议，而网络层最重要的协议是 IP 协议。</p>
+</li>
+<li><p>叙述具有五层协议的网络体系结构的要点，包括各层的主要功能。</p>
+<blockquote>
+<p>(1) 物理层——在物理层上所传数据的单位是比特 (bit)。物理层的任务是透明地传送比特流。物理层还要确定连接电缆的插头应当有多少根引脚以及各条引脚应如何连接。当然，哪几个比特代表什么意思，则不是物理层所要管的。请注意，传递信息所利用的一些物理媒体，如双绞线、同轴电缆、光缆、无线信道等，并不在物理层协议之内而是在物理层协议的下面。因此也有人把物理媒体当作第 0 层。<br>(2) 数据链路层——常简称为链路层。在两个相邻结点之间 (主机和路由器之间或两个路由器之间) 传送数据是直接传送的 (即不需要经过转发的点对点通信)。这时就需要使用专门的链路层的协议。数据链路层将网络层交下来的 IP 数据报组装成帧，在两个相邻结点间的链路上“透明”地传送帧中的数据。每一帧包括数据和必要的控制信息 (如同步信息、地址信息、差错控制等)。在接收数据时，控制信息使接收端能够知道一个帧从哪个比特开始和到哪个比特结束。这样，数据链路层在收到一个帧后，就可从中提取出数据部分，上交给网络层。控制信息还使接收端能够检测到所收到的帧中有无差错。如发现有差错，数据链路层就简单地丢弃这个出了差错的帧，以免继续传送下去白白浪费网络资源。如果需要改正错误，就由运输层的 TCP 协议来完成。<br>(3) 网络层——网络层负责为分组交换网上的不同主机提供通信服务。在发送数据时，网络层把运输层产生的报文段或用户数据报封装成分组或包进行传送。在 TCP&#x2F;IP 体系中，由于网络层使用 IP 协议，因此分组也叫做 IP 数据报，或简称为数据报。网络层的另一个任务就是要选择合适的路由，使源主机运输层所传下来的分组能够通过网络中的路由器找到目的主机。对于由广播信道构成的分组交换网，路由选择的问题很简单，因此这种网络的网络层非常简单，甚至可以没有。<br>(4) 运输层——运输层的任务是负责向两个主机中进程之间的通信提供服务。由于一个主机可同时运行多个进程，因此运输层有复用和分用的功能。复用就是多个应用层进程可同时使用下面运输层的服务，分用则是运输层把收到的信息分别交付上面应用层中的相应的进程运输层主要使用以下两种协议: 一个是传输控制协议 TCP，是面向连接的，数据传输的单位是报文段，能够提供可靠的交付。另一个是用户数据报协议 UDP，是无连接的，数据传输的单位是用户数据报，不保证提供可靠的交付，只能“尽最大努力交付”。<br>(5) 应用层——应用层是体系结构中的最高层。应用层直接为用户的应用进程提供服务这里的进程就是指正在运行的程序。在互联网中的应用层协议很多，如支持万维网应用的 HTTP 协议、支持电子邮件的 SMTP 协议、支持文件传送的 FTP 协议，等等。</p>
+</blockquote>
+</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Chipfron</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://chipfron.github.io/2024/04/20/study/ji-suan-ji-wang-luo/di-1-zhang-gai-shu/">https://chipfron.github.io/2024/04/20/study/ji-suan-ji-wang-luo/di-1-zhang-gai-shu/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Chipfron</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                                    <span class="chip bg-color">计算机网络</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/04/20/study/ji-suan-ji-wang-luo/di-2-zhang-wu-li-ceng/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="第2章 物理层">
+                        
+                        <span class="card-title">第2章 物理层</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-04-20
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Chipfron
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">计算机网络</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/04/20/study/mo-ban/temp/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="&lt;% tp.file.title %&gt;">
+                        
+                        <span class="card-title">&lt;% tp.file.title %&gt;</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-04-20
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Chipfron
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2023-2024</span>
+            
+            <a href="/about" target="_blank">Chipfron</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">315k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/chipfron" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1325964828@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1325964828" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1325964828" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/snow.js"><\/script>');
+            }
+        </script>
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

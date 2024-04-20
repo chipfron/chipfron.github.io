@@ -1,0 +1,1416 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="第2章 物理层, 编程">
+    <meta name="description" content="2.1 物理层的基本概念
+物理层的作用是屏蔽掉传输媒体和通信手段的差异，使数据链路层感觉不到这些差异，只考虑如何完成本层的协议和服务，不考虑网络具体的传输媒体和通信手段是什么。
+用于物理层的协议也常称为物理层规程。
+将物理层的主要任务描述为">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>第2章 物理层 | 七破风的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">七破风的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/navigate" class="waves-effect waves-light">
+      
+      <i class="fas fa-location-arrow" style="zoom: 0.6;"></i>
+      
+      <span>导航</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">七破风的博客</div>
+        <div class="logo-desc">
+            
+            高高山顶立，深深海底行。
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/navigate" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-location-arrow"></i>
+			
+			导航
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">第2章 物理层</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                                <span class="chip bg-color">计算机网络</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-04-20
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-04-20
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    8.2k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    28 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="2-1-物理层的基本概念"><a href="#2-1-物理层的基本概念" class="headerlink" title="2.1 物理层的基本概念"></a>2.1 物理层的基本概念</h1><ul>
+<li>物理层的作用是屏蔽掉传输媒体和通信手段的差异，使数据链路层感觉不到这些差异，只考虑如何完成本层的协议和服务，不考虑网络具体的传输媒体和通信手段是什么。</li>
+<li>用于物理层的协议也常称为物理层<strong>规程</strong>。</li>
+<li>将物理层的主要任务描述为确定与传输媒体的接口有关的一些特性，即：<ol>
+<li><strong>机械特性</strong> 　指明接口所用接线器的形状和尺寸、引脚数目和排列、固定和锁定装置，等。</li>
+<li><strong>电气特性</strong> 　指明在接口电缆的各条线上出现的电压的范围。</li>
+<li><strong>功能特性</strong> 　指明某条线上出现的某一电平的电压的意义。</li>
+<li><strong>过程特性</strong> 　指明对于不同功能的各种可能事件的出现顺序。</li>
+</ol>
+</li>
+<li>数据在计算机内部多采用并行输出方式。但数据在通信线路上的传输方式一般是<strong>串行传输</strong>，即逐个比特按照时间顺序传输。物理层还要完成传输方式的转换。</li>
+</ul>
+<h1 id="2-2-数据通信的基础知识"><a href="#2-2-数据通信的基础知识" class="headerlink" title="2.2 数据通信的基础知识"></a>2.2 数据通信的基础知识</h1><h2 id="2-2-1-数据通信系统的模型"><a href="#2-2-1-数据通信系统的模型" class="headerlink" title="2.2.1  数据通信系统的模型"></a>2.2.1  数据通信系统的模型</h2><ul>
+<li>如图 2-1 所示，数据通信系统可划分为三大部分，即<strong>源系统</strong>、<strong>传输系统</strong>和<strong>目的系统</strong>。<ol>
+<li><img src="https://cdn.jsdelivr.net/gh/chipfron/Image_/test_Pasted%20image%2020230704174305.png"></li>
+</ol>
+</li>
+<li>源系统包括两个部分：<ol>
+<li><strong>源点</strong> 　源点设备产生要传输的数据。源点又称为<strong>源站</strong>，或<strong>信源</strong>。</li>
+<li><strong>发送器</strong> 　通常源点生成的数字比特流要通过发送器编码后才能在传输系统中进行传输。典型的发送器就是调制器。</li>
+</ol>
+</li>
+<li>目的系统也包括两个部分：<ol>
+<li><strong>接收器</strong> 　接收传输系统传送过来的信号，并把它转换为能够被目的设备处理的信息。典型的接收器是解调器，它把来自传输线路上的模拟信号进行解调，提取出在发送端置入的消息，还原出发送端产生的数字比特流。</li>
+<li><strong>终点</strong> 　终点设备从接收器获取传送来的数字比特流，然后把信息输出。终点又称为<strong>目的站</strong>，或<strong>信宿</strong>。</li>
+</ol>
+</li>
+<li>在源系统和目的系统之间的传输系统可以是简单的传输线，也可以是连接在源系统和目的系统之间的复杂网络系统。</li>
+<li>通信的目的是传送<strong>消息</strong>。如话音、文字、图像、视频等都是消息。<strong>数据</strong>是运送消息的实体。根据RFC 4949 给出的定义，数据是使用特定方式表示的信息，是有意义的符号序列。这种信息的表示可用计算机或其他机器处理或产生。<strong>信号</strong>则是数据的电气或电磁的表现。</li>
+<li>根据信号中代表消息的参数的取值方式不同，信号分为两大类：<ol>
+<li><strong>模拟信号</strong>，或<strong>连续信号</strong>——代表消息的参数的取值是连续的。例如在图 2-1中，用户家中的调制解调器到电话端局之间的用户线上传送的就是模拟信号。</li>
+<li><strong>数字信号</strong>，或<strong>离散信号</strong>——代表消息的参数的取值是离散的。例如在图 2-1中，用户家中的计算机到调制解调器之间，或在电话网中继线上传送的就是数字信号。在使用时间域 (或简称为时域) 的波形表示数字信号时，代表不同离散数值的基本波形就称为码元。在使用二进制编码时，只有两种不同的码元，一种代表 0 状态而另一种代表 1 状态。</li>
+</ol>
+</li>
+</ul>
+<h2 id="2-2-2-有关信道的几个基本概念"><a href="#2-2-2-有关信道的几个基本概念" class="headerlink" title="2.2.2 有关信道的几个基本概念"></a>2.2.2 有关信道的几个基本概念</h2><ul>
+<li>信道用来表示向某一个方向传送信息的媒体。一条通信电路包含一条发送信道和一条接收信道。</li>
+<li>从通信的双方信息交互的方式来看，有三种基本方式：<ol>
+<li><strong>单向通信</strong> 　又称为<strong>单工通信</strong>，只有一个方向的通信而没有反方向的交互。</li>
+<li><strong>双向交替通信</strong> 　又称为<strong>半双工通信</strong>，通信的双方都可以发送信息，但不能同时发送。这种通信方式是一方发送另一方接收，过一段时间后可以再反过来。</li>
+<li><strong>双向同时通信</strong> 　又称为<strong>全双工通信</strong>，通信的双方可以同时发送和接收信息。</li>
+</ol>
+</li>
+<li>单向通信只需要一条信道，而双向交替通信或双向同时通信则都需要两条信道 (每个方向各一条)。双向同时通信的传输效率最高。</li>
+<li>来自信源的信号称为<strong>基带信号</strong>。计算机输出的代表各种文字或图像文件的数据信号就属于基带信号。基带信号包含有低频成分，甚至有直流成分，许多信道并不能传输这种低频分量或直流分量。为了解决这一问题，就必须对基带信号进行<strong>调制</strong>。</li>
+<li>调制可分为两大类。一类是对基带信号的波形进行变换，使它能够与信道特性相适应。变换后的信号仍然是基带信号，这类调制称为<strong>基带调制</strong>。由于这种基带调制是把数字信号转换为另一种形式的数字信号，因此把这种过程称为<strong>编码</strong>。另一类调制需要使用<strong>载波</strong>进行调制，把基带信号的频率范围搬移到较高的频段，并转换为模拟信号，这样就能够更好地在模拟信道中传输。经过载波调制后的信号称为<strong>带通信号</strong>，使用载波的调制称为<strong>带通调制</strong>。<ol>
+<li><strong>常用编码方式</strong><ul>
+<li><img src="https://cdn.jsdelivr.net/gh/chipfron/Image_/test_Pasted%20image%2020230705222731.png"></li>
+<li><strong>不归零制</strong> 　正电平代表 1，负电平代表 0。</li>
+<li><strong>归零制</strong> 　正脉冲代表 1，负脉冲代表 0。</li>
+<li><strong>曼彻斯特编码</strong> 　位周期中心的向上跳变代表 0，位周期中心的向下跳变代表 1。但也可反过来定义。</li>
+<li><strong>差分曼彻斯特编码</strong> 　在每一位的中心处始终都有跳变。位开始边界有跳变代表 0，而位开始边界没有跳变代表 1。</li>
+<li>从信号波形中可以看出，曼彻斯特编码产生的信号频率比不归零制高。从自同步能力来看，不归零制不能从信号波形本身中提取信号时钟频率 (这叫做没有自同步能力)，而曼彻斯特编码具有自同步能力。</li>
+</ul>
+</li>
+<li><strong>基本的带通调制方法</strong><ul>
+<li><img src="https://cdn.jsdelivr.net/gh/chipfron/Image_/test_Pasted%20image%2020230705222830.png"></li>
+<li><strong>调幅</strong> (AM)　载波的振幅随基带数字信号而变化。0 或 1 分别对应于无载波或有载波输出。</li>
+<li><strong>调频</strong> (FM)　载波的频率随基带数字信号而变化。0 或 1 分别对应于频率 <em>f<sub>1</sub></em> 或 <em>f<sub>2</sub>。</em></li>
+<li><strong>调相</strong> (PM)　载波的初始相位随基带数字信号而变化。0 或 1 分别对应于相位 0 度或 180度。</li>
+<li>为了达到更高的信息传输速率，必须采用更复杂的多元制的振幅相位混合调制方法。例如，<strong>正交振幅调制</strong> QAM。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="2-2-3-信道的极限容量"><a href="#2-2-3-信道的极限容量" class="headerlink" title="2.2.3 信道的极限容量"></a>2.2.3 信道的极限容量</h2><ul>
+<li>数字通信的优点是：虽然信号在信道上传输时会不可避免地产生失真，但在接收端只要从失真的波形中能够识别出原来的信号，那么这种失真对通信质量就没有影响。例如图 2-4(a) 表示信号通过实际的信道传输后虽然有失真，但在接收端可识别并恢复出原来的码元。图 2-4(b)信号失真严重，在接收端无法识别码元是 1 还是 0。码元传输的速率越高，或信号传输的距离越远，或噪声干扰越大，或传输媒体质量越差，在接收端的波形的失真就越严重。<ol>
+<li><img src="https://cdn.jsdelivr.net/gh/chipfron/Image_/test_Pasted%20image%2020230705222925.png"></li>
+</ol>
+</li>
+<li>限制码元在信道上的传输速率的因素下两个：<ol>
+<li><strong>信道能够通过的频率范围</strong><ul>
+<li>信道所能通过的频率范围是有限的，信号中的许多高频分量不能通过信道。像图 2-4 所示的发送信号是一种矩形脉冲信号，包含很丰富的高频分量。如果信号中的高频分量在传输时受到衰减，那么在接收端收到的波形前沿和后沿就变得不那么陡峭了，每一个码元所占的时间界限也不再是很明确的，而是前后都拖了“尾巴”。这样，在接收端收到的信号波形就失去了码元之间的清晰界限。这种现象叫做<strong>码间串扰</strong>。严重的码间串扰使得本来分得很清楚的一串码元变得模糊而无法识别。<strong>在任何信道中，码元传输的速率是有上限的，传输速率超过此上限，就会出现严重的码间串扰的问题，使接收端对码元的识别成为不可能</strong> 。</li>
+<li>信道的频带越宽，能够通过的信号高频分量越多，就可以用更高的速率传送码元而不出现码间串扰。</li>
+</ul>
+</li>
+<li><strong>信噪比</strong><ul>
+<li>噪声存在于所有的电子设备和通信信道中。由于噪声是随机产生的，它的瞬时值有时会很大，因此噪声会使接收端对码元的识别产生错误 (1 误判为 0 或 0 误判为 1)。噪声的影响是相对的。如果信号相对较强，那么噪声的影响就相对较小。因此，信噪比很重要。所谓信噪比就是信号的平均功率和噪声的平均功率之比，常记为 S&#x2F;N，并用分贝 (dB) 作为度量单位。即：</li>
+<li><img src="https://cdn.jsdelivr.net/gh/chipfron/Image_/test_Pasted%20image%2020230705223051.png"></li>
+<li>香农公式指出：<strong>信道的极限信息传输速率</strong> <em>C</em> 是</li>
+<li><img src="https://cdn.jsdelivr.net/gh/chipfron/Image_/test_Pasted%20image%2020230705223107.png"></li>
+<li><em>W</em> 为信道的带宽（以 Hz 为单位）；<em>S</em> 为信道内所传信号的平均功率；<em>N</em> 为信道内部的高斯噪声功率。</li>
+<li>香农公式表明，<strong>信道的带宽或信道中的信噪比越大，信息的极限传输速率就越高</strong>。香农公式的意义在于：只要信息传输速率低于信道的极限信息传输速率，就一定存在某种办法来实现无差错的传输。</li>
+<li>对于频带宽度已确定的信道，如果信噪比不能再提高了，并且码元传输速率也达到了上限值，可以用编码的方法<strong>让每一个码元携带更多比特的信息量</strong>来提高信息的传输速率。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h1 id="2-3-物理层下面的传输媒体"><a href="#2-3-物理层下面的传输媒体" class="headerlink" title="2.3 物理层下面的传输媒体"></a>2.3 物理层下面的传输媒体</h1><ul>
+<li><strong>传输媒体</strong>也称为传输介质或传输媒介，是数据传输系统中在发送器和接收器之间的物理通路。</li>
+<li>传输媒体分为两大类，<strong>导引型传输媒体</strong>和<strong>非导引型传输媒体</strong>。在导引型传输媒体中，电磁波被导引沿着固体媒体 (铜线或光纤) 传播，而非导引型传输媒体是指自由空间，在非导引型传输媒体中电磁波的传输常称为无线传输。图 2-5 是电信领域使用的电磁波的频谱。</li>
+<li><img src="https://cdn.jsdelivr.net/gh/chipfron/Image_/test_Pasted%20image%2020230706092821.png"></li>
+</ul>
+<h2 id="2-3-1-导引型传输媒体"><a href="#2-3-1-导引型传输媒体" class="headerlink" title="2.3.1 导引型传输媒体"></a>2.3.1 导引型传输媒体</h2><ol>
+<li><strong>双绞线</strong><ul>
+<li>双绞线也称双扭线，把两根互相绝缘的铜导线并排放在一起，然后用规则的方法<strong>绞合</strong>就构成了双绞线。绞合可减少对相邻导线的电磁干扰。几乎所有的电话都用双绞线连接到电话交换机。从用户电话机到交换机的双绞线称为<strong>用户线</strong>或<strong>用户环路</strong>。</li>
+<li>模拟传输和数字传输可以使用双绞线，通信距离一般为几到十几公里。距离太长时就要加放大器将衰减的信号放大到合适的数值 (对于模拟传输)，或者加上中继器对失真的数字信号进行整形 (对于数字传输)。导线越粗，其通信距离就越远，价格也越高。在数字传输时，若传输速率为每秒几个兆比特，则传输距离可达几公里。由于双绞线的价格便宜且性能也不错，因此使用十分广泛。</li>
+<li>为了提高双绞线抗电磁干扰的能力，可在双绞线的外面加上一层用金属丝编织成的屏蔽层。这就是<strong>屏蔽双绞线</strong>，简称为 STP。它的价格比<strong>无屏蔽双绞线</strong> UTP 要高。图 2-6 是无屏蔽双绞线和屏蔽双绞线的示意图。<ol>
+<li><img src="https://cdn.jsdelivr.net/gh/chipfron/Image_/test_Pasted%20image%2020230706095419.png"></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><strong>同轴电缆</strong><ul>
+<li>同轴电缆由内导体铜质芯线、绝缘层、网状编织的外导体屏蔽层以及保护塑料外层所组成 (图2-7)。由于外导体屏蔽层的作用，同轴电缆具有很好的抗干扰特性，被广泛用于传输较高速率的数据。<ol>
+<li><img src="https://cdn.jsdelivr.net/gh/chipfron/Image_/test_Pasted%20image%2020230706095526.png"></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><strong>光缆</strong><ul>
+<li>光纤通信就是利用光导纤维传递光脉冲来进行通信。有光脉冲相当于 1，没有光脉冲相当于 0。由于可见光的频率非常高，约为10<sup>8</sup> MHz 的量级，因此一个光纤通信系统的传输带宽大于目前其他各种传输媒体的带宽。</li>
+<li>光纤是光纤通信的传输媒体。在发送端有光源，可以采用发光二极管或半导体激光器，它们在电脉冲的作用下能产生出光脉冲。在接收端利用光电二极管做成光检测器，在检测到光脉冲时可还原出电脉冲。</li>
+<li>光纤不仅具有通信容量大的优点，而且还有其他特点：<ol>
+<li>传输损耗小，中继距离长，远距离传输特别经济。</li>
+<li>抗雷电和电磁干扰性能好。这在有大电流脉冲干扰的环境下尤为重要。</li>
+<li>无串音干扰，保密性好，也不易被窃听或截取数据。</li>
+<li>体积小，重量轻。这在电缆管道拥塞不堪的情况下特别有利。</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="2-3-2-非导引型传输媒体"><a href="#2-3-2-非导引型传输媒体" class="headerlink" title="2.3.2 非导引型传输媒体"></a>2.3.2 非导引型传输媒体</h2><ol>
+<li>短波通信 (高频通信) 靠电离层的反射。电离层的不稳定所产生的衰落现象和电离层反射所产生的多径效应，使得短波信道的通信质量较差。当必须使用短波无线电台传送数据时，一般是低速传输，即速率为一个标准模拟话路传几十至几百比特&#x2F;秒</li>
+<li>无线电微波通信在数据通信中占有重要地位。微波在空间是直线传播。由于微波会穿透电离层进入宇宙空间，因此它不像短波那样可以经电离层反射传播到地面上很远的地方。传统的微波通信有两种，即<strong>地面微波接力通信</strong>和<strong>卫星通信</strong>。<ol>
+<li>微波接力通信可传输电话、电报、图像、数据等信息。<ul>
+<li>特点：<ol>
+<li>微波波段频率高，频段范围宽，通信信道的容量大。</li>
+<li>工业干扰和天电干扰的频谱成分比微波频率低得多，对微波通信的危害比对短波和米波 (即甚高频) 通信小，因而微波传输质量高。</li>
+<li>与相同容量和长度的电缆载波通信比较，微波接力通信建设投资少，见效快，易于跨越山区、江河。</li>
+</ol>
+</li>
+<li>缺点：<ol>
+<li>相邻站之间必须直视 (常称为视距 LOS)，不能有障碍物。有时一个天线发射出的信号会分成几条略有差别的路径到达接收天线，因而造成失真。</li>
+<li>微波的传播会受恶劣气候的影响。</li>
+<li>与电缆通信系统比较，微波通信的隐蔽性和保密性差。</li>
+<li>中继站的使用和维护要耗费较多的人力和物力。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>卫星通信的特点是通信距离远，且通信费用与通信距离无关。<ul>
+<li>和微波接力通信相似，卫星通信的频带宽，通信容量大，信号受到的干扰小，通信稳定。</li>
+<li>卫星通信的另一特点是有<strong>较大的传播时延</strong> 。</li>
+<li>“卫星信道的传播时延较大”不等于“用卫星信道传送数据的时延较大”。因为传送数据的总时延除了传播时延外，还有发送时延、处理时延和排队时延等。传播时延在总时延中所占的比例有多大，取决于具体情况。但利用卫星信道进行交互式的网上游戏显然是不合适的。</li>
+<li>卫星通信适合于广播通信，因为它的覆盖面很广。从安全方面考虑，卫星通信系统的保密性则相对较差。</li>
+<li>卫星通信的费用较高。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="2-4-信道复用技术"><a href="#2-4-信道复用技术" class="headerlink" title="2.4 信道复用技术"></a>2.4 信道复用技术</h1><h2 id="2-4-1-频分复用、时分复用和统计时分复用"><a href="#2-4-1-频分复用、时分复用和统计时分复用" class="headerlink" title="2.4.1 频分复用、时分复用和统计时分复用"></a>2.4.1 频分复用、时分复用和统计时分复用</h2><ul>
+<li>图 2-13(a) 表示 A<sub>1</sub>，B<sub>1</sub> 和 C<sub>1</sub> 分别使用一个单独的信道进行通信，总共需要三个信道。如果在发送端使用一个复用器，它们可以合起来使用一个共享信道进行通信。在接收端使用分用器，把合起来传输的信息分别送到相应的终点。图 2-13(b) 是复用的示意图。复用要付出代价。<ol>
+<li><img src="https://cdn.jsdelivr.net/gh/chipfron/Image_/test_Pasted%20image%2020230707095902.png"></li>
+</ol>
+</li>
+<li>最基本的复用就是<strong>频分复用</strong> (FDM) 和<strong>时分复用</strong> (TDM)。<ol>
+<li><strong>频分复用</strong><ul>
+<li>频分复用最简单，其特点如图 2-14(a) 所示。用户在分配到一定的频带后，在通信过程中自始至终都占用这个频带。<strong>频分复用的所有用户在同样的时间占用不同的带宽资源</strong>。</li>
+<li><img src="https://cdn.jsdelivr.net/gh/chipfron/Image_/test_Pasted%20image%2020230707100801.png"></li>
+<li>使用频分复用时，若每一个用户占用的带宽不变，则当复用的用户数增加时，复用后的信道的总带宽就跟着变宽。</li>
+</ul>
+</li>
+<li><strong>时分复用</strong><ul>
+<li>时分复用是将时间划分为一段段等长的时分复用帧 (TDM 帧)。每一个时分复用的用户在每一个 TDM 帧中占用固定序号的时隙。在图 2-14(b) 中画出了 4 个用户 A，B，C 和 D。每一个用户所占用的时隙周期性地出现 (周期是 TDM 帧的长度）。因此 TDM 信号也称<strong>等时</strong>信号。<strong>时分复用的所有用户是在不同的时间占用同样的频带宽度</strong>。</li>
+<li><img src="https://cdn.jsdelivr.net/gh/chipfron/Image_/test_Pasted%20image%2020230707100841.png"></li>
+<li>使用时分复用时，每一个时分复用帧的长度是不变的，始终是 125µs。若有 1000 个用户进行时分复用，则每一个用户分配到的时隙宽度就是 125µs 的千分之一，即 0.125µs，时隙宽度变得非常窄。</li>
+</ul>
+</li>
+<li>这两种复用方法的优点是技术成熟，缺点是不灵活。时分复用则更有利于数字信号的传输。</li>
+</ol>
+</li>
+<li>在进行通信时，<strong>复用器</strong>总和<strong>分用器</strong>成对地使用。在复用器和分用器之间是用户共享的高速信道。分用器的作用和复用器相反，把高速信道传送过来的数据进行分用，分别送交到相应的用户。</li>
+</ul>
+<h2 id="2-4-2-波分复用"><a href="#2-4-2-波分复用" class="headerlink" title="2.4.2 波分复用"></a>2.4.2 波分复用</h2><ul>
+<li><strong>波分复用</strong> (WDM) 就是<strong>光的频分复用</strong>。</li>
+<li><strong>光复用器</strong>：波分复用的复用器又称为<strong>合波器</strong>。</li>
+<li><strong>光分用器</strong>：波分复用的分用器又称为<strong>分波器</strong>。</li>
+<li>光信号传输了一段距离后会衰减，对衰减了的光信号进行放大才能继续传输。</li>
+<li><strong>掺铒光纤放大器</strong> (EDFA)。不需要进行光电转换直接对光信号进行放大。</li>
+</ul>
+<h2 id="2-4-3-码分复用"><a href="#2-4-3-码分复用" class="headerlink" title="2.4.3 码分复用"></a>2.4.3 码分复用</h2><ul>
+<li><strong>码分复用</strong> (CDM) 是一种共享信道的方法。也叫作<strong>码分多址</strong> (CDMA)。每个用户可在同样的时间使用同样的频带进行通信。由于<strong>各用户使用经过特殊挑选的不同码型，因此各用户之间不会造成干扰</strong>。码分复用发送的信号有很强的抗干扰能力，<strong>其频谱类似于白噪声，不易被发现</strong>。采用 CDMA 可提高通信的话音质量和数据传输的可靠性，减少干扰对通信的影响，增大通信系统的容量，降低手机的平均发射功率。</li>
+<li>在 CDMA 中，每个比特时间划分为 m 个短的间隔，称为<strong>码片</strong>。</li>
+<li>使用 CDMA 的每个站被指派一个唯一的 m bit <strong>码片序列</strong>。一个站如果要发送比特 1，则发送它自己的 m bit 码片序列。如果要发送比特 0，则发送该码片序列的二进制反码。<ol>
+<li>例如指派给 S 站的 8 bit 码片序列是 0001 1011。当 S 发送比特 1 时，它就发送序列 0001 1011，而当 S 发送比特 0 时，就发送 1110 0100。将码片中的 0 写为 – 1，将 1 写为＋1。因此 S 站的码片序列是 (–1 –1 –1＋1＋1 –1＋1＋1)。</li>
+</ol>
+</li>
+<li>假定 S 站要发送信息的数据率为 b bit&#x2F;s。由于每一个比特要转换成 m 个比特的码片，因此 S 站实际上发送的数据率提高到 mb bit&#x2F;s，S 站所占用的频带宽度也提高到原来数值的 m 倍。这种通信方式是<strong>扩频</strong>通信中的一种。扩频通信有两类。<ol>
+<li>一种是<strong>直接序列扩频</strong> (DSSS)，如码片序列。</li>
+<li>另一种是<strong>跳频扩频</strong> (FHSS)。</li>
+</ol>
+</li>
+<li>CDMA 系统的特点是这种体制给每个站分配的码片序列不仅必须各不相同，还必须互相<strong>正交</strong>。在实用的系统中使用<strong>伪随机码序列</strong>。</li>
+<li>数学公式可清楚地表示码片序列的正交关系。令向量 <em><strong>S</strong></em> 表示站 S 的码片向量，再令 <em><strong>T</strong></em> 表示其他任何站的码片向量。两个不同站的码片序列正交，就是向量 <em><strong>S</strong></em> 和 <em><strong>T</strong></em> 的规格化<strong>内积</strong>都是 0：<ol>
+<li><img src="https://cdn.jsdelivr.net/gh/chipfron/Image_/test_Pasted%20image%2020230709160115.png"></li>
+</ol>
+</li>
+<li>向量 <em><strong>S</strong></em> 为 (–1 –1 –1＋1＋1 –1＋1＋1)，同时设向量 <em><strong>T</strong></em> 为 (–1 –1＋1 –1＋1＋1＋1 –1)，相当于 T 站的码片序列为 00101110。将向量 <em><strong>S</strong></em> 和 <em><strong>T</strong></em> 的各分量值代入 (2-3) 式就可看出这两个码片序列是正交的。向量 <em><strong>S</strong></em> 和各站码片反码的向量的内积也是 0。任何一个码片向量和该码片向量自己的规格化内积都是 1。<ol>
+<li><img src="https://cdn.jsdelivr.net/gh/chipfron/Image_/test_Pasted%20image%2020230709160135.png"></li>
+</ol>
+</li>
+</ul>
+<h1 id="2-5-数字传输系统"><a href="#2-5-数字传输系统" class="headerlink" title="2.5 数字传输系统"></a>2.5 数字传输系统</h1><ul>
+<li>早期的数字传输系统存在许多缺点，主要是以下两个：<ol>
+<li><strong>速率标准不统一</strong>。多路复用的速率体系有两个互不兼容的国际标准，北美和日本的 T<sub>1</sub> 速率(1.544Mbit&#x2F;s) 和欧洲的 E<sub>1</sub> 速率 (2.048Mbit&#x2F;s)。</li>
+<li><strong>不是同步传输</strong>。为了节约经费，各国的数字网主要采用<strong>准同步</strong>方式。在准同步系统中由于各支路信号的时钟频率有偏差，给时分复用和分用带来许多麻烦。当数据传输的速率很高时，收发双方的时钟同步就成大问题。</li>
+</ol>
+</li>
+</ul>
+<h1 id="2-6-宽带接入技术"><a href="#2-6-宽带接入技术" class="headerlink" title="2.6 宽带接入技术"></a>2.6 宽带接入技术</h1><h2 id="2-6-1-ADSL-技术"><a href="#2-6-1-ADSL-技术" class="headerlink" title="2.6.1 ADSL 技术"></a>2.6.1 ADSL 技术</h2><ul>
+<li><strong>非对称数字用户线</strong> (ADSL) 技术是<strong>用数字技术对现有的模拟电话用户线进行改造</strong>，使它能承载宽带数字业务。    </li>
+<li>ADSL 的传输距离取决于数据率和用户线的线径。ADSL 能得到的最高数据传输速率与实际的用户线上的信噪比密切相关。<ol>
+<li>用户线越细，信号传输时的衰减就越大。</li>
+<li>传输速率越快，信号传输时的衰减就越大。</li>
+</ol>
+</li>
+<li>基于ADSL 的接入网由三部分组成：<strong>数字用户线接入复用器</strong> DSLAM、用户线和用户家中的设施 (见图 2-20)。数字用户线接入复用器包括 ADSL 调制解调器。ADSL 调制解调器又称<strong>接入端接单元</strong> ATU。ADSL 调制解调器必须成对使用，因此把在电话端局 (或远端站) 和用户家中所用的 ADSL 调制解调器分别记为 ATU-C (C 代表<strong>端局</strong>) 和 ATU-R (R 代表<strong>远端</strong>)。用户电话通过电话<strong>分离器</strong>和 ATU-R 连在一起，经用户线到端局，并再经过电话分离器把电话连到本地电话交换机。电话分离器是无源的，它利用低通滤波器将电话信号与数字信号分开。将电话分离器做成无源的是为了在停电时不影响传统电话的使用。一个 DSLAM 可支持多达 500～1000 个用户。若按每户 6Mbit&#x2F;s 计算，则具有 1000 个端口的 DSLAM (这就需要用 1000 个 ATU-C) 应有高达 6Gbit&#x2F;s 的转发能力。ATU-C 要使用数字信号处理技术，因此 DSLAM 的价格较高。<ol>
+<li><img src="https://cdn.jsdelivr.net/gh/chipfron/Image_/test_Pasted%20image%2020230710170833.png"></li>
+</ol>
+</li>
+<li>第二代 ADSL 改进的地方是：<ol>
+<li>提高调制效率得到更高的数据率。</li>
+<li>采用<strong>无缝速率自适应</strong>技术 (SRA)，可在运营中不中断通信和不产生误码的情况下，根据线路的实时状况，自适应地调整数据率。</li>
+<li>改善线路质量评测和故障定位功能，对提高网络的运行维护水平具有重要意义。</li>
+</ol>
+</li>
+</ul>
+<h2 id="2-6-2-光纤同轴混合网-HFC-网"><a href="#2-6-2-光纤同轴混合网-HFC-网" class="headerlink" title="2.6.2 光纤同轴混合网 (HFC 网)"></a>2.6.2 光纤同轴混合网 (HFC 网)</h2><ul>
+<li><strong>光纤同轴混合网</strong> (HFC 网) 是在目前覆盖面很广的有线电视网的基础上开发的一种居民宽带接入网，除可传送电视节目外，还提供电话、数据和其他宽带交互型业务。</li>
+<li>光纤同轴混合网 HFC 的特点：<ol>
+<li>为提高传输的可靠性和电视信号的质量，HFC 网把原有线电视网中的同轴电缆主干部分改换为光纤 (图 2-23)。光纤从头端连接到<strong>光纤结点</strong>。在光纤结点光信号转换为电信号，然后通过同轴电缆传送到用户家庭。从头端到用户家庭所需的放大器数目减少到 4～5 个。连接到一个光纤结点的典型用户数是 500 左右，不超过 2000。</li>
+<li>HFC 网具有双向传输功能，扩展了传输频带。</li>
+<li><img src="https://cdn.jsdelivr.net/gh/chipfron/Image_/test_Pasted%20image%2020230710172306.png"></li>
+</ol>
+</li>
+<li>使模拟电视机能接收数字电视信号，需要把<strong>机顶盒</strong>连接在同轴电缆和用户的电视机之间。为了使用户能够利用 HFC 网接入到互联网，以及在上行信道中传送交互数字电视所需的一些信息，还需要增加一个为 HFC 网使用的调制解调器，它又称为<strong>电缆调制解调器</strong>。</li>
+</ul>
+<h2 id="2-6-3-FTTx-技术"><a href="#2-6-3-FTTx-技术" class="headerlink" title="2.6.3 FTTx 技术"></a>2.6.3 FTTx 技术</h2><ul>
+<li>为了更快地下载视频文件，更流畅地欣赏网上的高清视频节目，尽快地把用户的上网速率进行升级就成为 ISP 的重要任务，<strong>光纤到户</strong> (FTTH) 是最好的选择。</li>
+<li>光纤到户 FTTH 有两个问题：<ol>
+<li>价格不便宜</li>
+<li>一般的家庭用户不需要过高的数据率的需求</li>
+</ol>
+</li>
+<li>为了有效地利用光纤资源，在光纤干线和用户间，需要铺设一段中间的转换装置<strong>光配线网</strong> (ODN)，使数十个家庭用户能够共享一根光纤干线。</li>
+<li>图 2-25 是广泛使用的无源光配线网的示意图。“无源”表明在光配线网中无须配备电源，基本上不用维护，其长期运营成本和管理成本很低。无源的光配线网常称为<strong>无源光网络</strong> (PON)。<ol>
+<li><img src="https://raw.githubusercontent.com/chipfron/Image_/main/computer_network%7B419185F1-78FE-4077-9766-E3333D89BF52%7D.png"></li>
+<li>在图 2-25 中，<strong>光线路终端</strong> OLT 是连接到光纤干线的终端设备。OLT 把收到的下行数据发往无源的 1：N <strong>光分路器</strong>，然后用广播方式向所有用户端的<strong>光网络单元</strong> ONU发送。</li>
+<li>当 ONU 发送上行数据时，先把电信号转换为光信号，光分路器把各 ONU 发来的上行数据汇总后，以 TDMA 方式发往 OLT，而发送时间和长度都由 OLT 集中控制，以便有序地共享光纤主干。</li>
+<li>无源光网络 PON 的种类很多，流行的有以下两种：<ul>
+<li>以太网无源光网络 (EPON)，在链路层使用以太网协议，利用 PON 的拓扑结构实现了以太网的接入。EPON 的优点是：与现有以太网的兼容性好，并且成本低，扩展性强，管理方便。</li>
+<li>吉比特无源光网络 (GPON)，GPON 采用<strong>通用封装方法</strong> (GEM)，可承载多业务，对各种业务类型都能够提供服务质量保证，是很有潜力的宽带光纤接入技术。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>现在已有很多种不同的 FTTx。除了光纤到户 FTTH 外，还有<strong>光纤到路边</strong> FTTC (C 表示 Curb)、<strong>光纤到小区</strong> FTTZ (Z 表示 Zone)、<strong>光纤到大楼</strong> FTTB (B 表示 Building)、<strong>光纤到楼层</strong> FTTF (F 表示Floor)、<strong>光纤到办公室</strong> FTTO (O 表示 Office)、<strong>光纤到桌面</strong> FTTD (D 表示 Desk)，等等。</li>
+</ul>
+<h1 id="本章的重要概念"><a href="#本章的重要概念" class="headerlink" title="本章的重要概念"></a>本章的重要概念</h1><ul>
+<li><p>物理层的任务是确定与传输媒体的接口有关的一些特性，如机械特性、电气特性、功能特性和过程特性。</p>
+</li>
+<li><p>一个数据通信系统可划分为三部分，即源系统、传输系统和目的系统。源系统包括源点 (或源站、信源) 和发送器，目的系统包括接收器和终点 (或目的站，或信宿)。</p>
+</li>
+<li><p>通信的目的是传送消息。如话音、文字、图像、视频等。数据是运送消息的实体。信号则是数据的电气或电磁的表现。</p>
+</li>
+<li><p>根据信号中代表消息的参数的取值方式不同，信号可分为模拟信号 (连续信号) 和数字信号 (离散信号)。代表数字信号不同离散数值的基本波形称为码元。</p>
+</li>
+<li><p>根据双方信息交互的方式，通信划分为单向通信 (单工通信)、双向交替通信 (半双工通信) 和双向同时通信 (全双工通信)。</p>
+</li>
+<li><p>来自信源的信号叫基带信号。信号要在信道上传输就要经过调制。调制有基带调制和带通调制之分。最基本的带通调制方法有调幅、调频和调相。还有更复杂的调制方法，如正交振幅调制。</p>
+</li>
+<li><p>要提高数据在信道上的传输速率，可以使用更好的传输媒体，或使用先进的调制技术。但数据传输速率不可能被任意地提高。</p>
+</li>
+<li><p>传输媒体分为两类，即导引型传输媒体 (双绞线、同轴电缆或光纤) 和非导引型传输媒体 (无线或红外或大气激光)。</p>
+</li>
+<li><p>常用的信道复用技术有频分复用、时分复用、统计时分复用、码分复用和波分复用 (光的频分复用)。</p>
+</li>
+<li><p>最初在数字传输系统中使用的传输标准是脉冲编码调制 PCM。现在高速的数字传输系统使用同步光纤网 SONET (美国标准) 或同步数字系列 SDH (国际标准)。</p>
+</li>
+<li><p>用户到互联网的宽带接入方法有非对称数字用户线 ADSL (用数字技术对现有的模拟电话用户线进行改造)、光纤同轴混合网 HFC (在有线电视网的基础上开发的) 和 FTTx。</p>
+</li>
+<li><p>为了有效地利用光纤资源，在光纤干线和用户之间广泛使用无源光网络 PON。无源光网络无须配备电源，其长期运营成本和管理成本都很低。最流行的无源光网络是以太网无源光网络 EPON 和吉比特无源光网络 GPON。</p>
+</li>
+<li><p>为什么要使用信道复用技术？常用的信道复用技术有哪些？</p>
+<blockquote>
+<p>许多用户通过复用技术就可以共同使用一个共享信道来进行通信。虽然复用要付出一定代价 (共享信道由于带宽较大因而费用也较高,再加上复用器和分用器也要增加成本) 但如果复用的信道数量较大，那么总的来看在经济上还是合算的。<br>常用的复用技术有: 频分复用、时分复用 (包括统计时分复用)、波分复用 (包括密集波分复用和稀疏波分复用) 和码分复用 (即码分多址)。</p>
+</blockquote>
+</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Chipfron</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://chipfron.github.io/2024/04/20/study/ji-suan-ji-wang-luo/di-2-zhang-wu-li-ceng/">https://chipfron.github.io/2024/04/20/study/ji-suan-ji-wang-luo/di-2-zhang-wu-li-ceng/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Chipfron</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                                    <span class="chip bg-color">计算机网络</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/04/20/study/ji-suan-ji-wang-luo/di-3-zhang-shu-ju-lian-lu-ceng/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="第3章 数据链路层">
+                        
+                        <span class="card-title">第3章 数据链路层</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-04-20
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Chipfron
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">计算机网络</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/04/20/study/ji-suan-ji-wang-luo/di-1-zhang-gai-shu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="第1章 概述">
+                        
+                        <span class="card-title">第1章 概述</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-04-20
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Chipfron
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">计算机网络</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2023-2024</span>
+            
+            <a href="/about" target="_blank">Chipfron</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">315k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/chipfron" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1325964828@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1325964828" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1325964828" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/snow.js"><\/script>');
+            }
+        </script>
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
